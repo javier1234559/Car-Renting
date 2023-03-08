@@ -70,16 +70,62 @@
     <Compile Include="fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="fNavigation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fNavigation.Designer.cs">
+      <DependentUpon>fNavigation.cs</DependentUpon>
+    </Compile>
     <Compile Include="fRenting.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fRenting.Designer.cs">
       <DependentUpon>fRenting.cs</DependentUpon>
     </Compile>
+    <Compile Include="NavigationLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\BillsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\BillsScreen.Designer.cs">
+      <DependentUpon>BillsScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CarsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CarsScreen.Designer.cs">
+      <DependentUpon>CarsScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ClientsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ClientsScreen.Designer.cs">
+      <DependentUpon>ClientsScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RentsScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RentsScreen.Designer.cs">
+      <DependentUpon>RentsScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SettingScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SettingScreen.Designer.cs">
+      <DependentUpon>SettingScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UsersScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UsersScreen.Designer.cs">
+      <DependentUpon>UsersScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fNavigation.resx">
+      <DependentUpon>fNavigation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fRenting.resx">
       <DependentUpon>fRenting.cs</DependentUpon>
@@ -93,6 +139,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\BillsScreen.resx">
+      <DependentUpon>BillsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CarsScreen.resx">
+      <DependentUpon>CarsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ClientsScreen.resx">
+      <DependentUpon>ClientsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RentsScreen.resx">
+      <DependentUpon>RentsScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SettingScreen.resx">
+      <DependentUpon>SettingScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UsersScreen.resx">
+      <DependentUpon>UsersScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -120,6 +184,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BUS\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -19,7 +19,8 @@ namespace Car_Renting
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fRenting f = new fRenting();
+            //fRenting f = new fRenting();
+            fNavigation f = new fNavigation();
             this.Hide();
             f.ShowDialog();
             this.Show();

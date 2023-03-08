@@ -13,3 +13,10 @@ D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\L�
 D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car-Renting.pdb
 D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fLogin.resources
 D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fRenting.resources
+D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fNavigation.resources
+D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.CarsScreen.resources
+D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.RentsScreen.resources
+D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.BillsScreen.resources
+D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.ClientsScreen.resources
+D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.SettingScreen.resources
+D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.UsersScreen.resources
