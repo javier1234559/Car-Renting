@@ -88,7 +88,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(71, 35);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Làm Mới";
+            this.button3.Text = "Sửa";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4

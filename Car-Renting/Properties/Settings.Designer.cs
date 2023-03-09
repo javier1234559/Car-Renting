@@ -28,9 +28,9 @@ namespace Car_Renting.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CarRenting;Integrated Security" +
             "=True")]
-        public string conn {
+        public string connStr {
             get {
-                return ((string)(this["conn"]));
+                return ((string)(this["connStr"]));
             }
         }
     }
