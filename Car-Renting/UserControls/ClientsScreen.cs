@@ -20,7 +20,7 @@ namespace Car_Renting.UserControls
 
         private void ClientsScreen_Load(object sender, EventArgs e)
         {
-            gvClients.DataSource = clientdao.getListClient();
+            gvClients.DataSource = clientdao.GetAllDataTable();
         }
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Car_Renting.DAO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,19 +8,57 @@ using System.Threading.Tasks;
 
 namespace Car_Renting
 {
-    class ClientDAO
+    class ClientDAO : IBaseDAO<Client>
     {
-        public DataTable getListClient()
-        {
-            string sqlStr = string.Format("SELECT * FROM Clients");
-            return DbConnection.Instance.getData(sqlStr);
+        public List<Client> GetAllList(){
+            List<Client> list = new List<Client>();
 
+            return list;
         }
 
-        //public int Them(Client cli)
-        //{
-        //    string sqlStr = string.Format("INSERT INTO Clients (AccID, Email, Password, IdUser) VALUES ({0},{1},{2},{3})", acc.AccID, acc.Email, acc.Password, acc.IdUser);
-        //    return DbConnection.Instance.ExecuteNonQuery(sqlStr);
-        //}
+        public DataTable GetAllDataTable() {
+            string sqlStr = string.Format("SELECT * FROM Clients");
+            return DbConnection.Instance.getData(sqlStr);
+        }
+
+        public Client GetById(int id)
+        {
+            string sqlStr = string.Format("SELECT * FROM Clients");
+            DataTable dt =  DbConnection.Instance.getData(sqlStr);
+
+            DataRow[] result = dt.Select($"ClientId = {id}");
+            if (result.Length > 0)
+            {
+                DataRow row = result[0];
+                Client client = new Client
+                {
+                    ClientId = (int)row["ClientId"],
+                    Name = row["Name"].ToString(),
+                    Phone = (int)row["Phone"],
+                    CCCD = (int)row["CCCD"],
+                    Email = row["Email"].ToString(),
+                };
+                return client;
+            }
+            return null;
+        }
+
+        public int Insert(Client entity)
+        {
+            string sqlStr = string.Format("INSERT INTO Clients (ClientId, Name, Phone, CCCD, Email) VALUES ({0},{1},{2},{3})",entity.ClientId, entity.Name , entity.Phone, entity.CCCD , entity.Email);
+            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
+        }
+
+        public int Delete(Client entity)
+        {
+            string sqlStr = string.Format("delete from Clients where Ten = '{0}'", entity.ClientId);
+            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
+        }
+
+        public int Update(Client entity)
+        {
+            string sqlStr = string.Format("update Client set Email = '{0}' where Ten = '{1}'", entity.Email, entity.ClientId);
+            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Car_Renting.UserControls
         }
         private void ShowListCar()
         {
-            this.gvCars.DataSource = carDao.getListCar();
+            this.gvCars.DataSource = carDao.GetAllDataTable();
         }
 
 
