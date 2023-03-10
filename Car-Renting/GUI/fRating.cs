@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Car_Renting.UserControls
+namespace Car_Renting
 {
-    public partial class BillsScreen : UserControl
+    public partial class fRating : Form
     {
-        public BillsScreen()
+        public fRating()
         {
             InitializeComponent();
         }
@@ -20,12 +20,6 @@ namespace Car_Renting.UserControls
         private void button1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnRating_Click(object sender, EventArgs e)
-        {
-            fRating f = new fRating();
-            f.ShowDialog();
         }
     }
 }

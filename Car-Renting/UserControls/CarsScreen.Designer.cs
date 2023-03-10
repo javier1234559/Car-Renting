@@ -49,6 +49,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnRentFromCars = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvCars)).BeginInit();
             this.panel1.SuspendLayout();
@@ -71,7 +72,6 @@
             this.gvCars.Name = "gvCars";
             this.gvCars.Size = new System.Drawing.Size(619, 316);
             this.gvCars.TabIndex = 4;
-            this.gvCars.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCars_CellContentClick);
             // 
             // panel1
             // 
@@ -144,16 +144,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 216);
+            this.label1.Location = new System.Drawing.Point(11, 208);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Loại";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnRentFromCars);
             this.panel3.Controls.Add(this.textBox5);
             this.panel3.Controls.Add(this.textBox6);
             this.panel3.Controls.Add(this.textBox4);
@@ -165,21 +165,21 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(634, 6);
+            this.panel3.Location = new System.Drawing.Point(634, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(616, 388);
             this.panel3.TabIndex = 9;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(162, 246);
+            this.textBox5.Location = new System.Drawing.Point(162, 238);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(130, 20);
             this.textBox5.TabIndex = 5;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(14, 313);
+            this.textBox6.Location = new System.Drawing.Point(14, 285);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(278, 51);
@@ -187,14 +187,14 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(14, 246);
+            this.textBox4.Location = new System.Drawing.Point(14, 240);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(130, 20);
             this.textBox4.TabIndex = 5;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(11, 185);
+            this.textBox3.Location = new System.Drawing.Point(11, 177);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(130, 20);
             this.textBox3.TabIndex = 5;
@@ -205,16 +205,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(159, 159);
+            this.label4.Location = new System.Drawing.Point(159, 151);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Brand";
-            this.label4.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(162, 185);
+            this.textBox2.Location = new System.Drawing.Point(162, 177);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(130, 20);
             this.textBox2.TabIndex = 5;
@@ -225,12 +224,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 159);
+            this.label3.Location = new System.Drawing.Point(11, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên Xe";
-            this.label3.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label5
             // 
@@ -238,12 +236,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(162, 216);
+            this.label5.Location = new System.Drawing.Point(162, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Giá / Ngày";
-            this.label5.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label6
             // 
@@ -251,12 +248,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 285);
+            this.label6.Location = new System.Drawing.Point(11, 269);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(27, 13);
             this.label6.TabIndex = 3;
             this.label6.Text = "Loại";
-            this.label6.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // panel4
             // 
@@ -264,6 +260,15 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(205, 129);
             this.panel4.TabIndex = 4;
+            // 
+            // btnRentFromCars
+            // 
+            this.btnRentFromCars.Location = new System.Drawing.Point(212, 342);
+            this.btnRentFromCars.Name = "btnRentFromCars";
+            this.btnRentFromCars.Size = new System.Drawing.Size(80, 22);
+            this.btnRentFromCars.TabIndex = 6;
+            this.btnRentFromCars.Text = "Thuê";
+            this.btnRentFromCars.UseVisualStyleBackColor = true;
             // 
             // CarsScreen
             // 
@@ -305,5 +310,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnRentFromCars;
     }
 }

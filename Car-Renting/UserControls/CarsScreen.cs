@@ -24,13 +24,5 @@ namespace Car_Renting.UserControls
         }
 
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-        }
-
-        private void gvCars_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

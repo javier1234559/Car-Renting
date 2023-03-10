@@ -14,7 +14,7 @@ namespace Car_Renting
 
         public string Brand { get; set; }
 
-        public int Seats { get; set; }
+        public string ImageCar { get; set; }
 
         public int PricePerDay { get; set; }
 
@@ -22,13 +22,13 @@ namespace Car_Renting
 
         public Car() { }
 
-        public Car(int carId, string carName, int categoryId, string brand, int seats, int pricePerDay, string description)
+        public Car(int carId, string carName, int categoryId, string brand, string imageCar, int pricePerDay, string description)
         {
             CarId=carId;
             CarName=carName;
             CategoryId=categoryId;
             Brand=brand;
-            Seats=seats;
+            ImageCar=imageCar;
             PricePerDay=pricePerDay;
             Description=description;
         }

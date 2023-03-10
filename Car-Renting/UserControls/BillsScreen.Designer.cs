@@ -39,18 +39,18 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMoreClients = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRating = new System.Windows.Forms.Button();
+            this.btnMoreClients = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -160,7 +160,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnRating);
             this.panel1.Controls.Add(this.btnMoreClients);
             this.panel1.Controls.Add(this.lbael);
             this.panel1.Controls.Add(this.label2);
@@ -169,15 +169,6 @@
             this.panel1.Size = new System.Drawing.Size(322, 397);
             this.panel1.TabIndex = 12;
             // 
-            // btnMoreClients
-            // 
-            this.btnMoreClients.Location = new System.Drawing.Point(169, 61);
-            this.btnMoreClients.Name = "btnMoreClients";
-            this.btnMoreClients.Size = new System.Drawing.Size(75, 23);
-            this.btnMoreClients.TabIndex = 5;
-            this.btnMoreClients.Text = "More >>";
-            this.btnMoreClients.UseVisualStyleBackColor = true;
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -185,6 +176,13 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 24;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(20, 290);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(130, 20);
+            this.textBox1.TabIndex = 21;
             // 
             // textBox2
             // 
@@ -231,6 +229,19 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Tên Xe";
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 253);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 24);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Tổng";
+            // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -255,34 +266,24 @@
             this.label12.TabIndex = 20;
             this.label12.Text = "Loại";
             // 
-            // label1
+            // btnRating
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 253);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 24);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Tổng";
+            this.btnRating.Location = new System.Drawing.Point(171, 256);
+            this.btnRating.Name = "btnRating";
+            this.btnRating.Size = new System.Drawing.Size(75, 23);
+            this.btnRating.TabIndex = 5;
+            this.btnRating.Text = "Đánh Gía";
+            this.btnRating.UseVisualStyleBackColor = true;
+            this.btnRating.Click += new System.EventHandler(this.btnRating_Click);
             // 
-            // textBox1
+            // btnMoreClients
             // 
-            this.textBox1.Location = new System.Drawing.Point(20, 299);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 20);
-            this.textBox1.TabIndex = 21;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(171, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Đánh Gía";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMoreClients.Location = new System.Drawing.Point(142, 61);
+            this.btnMoreClients.Name = "btnMoreClients";
+            this.btnMoreClients.Size = new System.Drawing.Size(75, 23);
+            this.btnMoreClients.TabIndex = 5;
+            this.btnMoreClients.Text = "More >>";
+            this.btnMoreClients.UseVisualStyleBackColor = true;
             // 
             // BillsScreen
             // 
@@ -325,6 +326,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRating;
     }
 }

@@ -18,7 +18,7 @@ namespace Car_Renting
 
         public int Them(Car car)
         {
-            string sqlStr = string.Format("INSERT INTO Cars (CarId, CarName, CategoryId, Brand, Seats, PricePerDay, Description) VALUES ({0},{1},{2},{3},{4},{5},{6},{7})", car.CarId, car.CarName, car.CategoryId,car.Brand ,car.Seats,car.PricePerDay,car.Description);
+            string sqlStr = string.Format("INSERT INTO Cars (CarId, CarName, CategoryId, Brand, ImageCar, PricePerDay, Description) VALUES ({0},{1},{2},{3},{4},{5},{6},{7})", car.CarId, car.CarName, car.CategoryId, car.Brand, car.ImageCar, car.PricePerDay, car.Description);
             return DbConnection.Instance.ExecuteNonQuery(sqlStr);
         }
 

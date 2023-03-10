@@ -48,8 +48,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -78,7 +78,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(230, 59);
+            this.textBox4.Location = new System.Drawing.Point(206, 56);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(89, 20);
             this.textBox4.TabIndex = 2;
@@ -105,13 +105,13 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(65, 59);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(101, 20);
+            this.textBox1.Size = new System.Drawing.Size(91, 20);
             this.textBox1.TabIndex = 2;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(182, 63);
+            this.label7.Location = new System.Drawing.Point(168, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 0;
@@ -238,6 +238,13 @@
             this.panel1.Size = new System.Drawing.Size(322, 399);
             this.panel1.TabIndex = 12;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(108, 291);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(120, 20);
+            this.textBox2.TabIndex = 2;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -246,13 +253,6 @@
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tổng Lợi Nhuận";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(108, 291);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 2;
             // 
             // UsersScreen
             // 

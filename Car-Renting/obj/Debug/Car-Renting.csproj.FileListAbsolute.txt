@@ -20,3 +20,4 @@ D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\L�
 D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.ClientsScreen.resources
 D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.SettingScreen.resources
 D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.UsersScreen.resources
+D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fRating.resources
