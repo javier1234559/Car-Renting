@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Car-Renting",
+    "\\Car-Renting\\UserControls",
+    "\\packages",
+    "\\packages\\System.Data.SqlClient.4.8.5"
   ],
+  "SelectedNode": "\\packages",
   "PreviewInSolutionExplorer": false
 }

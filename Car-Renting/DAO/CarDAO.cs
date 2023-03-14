@@ -19,7 +19,7 @@ namespace Car_Renting
 
         public DataTable GetAllDataTable()
         {
-            string sqlStr = string.Format("SELECT * FROM Cars");
+            string sqlStr = string.Format("select CarId,CarName,Brand,CategoyCar.CategoryName as CategoryName,Seats,Description,PricePerDay,ImageCar from Cars, CategoyCar where Cars.CategoryId= CategoyCar.CategoryId");
             return DbConnection.Instance.getData(sqlStr);
         }
 
