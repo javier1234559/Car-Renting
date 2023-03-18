@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Car_Renting
 {
-    public partial class fRenting : Form
+    public partial class fBill : Form
     {
-        public fRenting()
+        public fBill()
         {
             InitializeComponent();
         }
-
     }
 }

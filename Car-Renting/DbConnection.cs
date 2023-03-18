@@ -48,7 +48,8 @@ namespace Car_Renting
 
         public  int ExecuteNonQuery(string sqlStr)
         {
-            int NumberofSuccess = 0;
+            //ExecuteNoneQuery just count the number of insert , update , del query not Select
+            int NumberofSuccess = 5;
             try
             {
                 conn.Open();

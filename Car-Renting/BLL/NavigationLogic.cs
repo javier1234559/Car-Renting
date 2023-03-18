@@ -7,12 +7,16 @@ using System.Windows.Forms;
 
 namespace Car_Renting
 {
-    public  class NavigationLogic
+    public class NavigationLogic
     {
         public List<UserControl> list = new List<UserControl>();
         public Panel panel;
-        
-        public NavigationLogic(List<UserControl> list , Panel panel) { 
+
+        public NavigationLogic(Panel panel) { 
+            this.panel = panel;
+        }
+
+        public NavigationLogic(List<UserControl> list, Panel panel) {
             this.list = list;
             this.panel = panel;
             AddUserControl();
@@ -20,7 +24,7 @@ namespace Car_Renting
 
         public void AddUserControl()
         {
-            foreach(UserControl control in list)
+            foreach (UserControl control in list)
             {
                 control.Dock = DockStyle.Fill;
                 panel.Controls.Add(control);
@@ -29,11 +33,16 @@ namespace Car_Renting
         }
         public void Display(int index)
         {
-            if(index < list.Count())
+            if (index < list.Count())
             {
                 list[index].BringToFront();
             }
         }
 
+        public void Display(UserControl control) {
+            control.Dock = DockStyle.Fill;
+            panel.Controls.Add(control);
+
+        }
     }
 }

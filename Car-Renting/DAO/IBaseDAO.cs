@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Car_Renting.DAO
 {
-    interface IBaseDAO <T>
+    public interface IBaseDAO <T>
     {
         List<T> GetAllList();
         DataTable GetAllDataTable();

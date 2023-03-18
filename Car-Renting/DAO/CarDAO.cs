@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Car_Renting
 {
@@ -13,14 +14,21 @@ namespace Car_Renting
         public List<Car> GetAllList()
         {
             List<Car> list = new List<Car>();
-
+            //chua dung toi
             return list;
         }
 
         public DataTable GetAllDataTable()
         {
-            string sqlStr = string.Format("select CarId,CarName,Brand,CategoyCar.CategoryName as CategoryName,Seats,Description,PricePerDay,ImageCar from Cars, CategoyCar where Cars.CategoryId= CategoyCar.CategoryId");
-            return DbConnection.Instance.getData(sqlStr);
+
+            var sql = @"SELECT c.CarId, c.CarName, c.Brand, cc.CategoryName, c.Description, c.PricePerDay, c.ImageCar 
+                        FROM Cars c 
+                        JOIN CategoryCar cc ON c.CategoryId = cc.CategoryId";
+
+            return DbConnection.Instance.getData(sql);
+
+            //string sqlStr = string.Format("select CarId,CarName,Brand,CategoryCar.CategoryName as CategoryName,ImageCar,Description,PricePerDay,ImageCar from Cars, CategoryCar where Cars.CategoryId= CategoryCar.CategoryId");
+            //return DbConnection.Instance.getData(sqlStr);
         }
 
         public Car GetById(int id)

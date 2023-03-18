@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Car_Renting
 {
-    class Client
+    public class Client
     {
         public int ClientId { get; set; }
         public string Name { get; set; }

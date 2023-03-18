@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Account_Renting;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,39 @@ namespace Car_Renting
 {
     public partial class fLogin : Form
     {
+        AccountDAO accountdao = new AccountDAO();
         public fLogin()
         {
             InitializeComponent();
+            //dien san tk mk 
+            txtLogin.Text = "1@gmail.com";
+            txtPassword.Text = "1";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fNavigation f = new fNavigation();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string login = txtLogin.Text.Trim();
+            string pass = txtPassword.Text.Trim();
+            if (login == "" || pass == "")
+            {
+                MessageBox.Show("Vui lòng nhập thông tin");
+                return;
+            }
+
+            string query = $"SELECT * FROM Account WHERE Email = '{login}' and Password = '{pass}';";
+            DataTable dt = DbConnection.Instance.getData(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                fNavigation f = new fNavigation();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Dang nhap khong thanh cong. Vui long thu lai.");
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

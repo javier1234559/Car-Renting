@@ -47,7 +47,7 @@
             this.txtLogin.Location = new System.Drawing.Point(186, 13);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(217, 20);
-            this.txtLogin.TabIndex = 0;
+            this.txtLogin.TabIndex = 3;
             // 
             // panel1
             // 
@@ -75,7 +75,7 @@
             this.btnLogin.Location = new System.Drawing.Point(234, 103);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(83, 25);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Đăng Nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);

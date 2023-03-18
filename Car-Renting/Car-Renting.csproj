@@ -48,11 +48,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,11 +68,13 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\IBaseDAO.cs" />
     <Compile Include="DAO\ClientDAO.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\CategoryCar.cs" />
@@ -74,6 +82,72 @@
     <Compile Include="DTO\Car.cs" />
     <Compile Include="DAO\CarDAO.cs" />
     <Compile Include="DbConnection.cs" />
+    <Compile Include="fBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fBill.Designer.cs">
+      <DependentUpon>fBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fRentCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fRentCancel.Designer.cs">
+      <DependentUpon>fRentCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fUser.Designer.cs">
+      <DependentUpon>fUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCar.Designer.cs">
+      <DependentUpon>fCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fCarReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCarReturn.Designer.cs">
+      <DependentUpon>fCarReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fClient.Designer.cs">
+      <DependentUpon>fClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fDetailRenting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDetailRenting.Designer.cs">
+      <DependentUpon>fDetailRenting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fRent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fRent.Designer.cs">
+      <DependentUpon>fRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fRenting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fRenting.Designer.cs">
+      <DependentUpon>fRenting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fRentSubmit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fRentSubmit.Designer.cs">
+      <DependentUpon>fRentSubmit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSubmitCarReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSubmitCarReturn.Designer.cs">
+      <DependentUpon>fSubmitCarReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,17 +166,16 @@
     <Compile Include="GUI\fRating.Designer.cs">
       <DependentUpon>fRating.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fRenting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fRenting.Designer.cs">
-      <DependentUpon>fRenting.cs</DependentUpon>
-    </Compile>
     <Compile Include="BLL\NavigationLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DTO\Rating.cs" />
     <Compile Include="DTO\Rent.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\BillsScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +213,39 @@
       <DependentUpon>UsersScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="DTO\User.cs" />
+    <EmbeddedResource Include="fBill.resx">
+      <DependentUpon>fBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fRentCancel.resx">
+      <DependentUpon>fRentCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fUser.resx">
+      <DependentUpon>fUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fCar.resx">
+      <DependentUpon>fCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fCarReturn.resx">
+      <DependentUpon>fCarReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fClient.resx">
+      <DependentUpon>fClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fDetailRenting.resx">
+      <DependentUpon>fDetailRenting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fRent.resx">
+      <DependentUpon>fRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fRenting.resx">
+      <DependentUpon>fRenting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fRentSubmit.resx">
+      <DependentUpon>fRentSubmit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSubmitCarReturn.resx">
+      <DependentUpon>fSubmitCarReturn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,18 +255,11 @@
     <EmbeddedResource Include="GUI\fRating.resx">
       <DependentUpon>fRating.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fRenting.resx">
-      <DependentUpon>fRenting.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="UserControls\BillsScreen.resx">
       <DependentUpon>BillsScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +304,23 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarRentalLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

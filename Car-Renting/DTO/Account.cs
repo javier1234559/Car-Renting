@@ -11,11 +11,11 @@ namespace Car_Renting
         public int AccID { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string IdUser { get; set; }
+        public int IdUser { get; set; }
 
         public Account() { }
 
-        public Account(int accID, string email, string password, string idUser)
+        public Account(int accID, string email, string password, int idUser)
         {
             AccID=accID;
             Email=email;
