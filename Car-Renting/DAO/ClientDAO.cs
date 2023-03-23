@@ -53,7 +53,6 @@ namespace Car_Renting
 
             return null;
         }
-
         public int Insert(Client entity)
         {
             string sqlStr = string.Format("INSERT INTO Clients (Name, Phone, CCCD, Email, License) VALUES (@Name, @Phone, @CCCD, @Email, @License); SELECT SCOPE_IDENTITY()");

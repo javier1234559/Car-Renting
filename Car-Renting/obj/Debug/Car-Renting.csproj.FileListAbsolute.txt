@@ -55,3 +55,37 @@ D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\L�
 D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fUser.resources
 D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fClient.resources
 D:\Data root\Learning\Đại học\ĐẠI HỌC SƯ PHẠM KĨ THUẬT\3-HK2\Lập trình Windows\Project\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fRenting.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\bin\Debug\Car-Renting.exe.config
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\bin\Debug\Car-Renting.exe
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\bin\Debug\Car-Renting.pdb
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\bin\Debug\System.Data.SqlClient.dll
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\bin\Debug\System.Data.SqlClient.xml
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car-Renting.csproj.AssemblyReference.cache
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car-Renting.csproj.SuggestedBindingRedirects.cache
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fBill.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fRentCancel.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fUser.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fCar.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fCarReturn.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fClient.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fDetailRenting.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fRent.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fRenting.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fRentSubmit.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fSubmitCarReturn.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fLogin.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fNavigation.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.fRating.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.Properties.Resources.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.BillsScreen.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.CarsScreen.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.ClientsScreen.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.RentsScreen.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.SettingScreen.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car_Renting.UserControls.UsersScreen.resources
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car-Renting.csproj.GenerateResource.cache
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car-Renting.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car-Renting.csproj.CopyComplete
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car-Renting.exe
+C:\Users\pc\Documents\TaiLieuMonHoc\test\Car-Renting\Car-Renting\obj\Debug\Car-Renting.pdb
