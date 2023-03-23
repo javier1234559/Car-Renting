@@ -27,5 +27,16 @@ namespace Car_Renting
         {
 
         }
+
+        private void btnNavCarReturn_Click(object sender, EventArgs e)
+        {
+            fNavigation form = this.currentForm;
+            if (form != null)
+            {
+                fSubmitCarReturn f = new fSubmitCarReturn(form);
+
+                f.ShowDialog();
+            }
+        }
     }
 }

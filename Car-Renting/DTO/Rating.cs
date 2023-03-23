@@ -10,18 +10,25 @@ namespace Car_Renting
     {
         public int RatingId { get; set; }
         public int RentId { get; set; }
+        public int CarId { get; set; }
         public int RatingValue { get; set; }
-        public int FeedBack { get; set; }
+        public string Feedback { get; set; }
         public int ClientId { get; set; }
+
+        //
+        public Rent Rent { get; set; }
+        public Car Car { get; set; }
+        public Client Client { get; set; }
 
         public Rating() { }
 
-        public Rating(int ratingId, int rentId, int ratingValue, int feedBack, int clientId)
+        public Rating(int ratingId, int rentId, int carId, int ratingValue, string feedback, int clientId)
         {
             RatingId=ratingId;
             RentId=rentId;
+            CarId=carId;
             RatingValue=ratingValue;
-            FeedBack=feedBack;
+            Feedback=feedback;
             ClientId=clientId;
         }
     }

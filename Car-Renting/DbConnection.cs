@@ -14,6 +14,7 @@ namespace Car_Renting
         private static DbConnection instance;
         private static SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
 
+
         public static DbConnection Instance {
             get { 
                 if(instance == null)
@@ -70,6 +71,58 @@ namespace Car_Renting
             return NumberofSuccess;
         }
 
+        public int executeInsertQuery(string query, Dictionary<string, object> parameters = null)
+        {
+            int result = 0;
+
+            using (conn)
+            {
+                SqlCommand command = new SqlCommand(query, conn);
+
+                if (parameters != null && parameters.Count > 0)
+                {
+                    foreach (KeyValuePair<string, object> parameter in parameters)
+                    {
+                        command.Parameters.AddWithValue(parameter.Key, parameter.Value);
+                    }
+                }
+
+                conn.Open();
+                result = command.ExecuteNonQuery();
+                conn.Close();
+            }
+
+            return result;
+        }
+
+        //Mot so ham tham khao 
+
+        //public DataTable GetData(string query, List<SqlParameter> parameters = null)
+        //{
+        //    DataTable dt = new DataTable();
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        connection.Open();
+        //        using (SqlCommand command = new SqlCommand(query, connection))
+        //        {
+        //            if (parameters != null)
+        //            {
+        //                command.Parameters.AddRange(parameters.ToArray());
+        //            }
+
+        //            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+        //            {
+        //                adapter.Fill(dt);
+        //            }
+        //        }
+        //    }
+
+        //    return dt;
+        //}
+
+
 
     }
+
+
 }

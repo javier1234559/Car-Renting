@@ -258,6 +258,7 @@
             this.btnNavCarReturn.TabIndex = 63;
             this.btnNavCarReturn.Text = "Trả Xe";
             this.btnNavCarReturn.UseVisualStyleBackColor = false;
+            this.btnNavCarReturn.Click += new System.EventHandler(this.btnNavCarReturn_Click);
             // 
             // ImageCar
             // 

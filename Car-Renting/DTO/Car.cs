@@ -10,27 +10,25 @@ namespace Car_Renting
     {
         public int CarId { get; set; }
         public string CarName { get; set; }
-        public int CategoryId { get; set; }
-
+        public string CategoryName { get; set; }
         public string Brand { get; set; }
-
-        public string ImageCar { get; set; }
-
+        public int Seats { get; set; }
         public int PricePerDay { get; set; }
-
         public string Description { get; set; }
+        public string ImageCar { get; set; }
 
         public Car() { }
 
-        public Car(int carId, string carName, int categoryId, string brand, string imageCar, int pricePerDay, string description)
+        public Car(int carId, string carName, string categoryName, string brand, int seats, int pricePerDay, string description, string imageCar)
         {
             CarId=carId;
             CarName=carName;
-            CategoryId=categoryId;
+            CategoryName=categoryName;
             Brand=brand;
-            ImageCar=imageCar;
+            Seats=seats;
             PricePerDay=pricePerDay;
             Description=description;
+            ImageCar=imageCar;
         }
     }
 }

@@ -12,17 +12,26 @@ namespace Car_Renting
 {
     public partial class fRenting : Form
     {
+        private Rent rent; 
+        private CarDAO cardao = new CarDAO();
         private fNavigation currentForm;
         public fRenting()
         {
             InitializeComponent();
+
         }
+      
         public fRenting(fNavigation currentForm)
         {
             InitializeComponent();
             this.currentForm = currentForm;
         }
-
+        public fRenting(fNavigation currentForm,Rent rent)
+        {
+            InitializeComponent();
+            this.currentForm = currentForm;
+            this.rent = rent;
+        }
         private void btnCancelRent_Click(object sender, EventArgs e)
         {
             fNavigation form = this.currentForm;
@@ -41,7 +50,7 @@ namespace Car_Renting
 
             if (form != null)
             {
-                form.OpenChildForm(new fCarReturn());
+                form.OpenChildForm(new fCarReturn(currentForm));
                 form.DisableButton();
                 form.leftBorderBtn.Visible = false; ;
             }

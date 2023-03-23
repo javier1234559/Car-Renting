@@ -9,7 +9,6 @@ namespace Car_Renting.DAO
 {
     public interface IBaseDAO <T>
     {
-        List<T> GetAllList();
         DataTable GetAllDataTable();
         T GetById(int id);
         int Insert(T entity);

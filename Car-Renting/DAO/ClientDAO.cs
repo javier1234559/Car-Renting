@@ -11,12 +11,7 @@ namespace Car_Renting
 {
     class ClientDAO : IBaseDAO<Client>
     {
-        public List<Client> GetAllList() {
-            List<Client> list = new List<Client>();
-
-            return list;
-        }
-
+       
         public DataTable GetAllDataTable() {
             string sqlStr = string.Format("SELECT * FROM Clients");
             return DbConnection.Instance.getData(sqlStr);
@@ -24,20 +19,20 @@ namespace Car_Renting
 
         public Client GetById(int id)
         {
-            string sqlStr = string.Format("SELECT * FROM Clients");
+            string sqlStr = string.Format("SELECT * FROM Clients WHERE ClientId={0}", id);
             DataTable dt = DbConnection.Instance.getData(sqlStr);
 
-            DataRow[] result = dt.Select($"ClientId = {id}");
-            if (result.Length > 0)
+            if (dt.Rows.Count > 0)
             {
-                DataRow row = result[0];
+                DataRow row = dt.Rows[0];
                 Client client = new Client
                 {
                     ClientId = (int)row["ClientId"],
                     Name = row["Name"].ToString(),
-                    Phone = (int)row["Phone"],
-                    CCCD = (int)row["CCCD"],
+                    Phone = row["Phone"].ToString(),
+                    CCCD = row["CCCD"].ToString(),
                     Email = row["Email"].ToString(),
+                    License = row["License"].ToString()
                 };
                 return client;
             }
@@ -59,10 +54,18 @@ namespace Car_Renting
 
         public int Insert(Client entity)
         {
-            string sqlStr = string.Format("INSERT INTO Clients (ClientId, Name, Phone, CCCD, Email) VALUES ({0},{1},{2},{3})", entity.ClientId, entity.Name, entity.Phone, entity.CCCD, entity.Email);
-            //string sqlStr = $"INSERT INTO Clients (ClientId, Name, Phone, CCCD, Email)" +
-            //                $"VALUES ({entity.ClientId}, {entity.Name}, {entity.Phone}, {entity.CCCD}, {entity.Email})";
-            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
+            string sqlStr = string.Format("INSERT INTO Clients (Name, Phone, CCCD, Email, License) VALUES (@Name, @Phone, @CCCD, @Email, @License); SELECT SCOPE_IDENTITY()");
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@Name", entity.Name);
+            parameters.Add("@Phone", entity.Phone);
+            parameters.Add("@CCCD", entity.CCCD);
+            parameters.Add("@Email", entity.Email);
+            parameters.Add("@License", entity.License);
+
+            int newId = (int)DbConnection.Instance.executeInsertQuery(sqlStr, parameters);
+
+            return newId;
         }
 
         public int Delete(Client entity)

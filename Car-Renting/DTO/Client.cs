@@ -10,19 +10,29 @@ namespace Car_Renting
     {
         public int ClientId { get; set; }
         public string Name { get; set; }
-        public int Phone { get; set; }
-        public int CCCD { get; set; }
+        public string Phone { get; set; }
+        public string CCCD { get; set; }
         public string Email { get; set; }
 
+        public string License { get; set; }
         public Client() { }
 
-        public Client(int clientId, string name, int phone, int cCCD, string email)
+        public Client(int clientId, string name, string phone, string cCCD, string email, string license)
         {
             ClientId=clientId;
             Name=name;
             Phone=phone;
             CCCD=cCCD;
             Email=email;
+            License=license;
+        }
+        public Client( string name, string phone, string cCCD, string email, string license)
+        {
+            Name=name;
+            Phone=phone;
+            CCCD=cCCD;
+            Email=email;
+            License=license;
         }
     }
 }

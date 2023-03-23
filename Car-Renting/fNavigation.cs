@@ -57,7 +57,7 @@ namespace Car_Renting
         private void btnNavCar_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new fCar());
+            OpenChildForm(new fCar(this));
         }
 
         private void btnNavRent_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace Car_Renting
         private void btnNavCarReturn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new fCarReturn());
+            OpenChildForm(new fCarReturn(this));
 
         }
 

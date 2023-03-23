@@ -31,16 +31,20 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnFilter = new FontAwesome.Sharp.IconButton();
+            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
-            this.gvCars = new System.Windows.Forms.DataGridView();
+            this.gvClients = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -54,13 +58,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.btnFilter = new FontAwesome.Sharp.IconButton();
-            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvClients)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -108,6 +108,34 @@
             this.panel4.Size = new System.Drawing.Size(621, 70);
             this.panel4.TabIndex = 6;
             // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 20;
+            this.iconButton1.Location = new System.Drawing.Point(225, 39);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(20, 20);
+            this.iconButton1.TabIndex = 5;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 20;
+            this.iconButton2.Location = new System.Drawing.Point(154, 10);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(20, 20);
+            this.iconButton2.TabIndex = 5;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
@@ -153,6 +181,34 @@
             this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 1;
             // 
+            // btnFilter
+            // 
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnFilter.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.btnFilter.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnFilter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFilter.IconSize = 20;
+            this.btnFilter.Location = new System.Drawing.Point(225, 39);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(20, 20);
+            this.btnFilter.TabIndex = 5;
+            this.btnFilter.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearch.IconSize = 20;
+            this.btnSearch.Location = new System.Drawing.Point(154, 10);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(20, 20);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -190,22 +246,23 @@
             this.txtTim.Size = new System.Drawing.Size(121, 20);
             this.txtTim.TabIndex = 1;
             // 
-            // gvCars
+            // gvClients
             // 
-            this.gvCars.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gvClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvCars.Location = new System.Drawing.Point(0, 76);
-            this.gvCars.Name = "gvCars";
-            this.gvCars.RowHeadersWidth = 51;
-            this.gvCars.Size = new System.Drawing.Size(623, 460);
-            this.gvCars.TabIndex = 4;
+            this.gvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvClients.Location = new System.Drawing.Point(0, 76);
+            this.gvClients.Name = "gvClients";
+            this.gvClients.RowHeadersWidth = 51;
+            this.gvClients.Size = new System.Drawing.Size(623, 460);
+            this.gvClients.TabIndex = 4;
+            this.gvClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvClients_CellClick);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.gvCars);
+            this.panel2.Controls.Add(this.gvClients);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -327,62 +384,6 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Thông Tin Khách Hàng";
             // 
-            // iconButton1
-            // 
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(225, 39);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(20, 20);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(154, 10);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(20, 20);
-            this.iconButton2.TabIndex = 5;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFilter.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.btnFilter.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnFilter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFilter.IconSize = 20;
-            this.btnFilter.Location = new System.Drawing.Point(225, 39);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(20, 20);
-            this.btnFilter.TabIndex = 5;
-            this.btnFilter.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearch.IconSize = 20;
-            this.btnSearch.Location = new System.Drawing.Point(154, 10);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(20, 20);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
             // fClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,7 +398,7 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvClients)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -423,7 +424,7 @@
         private System.Windows.Forms.Button btSua;
         private System.Windows.Forms.Button btThem;
         private System.Windows.Forms.TextBox txtTim;
-        private System.Windows.Forms.DataGridView gvCars;
+        private System.Windows.Forms.DataGridView gvClients;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBox3;

@@ -39,7 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSeat = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -75,6 +75,7 @@
             this.ImageCar.Margin = new System.Windows.Forms.Padding(2);
             this.ImageCar.Name = "ImageCar";
             this.ImageCar.Size = new System.Drawing.Size(224, 106);
+            this.ImageCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImageCar.TabIndex = 7;
             this.ImageCar.TabStop = false;
             // 
@@ -88,11 +89,12 @@
             this.btnRentFromCars.TabIndex = 6;
             this.btnRentFromCars.Text = "Thuê";
             this.btnRentFromCars.UseVisualStyleBackColor = false;
+            this.btnRentFromCars.Click += new System.EventHandler(this.btnRentFromCars_Click);
             // 
             // txtPricePerDay
             // 
             this.txtPricePerDay.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.txtPricePerDay.Location = new System.Drawing.Point(162, 209);
+            this.txtPricePerDay.Location = new System.Drawing.Point(14, 258);
             this.txtPricePerDay.Name = "txtPricePerDay";
             this.txtPricePerDay.Size = new System.Drawing.Size(125, 20);
             this.txtPricePerDay.TabIndex = 5;
@@ -170,7 +172,7 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.ImageCar);
             this.panel3.Controls.Add(this.btnRentFromCars);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtSeat);
             this.panel3.Controls.Add(this.txtPricePerDay);
             this.panel3.Controls.Add(this.txtDescription);
             this.panel3.Controls.Add(this.txtCategory);
@@ -188,13 +190,13 @@
             this.panel3.Size = new System.Drawing.Size(314, 460);
             this.panel3.TabIndex = 11;
             // 
-            // textBox1
+            // txtSeat
             // 
-            this.textBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.textBox1.Location = new System.Drawing.Point(11, 269);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtSeat.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.txtSeat.Location = new System.Drawing.Point(162, 209);
+            this.txtSeat.Name = "txtSeat";
+            this.txtSeat.Size = new System.Drawing.Size(125, 20);
+            this.txtSeat.TabIndex = 5;
             // 
             // label5
             // 
@@ -283,6 +285,7 @@
             this.gvCars.RowHeadersWidth = 51;
             this.gvCars.Size = new System.Drawing.Size(623, 460);
             this.gvCars.TabIndex = 4;
+            this.gvCars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCars_CellClick);
             // 
             // panel1
             // 
@@ -486,7 +489,7 @@
         private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.ComboBox comboBox2;
         private FontAwesome.Sharp.IconButton btnFilter;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSeat;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private FontAwesome.Sharp.IconButton iconButton1;

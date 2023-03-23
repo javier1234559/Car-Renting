@@ -12,6 +12,7 @@ namespace Car_Renting.UserControls
 {
     public partial class RentsScreen : UserControl
     {
+
         private Car car;
         private Client client;
         private Rent rent;
@@ -50,8 +51,8 @@ namespace Car_Renting.UserControls
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             client.ClientId = Int32.Parse(txtClientId.Text.ToString());
-            client.Phone = Int32.Parse(txtPhone.Text.ToString());
-            client.CCCD = Int32.Parse(txtCCCD.Text.ToString());
+            client.Phone = txtPhone.Text.ToString();
+            client.CCCD = txtCCCD.Text.ToString();
             client.Email = txtEmail.Text.ToString();
 
 

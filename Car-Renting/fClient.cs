@@ -12,9 +12,21 @@ namespace Car_Renting
 {
     public partial class fClient : Form
     {
+        ClientDAO clientdao = new ClientDAO();
         public fClient()
         {
             InitializeComponent();
+            loadDataClients();
+        }
+
+        private void loadDataClients()
+        {
+            this.gvClients.DataSource = clientdao.GetAllDataTable();
+        }
+
+        private void gvClients_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

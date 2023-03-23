@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtLisence = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ckboxCMND = new System.Windows.Forms.CheckBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -38,17 +38,17 @@
             this.txtCMND = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lbDeposit = new System.Windows.Forms.Label();
-            this.txtClientId = new System.Windows.Forms.TextBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtdescriptionRent = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.datepkend = new System.Windows.Forms.DateTimePicker();
+            this.datepkbegin = new System.Windows.Forms.DateTimePicker();
             this.txtNameCar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAccept = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.txtLisence);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.ckboxCMND);
             this.panel1.Controls.Add(this.txtPhone);
@@ -73,7 +73,7 @@
             this.panel1.Controls.Add(this.txtCMND);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.lbDeposit);
-            this.panel1.Controls.Add(this.txtClientId);
+            this.panel1.Controls.Add(this.txtClientName);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label10);
@@ -82,12 +82,12 @@
             this.panel1.Size = new System.Drawing.Size(615, 156);
             this.panel1.TabIndex = 5;
             // 
-            // textBox5
+            // txtLisence
             // 
-            this.textBox5.Location = new System.Drawing.Point(93, 96);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(120, 20);
-            this.textBox5.TabIndex = 16;
+            this.txtLisence.Location = new System.Drawing.Point(93, 96);
+            this.txtLisence.Name = "txtLisence";
+            this.txtLisence.Size = new System.Drawing.Size(120, 20);
+            this.txtLisence.TabIndex = 16;
             // 
             // label2
             // 
@@ -158,12 +158,12 @@
             this.lbDeposit.TabIndex = 0;
             this.lbDeposit.Text = "Tien Coc : ";
             // 
-            // txtClientId
+            // txtClientName
             // 
-            this.txtClientId.Location = new System.Drawing.Point(93, 15);
-            this.txtClientId.Name = "txtClientId";
-            this.txtClientId.Size = new System.Drawing.Size(144, 20);
-            this.txtClientId.TabIndex = 2;
+            this.txtClientName.Location = new System.Drawing.Point(93, 15);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.Size = new System.Drawing.Size(144, 20);
+            this.txtClientName.TabIndex = 2;
             // 
             // label7
             // 
@@ -206,13 +206,13 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Thông Tin Hợp Đồng Thuê";
             // 
-            // textBox2
+            // txtdescriptionRent
             // 
-            this.textBox2.Location = new System.Drawing.Point(33, 372);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(335, 73);
-            this.textBox2.TabIndex = 19;
+            this.txtdescriptionRent.Location = new System.Drawing.Point(33, 372);
+            this.txtdescriptionRent.Multiline = true;
+            this.txtdescriptionRent.Name = "txtdescriptionRent";
+            this.txtdescriptionRent.Size = new System.Drawing.Size(335, 73);
+            this.txtdescriptionRent.TabIndex = 19;
             // 
             // label14
             // 
@@ -244,19 +244,19 @@
             this.label13.TabIndex = 17;
             this.label13.Text = "Ngày Bắt Đầu";
             // 
-            // dateTimePicker2
+            // datepkend
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(168, 278);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 14;
+            this.datepkend.Location = new System.Drawing.Point(168, 278);
+            this.datepkend.Name = "datepkend";
+            this.datepkend.Size = new System.Drawing.Size(200, 20);
+            this.datepkend.TabIndex = 14;
             // 
-            // dateTimePicker1
+            // datepkbegin
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(168, 230);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 15;
+            this.datepkbegin.Location = new System.Drawing.Point(168, 230);
+            this.datepkbegin.Name = "datepkbegin";
+            this.datepkbegin.Size = new System.Drawing.Size(200, 20);
+            this.datepkbegin.TabIndex = 15;
             // 
             // txtNameCar
             // 
@@ -365,12 +365,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ImageCar);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtdescriptionRent);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.datepkend);
+            this.Controls.Add(this.datepkbegin);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.panel1);
             this.Name = "fRentSubmit";
@@ -394,17 +394,17 @@
         private System.Windows.Forms.TextBox txtCMND;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lbDeposit;
-        private System.Windows.Forms.TextBox txtClientId;
+        private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtdescriptionRent;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker datepkend;
+        private System.Windows.Forms.DateTimePicker datepkbegin;
         private System.Windows.Forms.PictureBox ImageCar;
         private System.Windows.Forms.TextBox txtNameCar;
         private System.Windows.Forms.Label label3;
@@ -413,7 +413,7 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbSumValue;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtLisence;
         private System.Windows.Forms.Label label2;
     }
 }

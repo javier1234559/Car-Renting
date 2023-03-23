@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtdescriptionRent = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.datepkend = new System.Windows.Forms.DateTimePicker();
+            this.datepkbegin = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ckboxCMND = new System.Windows.Forms.CheckBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -43,12 +43,12 @@
             this.txtCMND = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lbDeposit = new System.Windows.Forms.Label();
-            this.txtClientId = new System.Windows.Forms.TextBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSeat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPricePerDay = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -63,6 +63,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.ImageCar = new System.Windows.Forms.PictureBox();
+            this.txtLicense = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -74,25 +76,27 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txtdescriptionRent);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label15);
+            this.panel2.Controls.Add(this.txtDeposit);
             this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.dateTimePicker2);
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.lbDeposit);
+            this.panel2.Controls.Add(this.datepkend);
+            this.panel2.Controls.Add(this.datepkbegin);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(572, 476);
             this.panel2.TabIndex = 14;
             // 
-            // textBox2
+            // txtdescriptionRent
             // 
-            this.textBox2.Location = new System.Drawing.Point(26, 339);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(526, 73);
-            this.textBox2.TabIndex = 13;
+            this.txtdescriptionRent.Location = new System.Drawing.Point(26, 339);
+            this.txtdescriptionRent.Multiline = true;
+            this.txtdescriptionRent.Name = "txtdescriptionRent";
+            this.txtdescriptionRent.Size = new System.Drawing.Size(526, 73);
+            this.txtdescriptionRent.TabIndex = 13;
             // 
             // label14
             // 
@@ -124,31 +128,31 @@
             this.label13.TabIndex = 10;
             this.label13.Text = "Ngày Bắt Đầu";
             // 
-            // dateTimePicker2
+            // datepkend
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(138, 260);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 7;
+            this.datepkend.Location = new System.Drawing.Point(138, 260);
+            this.datepkend.Name = "datepkend";
+            this.datepkend.Size = new System.Drawing.Size(200, 20);
+            this.datepkend.TabIndex = 7;
             // 
-            // dateTimePicker1
+            // datepkbegin
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(138, 219);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.datepkbegin.Location = new System.Drawing.Point(138, 219);
+            this.datepkbegin.Name = "datepkbegin";
+            this.datepkbegin.Size = new System.Drawing.Size(200, 20);
+            this.datepkbegin.TabIndex = 8;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.ckboxCMND);
             this.panel1.Controls.Add(this.txtPhone);
+            this.panel1.Controls.Add(this.txtLicense);
             this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtDeposit);
             this.panel1.Controls.Add(this.txtCMND);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.lbDeposit);
-            this.panel1.Controls.Add(this.txtClientId);
+            this.panel1.Controls.Add(this.txtClientName);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label10);
@@ -162,7 +166,7 @@
             // 
             this.ckboxCMND.AutoSize = true;
             this.ckboxCMND.ForeColor = System.Drawing.Color.Gainsboro;
-            this.ckboxCMND.Location = new System.Drawing.Point(20, 142);
+            this.ckboxCMND.Location = new System.Drawing.Point(64, 149);
             this.ckboxCMND.Name = "ckboxCMND";
             this.ckboxCMND.Size = new System.Drawing.Size(67, 17);
             this.ckboxCMND.TabIndex = 3;
@@ -185,7 +189,7 @@
             // 
             // txtDeposit
             // 
-            this.txtDeposit.Location = new System.Drawing.Point(331, 140);
+            this.txtDeposit.Location = new System.Drawing.Point(370, 243);
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(120, 20);
             this.txtDeposit.TabIndex = 2;
@@ -211,18 +215,18 @@
             // 
             this.lbDeposit.AutoSize = true;
             this.lbDeposit.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbDeposit.Location = new System.Drawing.Point(208, 143);
+            this.lbDeposit.Location = new System.Drawing.Point(367, 219);
             this.lbDeposit.Name = "lbDeposit";
             this.lbDeposit.Size = new System.Drawing.Size(59, 13);
             this.lbDeposit.TabIndex = 0;
             this.lbDeposit.Text = "Tien Coc : ";
             // 
-            // txtClientId
+            // txtClientName
             // 
-            this.txtClientId.Location = new System.Drawing.Point(64, 52);
-            this.txtClientId.Name = "txtClientId";
-            this.txtClientId.Size = new System.Drawing.Size(144, 20);
-            this.txtClientId.TabIndex = 2;
+            this.txtClientName.Location = new System.Drawing.Point(64, 52);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.Size = new System.Drawing.Size(144, 20);
+            this.txtClientName.TabIndex = 2;
             // 
             // label7
             // 
@@ -264,13 +268,13 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Thông Tin Khách Hàng";
             // 
-            // textBox1
+            // txtSeat
             // 
-            this.textBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.textBox1.Location = new System.Drawing.Point(43, 269);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtSeat.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.txtSeat.Location = new System.Drawing.Point(194, 209);
+            this.txtSeat.Name = "txtSeat";
+            this.txtSeat.Size = new System.Drawing.Size(125, 20);
+            this.txtSeat.TabIndex = 5;
             // 
             // label2
             // 
@@ -288,7 +292,7 @@
             // txtPricePerDay
             // 
             this.txtPricePerDay.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.txtPricePerDay.Location = new System.Drawing.Point(194, 209);
+            this.txtPricePerDay.Location = new System.Drawing.Point(43, 265);
             this.txtPricePerDay.Name = "txtPricePerDay";
             this.txtPricePerDay.Size = new System.Drawing.Size(125, 20);
             this.txtPricePerDay.TabIndex = 5;
@@ -389,13 +393,10 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.btnSubmit);
             this.panel3.Controls.Add(this.ImageCar);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtSeat);
             this.panel3.Controls.Add(this.txtPricePerDay);
             this.panel3.Controls.Add(this.txtDescription);
             this.panel3.Controls.Add(this.txtCategory);
@@ -407,6 +408,7 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(578, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(365, 476);
@@ -430,8 +432,26 @@
             this.ImageCar.Margin = new System.Windows.Forms.Padding(2);
             this.ImageCar.Name = "ImageCar";
             this.ImageCar.Size = new System.Drawing.Size(224, 106);
+            this.ImageCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImageCar.TabIndex = 7;
             this.ImageCar.TabStop = false;
+            // 
+            // txtLicense
+            // 
+            this.txtLicense.Location = new System.Drawing.Point(331, 143);
+            this.txtLicense.Name = "txtLicense";
+            this.txtLicense.Size = new System.Drawing.Size(120, 20);
+            this.txtLicense.TabIndex = 2;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label12.Location = new System.Drawing.Point(241, 146);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(82, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Giâý phép lái xe";
             // 
             // fRent
             // 
@@ -456,7 +476,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSeat;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox ImageCar;
         private System.Windows.Forms.TextBox txtPricePerDay;
@@ -475,7 +495,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtCMND;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtClientId;
+        private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
@@ -485,10 +505,12 @@
         private System.Windows.Forms.Label lbDeposit;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DateTimePicker datepkend;
+        private System.Windows.Forms.DateTimePicker datepkbegin;
+        private System.Windows.Forms.TextBox txtdescriptionRent;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.TextBox txtLicense;
+        private System.Windows.Forms.Label label12;
     }
 }

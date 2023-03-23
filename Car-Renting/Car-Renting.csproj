@@ -74,10 +74,10 @@
     <Compile Include="DAO\IBaseDAO.cs" />
     <Compile Include="DAO\ClientDAO.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\RentDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Bill.cs" />
-    <Compile Include="DTO\CategoryCar.cs" />
     <Compile Include="DTO\Client.cs" />
     <Compile Include="DTO\Car.cs" />
     <Compile Include="DAO\CarDAO.cs" />
@@ -148,25 +148,24 @@
     <Compile Include="fSubmitCarReturn.Designer.cs">
       <DependentUpon>fSubmitCarReturn.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fLogin.cs">
+    <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fLogin.Designer.cs">
+    <Compile Include="fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fNavigation.cs">
+    <Compile Include="fNavigation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fNavigation.Designer.cs">
+    <Compile Include="fNavigation.Designer.cs">
       <DependentUpon>fNavigation.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fRating.cs">
+    <Compile Include="fRating.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\fRating.Designer.cs">
+    <Compile Include="fRating.Designer.cs">
       <DependentUpon>fRating.cs</DependentUpon>
     </Compile>
-    <Compile Include="BLL\NavigationLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DTO\Rating.cs" />
@@ -246,13 +245,13 @@
     <EmbeddedResource Include="fSubmitCarReturn.resx">
       <DependentUpon>fSubmitCarReturn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fLogin.resx">
+    <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fNavigation.resx">
+    <EmbeddedResource Include="fNavigation.resx">
       <DependentUpon>fNavigation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fRating.resx">
+    <EmbeddedResource Include="fRating.resx">
       <DependentUpon>fRating.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -321,6 +320,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GUI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

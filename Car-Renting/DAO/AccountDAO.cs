@@ -11,12 +11,6 @@ namespace Account_Renting
 {
     class AccountDAO : IBaseDAO<Account>
     {
-        public List<Account> GetAllList()
-        {
-            List<Account> list = new List<Account>();
-            //chua dung toi
-            return list;
-        }
 
         public DataTable GetAllDataTable()
         {

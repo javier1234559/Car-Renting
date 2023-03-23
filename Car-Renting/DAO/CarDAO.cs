@@ -11,46 +11,33 @@ namespace Car_Renting
 {
     class CarDAO : IBaseDAO <Car>
     {
-        public List<Car> GetAllList()
-        {
-            List<Car> list = new List<Car>();
-            //chua dung toi
-            return list;
-        }
-
         public DataTable GetAllDataTable()
         {
-
-            var sql = @"SELECT c.CarId, c.CarName, c.Brand, cc.CategoryName, c.Description, c.PricePerDay, c.ImageCar 
-                        FROM Cars c 
-                        JOIN CategoryCar cc ON c.CategoryId = cc.CategoryId";
+            var sql = @"SELECT * from Cars;";
 
             return DbConnection.Instance.getData(sql);
-
-            //string sqlStr = string.Format("select CarId,CarName,Brand,CategoryCar.CategoryName as CategoryName,ImageCar,Description,PricePerDay,ImageCar from Cars, CategoryCar where Cars.CategoryId= CategoryCar.CategoryId");
-            //return DbConnection.Instance.getData(sqlStr);
         }
 
         public Car GetById(int id)
         {
-            string sqlStr = string.Format("SELECT * FROM Cars");
+            string sqlStr = $"SELECT * FROM Cars WHERE CarId = {id}";
             DataTable dt = DbConnection.Instance.getData(sqlStr);
 
-            DataRow[] result = dt.Select($"CarId = {id}");
-            if (result.Length > 0)
+            if (dt.Rows.Count > 0)
             {
-                DataRow row = result[0];
-                Car Car = new Car
+                DataRow row = dt.Rows[0];
+                Car car = new Car
                 {
                     CarId = (int)row["CarId"],
                     CarName = row["CarName"].ToString(),
-                    CategoryId = (int)row["CategoryId"],
+                    CategoryName = row["CategoryName"].ToString(),
                     Brand = row["Brand"].ToString(),
-                    ImageCar  = row["ImageCar"].ToString(),
-                    PricePerDay  = (int)row["PricePerDay"],
-                    Description  = row["Description"].ToString(),    
+                    Seats = (int)row["Seats"],
+                    PricePerDay = (int)row["PricePerDay"],
+                    Description = row["Description"].ToString(),
+                    ImageCar = row["ImageCar"].ToString()
                 };
-                return Car;
+                return car;
             }
             return null;
         }
