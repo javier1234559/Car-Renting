@@ -51,7 +51,20 @@ namespace Car_Renting
         //    }
         //    return value;
         //}
+        public Client getIdwithCMND(string cccd )
+        {
+            string sqlStr = string.Format("select ClientId from Clients where  CCCD={0} ",cccd);
+            DataTable dt = DbConnection.Instance.getData(sqlStr);
+            Client client = new Client();
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                client=GetById((int)row["ClientId"]);
+                return client;
+            }
 
+            return null;
+        }
         public int Insert(Client entity)
         {
             string sqlStr = string.Format("INSERT INTO Clients (Name, Phone, CCCD, Email, License) VALUES (@Name, @Phone, @CCCD, @Email, @License); SELECT SCOPE_IDENTITY()");

@@ -40,7 +40,7 @@ namespace Car_Renting
                 fNavigation f = new fNavigation();
                 this.Hide();
                 f.ShowDialog();
-                this.Show();
+                //this.Show();
             }
             else
             {

@@ -64,6 +64,7 @@ namespace Car_Renting
             clientdao.Insert(this.rent.Client);
 
 
+
             if (form != null)
             {
                 //form.panelDesktop.Controls.Add(new RentsScreen(car));

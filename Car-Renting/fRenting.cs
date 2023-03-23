@@ -14,10 +14,12 @@ namespace Car_Renting
     {
         private Rent rent; 
         private CarDAO cardao = new CarDAO();
+        RentDAO rentsDAO = new RentDAO();
         private fNavigation currentForm;
         public fRenting()
         {
             InitializeComponent();
+            ShowListRent();
 
         }
       
@@ -25,12 +27,14 @@ namespace Car_Renting
         {
             InitializeComponent();
             this.currentForm = currentForm;
+            ShowListRent();
         }
         public fRenting(fNavigation currentForm,Rent rent)
         {
             InitializeComponent();
             this.currentForm = currentForm;
             this.rent = rent;
+            ShowListRent();
         }
         private void btnCancelRent_Click(object sender, EventArgs e)
         {
@@ -43,7 +47,10 @@ namespace Car_Renting
                 form.leftBorderBtn.Visible = false; ;
             }
         }
-
+        private void ShowListRent()
+        {
+            this.gvRentList.DataSource = rentsDAO.GetAllDataTable();
+        }
         private void btnNavCarReturn_Click(object sender, EventArgs e)
         {
             fNavigation form = this.currentForm;
