@@ -39,18 +39,20 @@ namespace Car_Renting
             return null;
         }
 
-        //public int FindIDClientByNumberPhone(int numberphone){
-        //    int value = 0;
-        //    string sqlStr = $"SELECT TOP 1 * FROM Clients WHERE Phone = '{numberphone}';";
-        //    DataTable dt = DbConnection.Instance.getData(sqlStr);
-        //    DataRow[] result = dt.Select($"Phone = {numberphone}");
-        //    if (result.Length > 0)
-        //    {   
-        //        value = (int)result[0]["ClientId"];
-        //        return value;
-        //    }
-        //    return value;
-        //}
+        public Client FindIDClientByCmnd(string CMND)
+        {
+            string sqlStr = string.Format("select ClientId from Clients where  CCCD='{0}' ", CMND);
+            DataTable dt = DbConnection.Instance.getData(sqlStr);
+            Client client = new Client();
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                client=GetById((int)row["ClientId"]);
+                return client;
+            }
+
+            return null;
+        }
 
         public int Insert(Client entity)
         {
