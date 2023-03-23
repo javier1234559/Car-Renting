@@ -253,6 +253,7 @@
             // 
             // datepkbegin
             // 
+            this.datepkbegin.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.datepkbegin.Location = new System.Drawing.Point(168, 230);
             this.datepkbegin.Name = "datepkbegin";
             this.datepkbegin.Size = new System.Drawing.Size(200, 20);

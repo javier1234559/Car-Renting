@@ -39,6 +39,7 @@ namespace Car_Renting
             return null;
         }
 
+<<<<<<< HEAD
         //public int FindIDClientByNumberPhone(int numberphone){
         //    int value = 0;
         //    string sqlStr = $"SELECT TOP 1 * FROM Clients WHERE Phone = '{numberphone}';";
@@ -54,6 +55,11 @@ namespace Car_Renting
         public Client getIdwithCMND(string cccd )
         {
             string sqlStr = string.Format("select ClientId from Clients where  CCCD={0} ",cccd);
+=======
+        public Client FindIDClientByCmnd(string CMND)
+        {
+            string sqlStr = string.Format("select ClientId from Clients where  CCCD='{0}' ", CMND);
+>>>>>>> main
             DataTable dt = DbConnection.Instance.getData(sqlStr);
             Client client = new Client();
             if (dt.Rows.Count > 0)
@@ -62,6 +68,12 @@ namespace Car_Renting
                 client=GetById((int)row["ClientId"]);
                 return client;
             }
+<<<<<<< HEAD
+=======
+
+            return null;
+        }
+>>>>>>> main
 
             return null;
         }

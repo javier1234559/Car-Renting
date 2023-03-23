@@ -56,12 +56,17 @@ namespace Car_Renting
             this.Close();
         }
 
+        
+
         private void btnAccept_Click(object sender, EventArgs e)
         {
             fNavigation form = this.currentForm;
             if (this.rent == null) return;
             ClientDAO clientdao = new ClientDAO();
             clientdao.Insert(this.rent.Client);
+            Client d = clientdao.FindIDClientByCmnd(this.rent.Client.CCCD);
+
+            
 
 
 

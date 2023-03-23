@@ -12,7 +12,8 @@ namespace Car_Renting
     class DbConnection
     {
         private static DbConnection instance;
-        private static SqlConnection conn = new SqlConnection(Properties.Settings.Default.connStr);
+        private static string connectionString = Properties.Settings.Default.connStr ;
+        private static SqlConnection conn = new SqlConnection(connectionString);
 
 
         public static DbConnection Instance {
@@ -75,7 +76,7 @@ namespace Car_Renting
         {
             int result = 0;
 
-            using (conn)
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(query, conn);
 
