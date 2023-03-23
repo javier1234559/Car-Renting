@@ -15,6 +15,7 @@ namespace Car_Renting
         private fNavigation currentForm;
         CarDAO carDao = new CarDAO();
         Car car = new Car();
+
         public fCar(fNavigation currentForm)
         {
             InitializeComponent();
