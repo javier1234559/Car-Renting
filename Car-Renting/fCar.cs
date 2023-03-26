@@ -12,15 +12,13 @@ namespace Car_Renting
 {
     public partial class fCar : Form
     {
-        private fNavigation currentForm;
-        CarDAO carDao = new CarDAO();
-        Car car = new Car();
+        private CarDAO carDao = new CarDAO();
+        private Car car ;
 
-        public fCar(fNavigation currentForm)
+        public fCar()
         {
             InitializeComponent();
             loadDataCar();
-            this.currentForm=currentForm;
         }
 
         private void loadDataCar()
@@ -33,7 +31,11 @@ namespace Car_Renting
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = gvCars.Rows[e.RowIndex];
-                car.CarId = (int)row.Cells["CarId"].Value;
+                //Load data to modal car
+                int idcar = (int)row.Cells["CarId"].Value;
+                this.car = carDao.GetById(idcar);
+
+                //Load data to textbox
                 txtNameCar.Text = row.Cells["CarName"].Value.ToString();
                 txtCategory.Text = row.Cells["CategoryName"].Value.ToString();
                 txtBrand.Text = row.Cells["Brand"].Value.ToString();
@@ -54,12 +56,12 @@ namespace Car_Renting
                 return;
             }
 
-
-            fNavigation form = this.currentForm;
+            fNavigation form = fNavigation.getInstance();
             if (form != null)
             {
                 this.Close();
-                form.OpenChildForm(new fRent(currentForm,car));
+                Session.currentcar = this.car;
+                form.OpenChildForm(new fRent());
                 form.DisableButton();
                 form.leftBorderBtn.Visible = false; ;
             }

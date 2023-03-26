@@ -12,24 +12,14 @@ namespace Car_Renting
 {
     public partial class fSubmitCarReturn : Form
     {
-        private fNavigation currentForm;
 
         private const int MAX_HEIGHT_WITHOUT_SCROLLBAR = 600; // 
         public fSubmitCarReturn()
         {
             InitializeComponent();
-            this.AutoScroll = true;
-
-            this.HorizontalScroll.Enabled = false;
-            this.AutoScrollMinSize = new Size(0, MAX_HEIGHT_WITHOUT_SCROLLBAR);
-        }
-
-        public fSubmitCarReturn(fNavigation current)
-        {
-            InitializeComponent();
-            this.currentForm = current;
             this.MaximumSize = new Size(int.MaxValue, MAX_HEIGHT_WITHOUT_SCROLLBAR);
             this.AutoScroll = true;
         }
+
     }
 }

@@ -16,12 +16,12 @@ namespace Car_Renting
             return list;
         }
 
-
         public DataTable GetAllDataTable()
         {
             string sqlStr = string.Format("select Rents.RentId,Cars.CarName,Clients.Name,DateStart,DateEnd,State,DateDelayQuantity,HoldingCCCD,Deposit,EstimatedCost,CanceleReason,Cars.CategoryName as CategoryName from Rents, Cars, Clients where Rents.CarId = Cars.CarId and Rents.ClientId = Clients.ClientId ");
             return DbConnection.Instance.getData(sqlStr);
         }
+
         public Rent GetById(int id)
         {
             string sqlStr = string.Format("SELECT * FROM Rents");
@@ -69,10 +69,29 @@ namespace Car_Renting
             return null;
 
         }
+
         public int Insert(Rent entity)
         {
-            string sqlStr = string.Format("INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, HoldingCCCD, Deposit, EstimatedCost) VALUES([0], [1], [2], [3], [4], [5], [6], [7], [8]); ", entity.CarId,entity.ClientId,entity.DateStart, entity.DateEnd, entity.DateDelayQuantity, entity.State, entity.HoldingCCCD, entity.Deposit, entity.EstimatedCost);
-            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
+            //HAM NAY CHUA DUNG DUOC
+
+            //CHO NAY TAO PROCEDURE TU DONG THEM TRANG THAI THUE 
+
+            string sqlStr = "INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, HoldingCCCD, Deposit, EstimatedCost) VALUES (@CarId, @ClientId, @DateStart, @DateEnd, @DateDelayQuantity, @State, @HoldingCCCD, @Deposit, @EstimatedCost); SELECT SCOPE_IDENTITY();";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@CarId", entity.CarId);
+            parameters.Add("@ClientId", entity.ClientId);
+            parameters.Add("@DateStart", entity.DateStart);
+            parameters.Add("@DateEnd", entity.DateEnd);
+            parameters.Add("@DateDelayQuantity", entity.DateDelayQuantity);
+            parameters.Add("@State", entity.State);
+            parameters.Add("@HoldingCCCD", entity.HoldingCCCD);
+            parameters.Add("@Deposit", entity.Deposit);
+            parameters.Add("@EstimatedCost", entity.EstimatedCost);
+
+            int newId = (int)DbConnection.Instance.executeInsertQuery(sqlStr, parameters);
+
+            return newId;
         }
 
         public int Delete(Rent entity)

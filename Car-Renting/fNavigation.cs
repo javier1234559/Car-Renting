@@ -14,13 +14,16 @@ namespace Car_Renting
 {
     public partial class fNavigation : Form
     {
+        //Singleton
+        private static fNavigation instance;
+
         //Fields Graphic
         private IconButton currentBtn;
         public Panel leftBorderBtn;
         private Form currentChildForm;
 
         //Constructor
-        public fNavigation()
+        private  fNavigation()
         {
             InitializeComponent();
 
@@ -33,6 +36,15 @@ namespace Car_Renting
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
+
+        public static fNavigation getInstance()
+        {
+            if(instance == null)
+            {
+                instance = new fNavigation();
+            }
+            return instance;
         }
 
         //Logic Navigation
@@ -57,25 +69,25 @@ namespace Car_Renting
         private void btnNavCar_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new fCar(this));
+            OpenChildForm(new fCar());
         }
 
         private void btnNavRent_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new fRent(this));
+            OpenChildForm(new fRent());
         }
 
         private void btnNavRenting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new fRenting(this));
+            OpenChildForm(new fRenting());
         }
 
         private void btnNavCarReturn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new fCarReturn(this));
+            OpenChildForm(new fCarReturn());
 
         }
 

@@ -53,6 +53,7 @@ namespace Car_Renting
 
             return null;
         }
+
         public int Insert(Client entity)
         {
             string sqlStr = string.Format("INSERT INTO Clients (Name, Phone, CCCD, Email, License) VALUES (@Name, @Phone, @CCCD, @Email, @License); SELECT SCOPE_IDENTITY()");
@@ -69,16 +70,26 @@ namespace Car_Renting
             return newId;
         }
 
+        public int Update(Client entity)
+        {
+            string sqlStr = "UPDATE Clients SET Name = @Name, Phone = @Phone, CCCD = @CCCD, Email = @Email, License = @License WHERE ClientId = @ClientId";
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@Name", entity.Name);
+            parameters.Add("@Phone", entity.Phone);
+            parameters.Add("@CCCD", entity.CCCD);
+            parameters.Add("@Email", entity.Email);
+            parameters.Add("@License", entity.License);
+            parameters.Add("@ClientId", entity.ClientId);
+
+            return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
+
+        }
         public int Delete(Client entity)
         {
-            string sqlStr = string.Format("delete from Clients where Ten = '{0}'", entity.ClientId);
+            string sqlStr = string.Format("delete from Clients where ClientId = '{0}'", entity.ClientId);
             return DbConnection.Instance.ExecuteNonQuery(sqlStr);
         }
 
-        public int Update(Client entity)
-        {
-            string sqlStr = string.Format("update Client set Email = '{0}' where Ten = '{1}'", entity.Email, entity.ClientId);
-            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
-        }
+        
     }
 }

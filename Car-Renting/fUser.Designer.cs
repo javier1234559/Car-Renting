@@ -46,29 +46,29 @@
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
-            this.gvCars = new System.Windows.Forms.DataGridView();
+            this.gvUser = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.txtRevenue = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUser)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.gvCars);
+            this.panel2.Controls.Add(this.gvUser);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -268,17 +268,18 @@
             this.txtTim.Size = new System.Drawing.Size(121, 20);
             this.txtTim.TabIndex = 1;
             // 
-            // gvCars
+            // gvUser
             // 
-            this.gvCars.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gvUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvCars.Location = new System.Drawing.Point(0, 76);
-            this.gvCars.Name = "gvCars";
-            this.gvCars.RowHeadersWidth = 51;
-            this.gvCars.Size = new System.Drawing.Size(623, 460);
-            this.gvCars.TabIndex = 4;
+            this.gvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvUser.Location = new System.Drawing.Point(0, 76);
+            this.gvUser.Name = "gvUser";
+            this.gvUser.RowHeadersWidth = 51;
+            this.gvUser.Size = new System.Drawing.Size(623, 460);
+            this.gvUser.TabIndex = 4;
+            this.gvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvUser_CellClick);
             // 
             // label2
             // 
@@ -320,12 +321,12 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Số điện Thoại";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(164, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtName.Location = new System.Drawing.Point(164, 90);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(120, 20);
+            this.txtName.TabIndex = 17;
             // 
             // label3
             // 
@@ -337,19 +338,19 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Tổng Doanh Thu Theo :";
             // 
-            // textBox4
+            // txtPhone
             // 
-            this.textBox4.Location = new System.Drawing.Point(164, 140);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(120, 20);
-            this.textBox4.TabIndex = 16;
+            this.txtPhone.Location = new System.Drawing.Point(164, 140);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(120, 20);
+            this.txtPhone.TabIndex = 16;
             // 
-            // textBox3
+            // txtAddress
             // 
-            this.textBox3.Location = new System.Drawing.Point(164, 195);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 13;
+            this.txtAddress.Location = new System.Drawing.Point(164, 195);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(120, 20);
+            this.txtAddress.TabIndex = 13;
             // 
             // label4
             // 
@@ -365,12 +366,12 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.comboBox5);
+            this.panel3.Controls.Add(this.txtRevenue);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.txtAddress);
+            this.panel3.Controls.Add(this.txtPhone);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtName);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label1);
@@ -381,13 +382,13 @@
             this.panel3.Size = new System.Drawing.Size(314, 460);
             this.panel3.TabIndex = 15;
             // 
-            // comboBox5
+            // txtRevenue
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(164, 246);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(89, 21);
-            this.comboBox5.TabIndex = 19;
+            this.txtRevenue.FormattingEnabled = true;
+            this.txtRevenue.Location = new System.Drawing.Point(164, 246);
+            this.txtRevenue.Name = "txtRevenue";
+            this.txtRevenue.Size = new System.Drawing.Size(89, 21);
+            this.txtRevenue.TabIndex = 19;
             // 
             // fUser
             // 
@@ -404,7 +405,7 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUser)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -431,17 +432,17 @@
         private System.Windows.Forms.Button btSua;
         private System.Windows.Forms.Button btThem;
         private System.Windows.Forms.TextBox txtTim;
-        private System.Windows.Forms.DataGridView gvCars;
+        private System.Windows.Forms.DataGridView gvUser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox txtRevenue;
     }
 }

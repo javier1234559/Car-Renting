@@ -13,41 +13,45 @@ namespace Car_Renting
 {
     public partial class fRentSubmit : Form
     {
-        private fNavigation currentForm;
+        //Store data in the current form
         private Rent rent;
-
-        public fRentSubmit(fNavigation currentForm, Rent rent)
-        {
-            InitializeComponent();
-            this.currentForm=currentForm;
-            this.rent=rent;
-            if (rent != null) fillDataRent();
-        }
+        private Car car;
+        private Client client;
+        //Dao
+        private ClientDAO clientdao = new ClientDAO();
+        private RentDAO rentdao = new RentDAO();
         
+
         public fRentSubmit()
         {
             InitializeComponent();
+            if(Session.currentrent!= null)
+            {
+                this.rent = Session.currentrent;
+                this.car = Session.currentcar; 
+                this.client = Session.currentclient;
+                fillDataRent();
+            }
         }
 
         private void fillDataRent()
         {
             //fill car
-            txtNameCar.Text = this.rent.Car.CarName;
-            Image image = Image.FromFile(this.rent.Car.ImageCar);
+            txtNameCar.Text = this.car.CarName;
+            Image image = Image.FromFile(this.car.ImageCar);
             ImageCar.Image = image;
 
             //fill client
-            txtClientName.Text = this.rent.Client.Name;
-            txtCMND.Text = this.rent.Client.CCCD;
-            txtEmail.Text = this.rent.Client.Email;
-            txtPhone.Text = this.rent.Client.Phone;
-            txtLisence.Text = this.rent.Client.License;
+            txtClientName.Text = this.client.Name;
+            txtCMND.Text = this.client.CCCD;
+            txtEmail.Text = this.client.Email;
+            txtPhone.Text = this.client.Phone;
+            txtLisence.Text = this.client.License;
 
             //fill date
             datepkbegin.Value = this.rent.DateStart;
             datepkend.Value = this.rent.DateEnd;
             txtdescriptionRent.Text = this.rent.DescriptionRent;
-
 
         }
 
@@ -56,29 +60,44 @@ namespace Car_Renting
             this.Close();
         }
 
-        
-
-        private void btnAccept_Click(object sender, EventArgs e)
+        private void handleInsertClient()
         {
-            fNavigation form = this.currentForm;
-            if (this.rent == null) return;
-            ClientDAO clientdao = new ClientDAO();
-            clientdao.Insert(this.rent.Client);
-            Client d = clientdao.FindIDClientByCmnd(this.rent.Client.CCCD);
+            int lastesid = clientdao.Insert(this.client);
+            this.client.ClientId = lastesid;
+        }
 
-            
-
-
-
-            if (form != null)
+        private void handleInsertRent()
+        {
+            Client temp = clientdao.FindIDClientByCmnd(this.client.CCCD);
+            if (temp != null)
             {
-                //form.panelDesktop.Controls.Add(new RentsScreen(car));
-                this.Close();
-                form.OpenChildForm(new fRenting(currentForm));
-                form.DisableButton();
-                form.leftBorderBtn.Visible = false; ;
+                this.rent.ClientId = temp.ClientId;
+                this.rent.RentId =  rentdao.Insert(this.rent);
             }
 
         }
+
+        private void updateSessionRent()
+        {
+            Session.currentrent = this.rent;
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            if (this.rent == null) return;
+
+            handleInsertClient();
+            handleInsertRent();
+            updateSessionRent();
+
+            fNavigation form = fNavigation.getInstance();
+            if (form != null)
+            {
+                this.Close();
+                form.OpenChildForm(new fRenting());
+            }
+
+        }
+
     }
 }

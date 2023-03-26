@@ -96,6 +96,30 @@ namespace Car_Renting
             return result;
         }
 
+        public int executeUpdateQuery(string sqlStr, Dictionary<string, object> parameters)
+        {
+            int result = 0;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(sqlStr, conn))
+                {
+                    foreach (KeyValuePair<string, object> param in parameters)
+                    {
+                        cmd.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+
+                    result = cmd.ExecuteNonQuery();
+                }
+
+                conn.Close();
+            }
+
+            return result;
+        }
+
         //Mot so ham tham khao 
 
         //public DataTable GetData(string query, List<SqlParameter> parameters = null)

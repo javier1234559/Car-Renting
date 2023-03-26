@@ -37,7 +37,7 @@ namespace Car_Renting
 
             if (dt.Rows.Count > 0)
             {
-                fNavigation f = new fNavigation();
+                fNavigation f = fNavigation.getInstance();
                 this.Hide();
                 f.ShowDialog();
                 //this.Show();

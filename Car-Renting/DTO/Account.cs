@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Car_Renting
 {
-     class Account
+     public class Account
     {
         public int AccID { get; set; }
         public string Email { get; set; }

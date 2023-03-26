@@ -35,8 +35,8 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnUpdateClient = new System.Windows.Forms.Button();
+            this.btnAddClient = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnFilter = new FontAwesome.Sharp.IconButton();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
@@ -47,17 +47,18 @@
             this.gvClients = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtLicence = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtCmnd = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnRentFromClient = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvClients)).BeginInit();
@@ -99,8 +100,8 @@
             this.panel4.Controls.Add(this.iconButton2);
             this.panel4.Controls.Add(this.comboBox3);
             this.panel4.Controls.Add(this.comboBox4);
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.btnUpdateClient);
+            this.panel4.Controls.Add(this.btnAddClient);
             this.panel4.Controls.Add(this.textBox2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -152,27 +153,29 @@
             this.comboBox4.Size = new System.Drawing.Size(89, 21);
             this.comboBox4.TabIndex = 4;
             // 
-            // button1
+            // btnUpdateClient
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Location = new System.Drawing.Point(532, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 35);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Sửa";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnUpdateClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnUpdateClient.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnUpdateClient.Location = new System.Drawing.Point(532, 14);
+            this.btnUpdateClient.Name = "btnUpdateClient";
+            this.btnUpdateClient.Size = new System.Drawing.Size(71, 35);
+            this.btnUpdateClient.TabIndex = 3;
+            this.btnUpdateClient.Text = "Sửa";
+            this.btnUpdateClient.UseVisualStyleBackColor = false;
+            this.btnUpdateClient.Click += new System.EventHandler(this.btnUpdateClient_Click);
             // 
-            // button2
+            // btnAddClient
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.Location = new System.Drawing.Point(430, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 35);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAddClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnAddClient.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAddClient.Location = new System.Drawing.Point(430, 14);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(69, 35);
+            this.btnAddClient.TabIndex = 3;
+            this.btnAddClient.Text = "Thêm";
+            this.btnAddClient.UseVisualStyleBackColor = false;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
             // 
             // textBox2
             // 
@@ -272,13 +275,14 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox5);
-            this.panel3.Controls.Add(this.textBox6);
-            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.btnRentFromClient);
+            this.panel3.Controls.Add(this.txtPhone);
+            this.panel3.Controls.Add(this.txtLicence);
+            this.panel3.Controls.Add(this.txtEmail);
+            this.panel3.Controls.Add(this.txtCmnd);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtName);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label1);
@@ -289,33 +293,33 @@
             this.panel3.Size = new System.Drawing.Size(314, 460);
             this.panel3.TabIndex = 13;
             // 
-            // textBox3
+            // txtPhone
             // 
-            this.textBox3.Location = new System.Drawing.Point(127, 264);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 13;
+            this.txtPhone.Location = new System.Drawing.Point(127, 264);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(120, 20);
+            this.txtPhone.TabIndex = 13;
             // 
-            // textBox5
+            // txtLicence
             // 
-            this.textBox5.Location = new System.Drawing.Point(127, 209);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(120, 20);
-            this.textBox5.TabIndex = 14;
+            this.txtLicence.Location = new System.Drawing.Point(127, 209);
+            this.txtLicence.Name = "txtLicence";
+            this.txtLicence.Size = new System.Drawing.Size(120, 20);
+            this.txtLicence.TabIndex = 14;
             // 
-            // textBox6
+            // txtEmail
             // 
-            this.textBox6.Location = new System.Drawing.Point(127, 325);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(120, 20);
-            this.textBox6.TabIndex = 15;
+            this.txtEmail.Location = new System.Drawing.Point(127, 325);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(120, 20);
+            this.txtEmail.TabIndex = 15;
             // 
-            // textBox4
+            // txtCmnd
             // 
-            this.textBox4.Location = new System.Drawing.Point(127, 151);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(120, 20);
-            this.textBox4.TabIndex = 16;
+            this.txtCmnd.Location = new System.Drawing.Point(127, 151);
+            this.txtCmnd.Name = "txtCmnd";
+            this.txtCmnd.Size = new System.Drawing.Size(120, 20);
+            this.txtCmnd.TabIndex = 16;
             // 
             // label8
             // 
@@ -337,12 +341,12 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Email";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtName.Location = new System.Drawing.Point(127, 97);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(120, 20);
+            this.txtName.TabIndex = 17;
             // 
             // label7
             // 
@@ -384,6 +388,18 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Thông Tin Khách Hàng";
             // 
+            // btnRentFromClient
+            // 
+            this.btnRentFromClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnRentFromClient.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnRentFromClient.Location = new System.Drawing.Point(159, 381);
+            this.btnRentFromClient.Name = "btnRentFromClient";
+            this.btnRentFromClient.Size = new System.Drawing.Size(88, 35);
+            this.btnRentFromClient.TabIndex = 18;
+            this.btnRentFromClient.Text = "Thuê Tiếp";
+            this.btnRentFromClient.UseVisualStyleBackColor = false;
+            this.btnRentFromClient.Click += new System.EventHandler(this.btnRentFromClient_Click);
+            // 
             // fClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,8 +432,8 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUpdateClient;
+        private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.TextBox textBox2;
         private FontAwesome.Sharp.IconButton btnFilter;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -427,16 +443,17 @@
         private System.Windows.Forms.DataGridView gvClients;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtLicence;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtCmnd;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRentFromClient;
     }
 }

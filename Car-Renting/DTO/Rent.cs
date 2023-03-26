@@ -22,9 +22,7 @@ namespace Car_Renting
         public int EstimatedCost { get; set; }
         public string CancellationReason { get; set; }
 
-        public Car Car { get; set; }
-        public Client Client { get; set; }
-
+      
         public Rent(int rentId, int carId, int clientId, DateTime dateStart, DateTime dateEnd, int dateDelayQuantity, string state, bool holdingCCCD, int deposit, int estimatedCost, string cancellationReason)
         {
             RentId=rentId;

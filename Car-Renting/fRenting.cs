@@ -12,54 +12,39 @@ namespace Car_Renting
 {
     public partial class fRenting : Form
     {
+        RentDAO rentsDAO = new RentDAO();
+
         private Rent rent; 
         private CarDAO cardao = new CarDAO();
-        RentDAO rentsDAO = new RentDAO();
-        private fNavigation currentForm;
+
         public fRenting()
         {
             InitializeComponent();
             ShowListRent();
-
         }
-      
-        public fRenting(fNavigation currentForm)
-        {
-            InitializeComponent();
-            this.currentForm = currentForm;
-            ShowListRent();
-        }
-        public fRenting(fNavigation currentForm,Rent rent)
-        {
-            InitializeComponent();
-            this.currentForm = currentForm;
-            this.rent = rent;
-            ShowListRent();
-        }
-        private void btnCancelRent_Click(object sender, EventArgs e)
-        {
-            fNavigation form = this.currentForm;
-
-            if (form != null)
-            {
-                form.OpenChildForm(new fRentCancel());
-                form.DisableButton();
-                form.leftBorderBtn.Visible = false; ;
-            }
-        }
+        
         private void ShowListRent()
         {
             this.gvRentList.DataSource = rentsDAO.GetAllDataTable();
         }
-        private void btnNavCarReturn_Click(object sender, EventArgs e)
+
+        private void btnCancelRent_Click(object sender, EventArgs e)
         {
-            fNavigation form = this.currentForm;
+            fNavigation form = fNavigation.getInstance();
 
             if (form != null)
             {
-                form.OpenChildForm(new fCarReturn(currentForm));
-                form.DisableButton();
-                form.leftBorderBtn.Visible = false; ;
+                form.OpenChildForm(new fRentCancel());
+            }
+        }
+
+        private void btnNavCarReturn_Click(object sender, EventArgs e)
+        {
+            fNavigation form = fNavigation.getInstance();
+
+            if (form != null)
+            {
+                form.OpenChildForm(new fCarReturn());
             }
         }
     }

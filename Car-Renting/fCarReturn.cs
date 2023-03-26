@@ -12,15 +12,10 @@ namespace Car_Renting
 {
     public partial class fCarReturn : Form
     {
-        private fNavigation currentForm;
+
         public fCarReturn()
         {
             InitializeComponent();
-        }
-        public fCarReturn(fNavigation currentform)
-        {
-            InitializeComponent();
-            this.currentForm = currentform;
         }
 
         private void btnDetailContact_Click(object sender, EventArgs e)
@@ -30,11 +25,10 @@ namespace Car_Renting
 
         private void btnNavCarReturn_Click(object sender, EventArgs e)
         {
-            fNavigation form = this.currentForm;
+            fNavigation form = fNavigation.getInstance();
             if (form != null)
             {
-                fSubmitCarReturn f = new fSubmitCarReturn(form);
-
+                fSubmitCarReturn f = new fSubmitCarReturn();
                 f.ShowDialog();
             }
         }

@@ -37,11 +37,11 @@
             this.txtNameCar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.txtBrand = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDetailBill = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbSumValue = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,13 +56,13 @@
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
-            this.gvCars = new System.Windows.Forms.DataGridView();
+            this.gvBills = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBills)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,10 +96,11 @@
             // 
             // ImageCar
             // 
-            this.ImageCar.Location = new System.Drawing.Point(26, 74);
+            this.ImageCar.Location = new System.Drawing.Point(60, 75);
             this.ImageCar.Margin = new System.Windows.Forms.Padding(2);
             this.ImageCar.Name = "ImageCar";
             this.ImageCar.Size = new System.Drawing.Size(183, 82);
+            this.ImageCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImageCar.TabIndex = 62;
             this.ImageCar.TabStop = false;
             // 
@@ -165,18 +166,18 @@
             this.label3.TabIndex = 53;
             this.label3.Text = "Tên Xe";
             // 
-            // label6
+            // label
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(174, 256);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
-            this.label6.TabIndex = 55;
-            this.label6.Text = "Số chỗ ngồi";
+            this.label.AutoSize = true;
+            this.label.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label.Location = new System.Drawing.Point(174, 256);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(53, 13);
+            this.label.TabIndex = 55;
+            this.label.Text = "Gía Thuê";
             // 
             // label7
             // 
@@ -212,16 +213,17 @@
             this.txtBrand.Size = new System.Drawing.Size(125, 20);
             this.txtBrand.TabIndex = 61;
             // 
-            // button3
+            // btnDetailBill
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button3.Location = new System.Drawing.Point(172, 25);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 35);
-            this.button3.TabIndex = 49;
-            this.button3.Text = "Xem";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnDetailBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnDetailBill.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnDetailBill.Location = new System.Drawing.Point(172, 25);
+            this.btnDetailBill.Name = "btnDetailBill";
+            this.btnDetailBill.Size = new System.Drawing.Size(71, 35);
+            this.btnDetailBill.TabIndex = 49;
+            this.btnDetailBill.Text = "Xem";
+            this.btnDetailBill.UseVisualStyleBackColor = false;
+            this.btnDetailBill.Click += new System.EventHandler(this.btnDetailBill_Click);
             // 
             // panel3
             // 
@@ -235,9 +237,9 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.txtBrand);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.btnDetailBill);
             this.panel3.Controls.Add(this.lbael);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(629, 0);
@@ -384,22 +386,23 @@
             this.txtTim.Size = new System.Drawing.Size(121, 20);
             this.txtTim.TabIndex = 1;
             // 
-            // gvCars
+            // gvBills
             // 
-            this.gvCars.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gvBills.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvCars.Location = new System.Drawing.Point(0, 76);
-            this.gvCars.Name = "gvCars";
-            this.gvCars.RowHeadersWidth = 51;
-            this.gvCars.Size = new System.Drawing.Size(623, 460);
-            this.gvCars.TabIndex = 4;
+            this.gvBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvBills.Location = new System.Drawing.Point(0, 76);
+            this.gvBills.Name = "gvBills";
+            this.gvBills.RowHeadersWidth = 51;
+            this.gvBills.Size = new System.Drawing.Size(623, 460);
+            this.gvBills.TabIndex = 4;
+            this.gvBills.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvBills_CellClick);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.gvCars);
+            this.panel2.Controls.Add(this.gvBills);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -424,7 +427,7 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBills)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -441,11 +444,11 @@
         private System.Windows.Forms.TextBox txtNameCar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label7;
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.TextBox txtBrand;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDetailBill;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbael;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -458,7 +461,7 @@
         private System.Windows.Forms.Button btSua;
         private System.Windows.Forms.Button btThem;
         private System.Windows.Forms.TextBox txtTim;
-        private System.Windows.Forms.DataGridView gvCars;
+        private System.Windows.Forms.DataGridView gvBills;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbSumValue;
         private System.Windows.Forms.Label label1;

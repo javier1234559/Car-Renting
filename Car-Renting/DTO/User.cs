@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace Car_Renting
 {
-     class User
+     public class User
     {
+        
         public int IdUser { get; set; }
         public string Name { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string Address { get; set; }
         public int TotalRevenue { get; set; }
 
-        public User() { }
+        public User() { }   
 
-        public User(int idUser, string name, int phone, string address, int totalRevenue)
+        public User(int idUser, string name, string phone, string address, int totalRevenue)
         {
             IdUser=idUser;
             Name=name;
@@ -24,5 +25,6 @@ namespace Car_Renting
             Address=address;
             TotalRevenue=totalRevenue;
         }
+
     }
 }
