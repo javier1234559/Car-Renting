@@ -51,12 +51,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.btTim = new FontAwesome.Sharp.IconButton();
+            this.comboxTieuChi = new System.Windows.Forms.ComboBox();
+            this.comboxLoaiXe = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTimXe = new System.Windows.Forms.TextBox();
             this.btnFilter = new FontAwesome.Sharp.IconButton();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -310,12 +310,12 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.iconButton1);
-            this.panel4.Controls.Add(this.iconButton2);
-            this.panel4.Controls.Add(this.comboBox3);
-            this.panel4.Controls.Add(this.comboBox4);
+            this.panel4.Controls.Add(this.btTim);
+            this.panel4.Controls.Add(this.comboxTieuChi);
+            this.panel4.Controls.Add(this.comboxLoaiXe);
             this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.button2);
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.txtTimXe);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
@@ -336,35 +336,38 @@
             this.iconButton1.TabIndex = 5;
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
-            // iconButton2
+            // btTim
             // 
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(154, 10);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(20, 20);
-            this.iconButton2.TabIndex = 5;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.btTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btTim.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btTim.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btTim.IconColor = System.Drawing.Color.Gainsboro;
+            this.btTim.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btTim.IconSize = 20;
+            this.btTim.Location = new System.Drawing.Point(154, 10);
+            this.btTim.Name = "btTim";
+            this.btTim.Size = new System.Drawing.Size(20, 20);
+            this.btTim.TabIndex = 5;
+            this.btTim.UseVisualStyleBackColor = true;
+            this.btTim.Click += new System.EventHandler(this.btTim_Click_1);
             // 
-            // comboBox3
+            // comboxTieuChi
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(116, 39);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(89, 21);
-            this.comboBox3.TabIndex = 4;
+            this.comboxTieuChi.FormattingEnabled = true;
+            this.comboxTieuChi.Location = new System.Drawing.Point(116, 39);
+            this.comboxTieuChi.Name = "comboxTieuChi";
+            this.comboxTieuChi.Size = new System.Drawing.Size(89, 21);
+            this.comboxTieuChi.TabIndex = 4;
+            this.comboxTieuChi.SelectedIndexChanged += new System.EventHandler(this.comboxTieuChi_SelectedIndexChanged);
             // 
-            // comboBox4
+            // comboxLoaiXe
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(11, 39);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(89, 21);
-            this.comboBox4.TabIndex = 4;
+            this.comboxLoaiXe.FormattingEnabled = true;
+            this.comboxLoaiXe.Location = new System.Drawing.Point(11, 39);
+            this.comboxLoaiXe.Name = "comboxLoaiXe";
+            this.comboxLoaiXe.Size = new System.Drawing.Size(89, 21);
+            this.comboxLoaiXe.TabIndex = 4;
+            this.comboxLoaiXe.SelectedIndexChanged += new System.EventHandler(this.comboxLoaiXe_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -388,12 +391,12 @@
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // txtTimXe
             // 
-            this.textBox2.Location = new System.Drawing.Point(11, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtTimXe.Location = new System.Drawing.Point(11, 10);
+            this.txtTimXe.Name = "txtTimXe";
+            this.txtTimXe.Size = new System.Drawing.Size(121, 20);
+            this.txtTimXe.TabIndex = 1;
             // 
             // btnFilter
             // 
@@ -493,11 +496,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private FontAwesome.Sharp.IconButton btTim;
+        private System.Windows.Forms.ComboBox comboxTieuChi;
+        private System.Windows.Forms.ComboBox comboxLoaiXe;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTimXe;
     }
 }
