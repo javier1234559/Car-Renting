@@ -12,7 +12,8 @@ namespace Car_Renting
     class DbConnection
     {
         private static DbConnection instance;
-        private static string connectionString = Properties.Settings.Default.connStr ;
+        //private static string connectionString = Properties.Settings.Default.connStr ;
+        private static string connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=QLThueXe;Integrated Security=True";
         private static SqlConnection conn = new SqlConnection(connectionString);
 
 
