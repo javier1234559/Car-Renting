@@ -25,6 +25,7 @@ namespace Car_Renting
         {
             this.gvCars.DataSource = carDao.GetAllDataTable();
         }
+
         private void SearchProducts(string searchKeyword)
         {
             DataTable table = new DataTable();
@@ -35,8 +36,6 @@ namespace Car_Renting
             this.gvCars.DataSource = result.CopyToDataTable();
 
         }
-
-        
 
         private void gvCars_CellClick(object sender, DataGridViewCellEventArgs e)
         {
