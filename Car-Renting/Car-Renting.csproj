@@ -58,6 +58,7 @@
     <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -88,6 +89,12 @@
     </Compile>
     <Compile Include="fBill.Designer.cs">
       <DependentUpon>fBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fDashboardUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fDashboardUser.Designer.cs">
+      <DependentUpon>fDashboardUser.cs</DependentUpon>
     </Compile>
     <Compile Include="fRentCancel.cs">
       <SubType>Form</SubType>
@@ -216,6 +223,9 @@
     <Compile Include="DTO\User.cs" />
     <EmbeddedResource Include="fBill.resx">
       <DependentUpon>fBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fDashboardUser.resx">
+      <DependentUpon>fDashboardUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fRentCancel.resx">
       <DependentUpon>fRentCancel.cs</DependentUpon>
