@@ -25,6 +25,12 @@ namespace Car_Renting
             Address=address;
             TotalRevenue=totalRevenue;
         }
-
+        public User( string name, string phone, string address, int totalRevenue)
+        {
+            Name=name;
+            Phone=phone;
+            Address=address;
+            TotalRevenue=totalRevenue;
+        }
     }
 }

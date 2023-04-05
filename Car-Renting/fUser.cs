@@ -25,9 +25,9 @@ namespace Car_Renting
         {
             InitializeComponent();
             loadData();
-            if (Session.currentuser != null)
+            if (Session.currentuserAtDashboard != null)
             {
-                this.user = Session.currentuser;
+                this.user = Session.currentuserAtDashboard;
                 fillDataUser();
             }
         }
@@ -85,7 +85,7 @@ namespace Car_Renting
 
         private void updateSession()
         {
-            Session.currentuser = this.user;
+            Session.currentuserAtDashboard = this.user;
         }
 
         private void gvUser_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -106,5 +106,6 @@ namespace Car_Renting
                   
             }
         }
+    
     }
 }

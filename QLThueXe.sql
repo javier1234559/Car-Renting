@@ -1,6 +1,14 @@
-﻿CREATE DATABASE [QLThueXe] 
-
-USE [QLThueXe]
+﻿-- Script Reset Database 
+USE master;
+GO
+IF EXISTS(SELECT * FROM sys.databases WHERE name = 'QLThueXe')
+BEGIN
+    ALTER DATABASE QLThueXe SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE QLThueXe;
+END
+CREATE DATABASE QLThueXe;
+GO
+USE QLThueXe;
 GO
 
 create table Users(
@@ -11,6 +19,7 @@ Address VARCHAR(255),
 TotalRevenue int,
 CONSTRAINT valid_phone CHECK (Phone LIKE '0%' AND ISNUMERIC(Phone) = 1),
 );
+
 
 Create table Account (
 AccID int primary key IDENTITY(1,1),
@@ -119,7 +128,9 @@ VALUES ('Tom Smith', '0123456789', '1234567890', 'tom.smith@example.com', '12345
 
 INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, HoldingCCCD, Deposit, EstimatedCost, CanceleReason)
 VALUES (1, 1, '2022-01-01 08:00:00', '2022-01-03 17:00:00', 0, 'Completed', 0, 100, 200, NULL),
-       (2, 2, '2022-02-15 10:00:00', '2022-02-17 18:00:00', 1, 'Waiting', 1, 150, 180, NULL);
+       (2, 2, '2022-02-15 10:00:00', '2022-02-17 18:00:00', 1, 'Waiting', 1, 150, 180, NULL),
+	   (1, 1, '2023-04-03 15:45:00', '2022-01-03 17:00:00', 0, 'Completed', 0, 100, 200, NULL),
+       (2, 2, '2023-04-04 15:45:00', '2022-02-17 18:00:00', 1, 'Waiting', 1, 150, 180, NULL);
 
 INSERT INTO Rating(RentId, CarId, RatingValue, FeedBack, ClientId) VALUES
 (1, 5, 4, 'Rất hài lòng với dịch vụ', 1),
@@ -127,10 +138,7 @@ INSERT INTO Rating(RentId, CarId, RatingValue, FeedBack, ClientId) VALUES
 
 INSERT INTO Bills(RentId, IdUser, TotalCost, CreateDate, CompensationName, Compensation, CompensationDescript) VALUES
 (1, 1, 150000, '2022-02-15 10:30:00', 'Hong Xe', 20000, 'Tien den bu hu hai'),
-(2, 2, 500000, '2022-03-01 15:45:00', 'Tra Tre Han', 100,'Tra tre han ');
+(2, 2, 500000, '2022-03-01 15:45:00', 'Tra Tre Han', 100,'Tra tre han '),
+(3, 1, 1000, '2023-04-03 15:45:00', 'Hong Xe', 20000, 'Tien den bu hu hai'),
+(4, 2, 900, '2023-04-04 15:45:00', null, null,null);
 
-
-SELECT * from Cars;
-
-ALTER TABLE Clients
-DROP CONSTRAINT valid_phone1;

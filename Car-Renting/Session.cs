@@ -18,6 +18,11 @@ namespace Car_Renting
 
         public static Bill currentBill { get; set; }
 
-        public static Account currentAccount { get; set;}
+        public static Account currentaccount { get; set;}
+
+        public static User currentuserAtDashboard { get; set; }
+
+        public static Account currentaccountAtDashboard { get; set; }
+
     }
 }

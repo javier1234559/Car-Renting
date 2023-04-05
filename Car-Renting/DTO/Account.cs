@@ -22,5 +22,11 @@ namespace Car_Renting
             Password=password;
             IdUser=idUser;
         }
+        public Account(string email, string password, int idUser)
+        {
+            Email=email;
+            Password=password;
+            IdUser=idUser;
+        }
     }
 }

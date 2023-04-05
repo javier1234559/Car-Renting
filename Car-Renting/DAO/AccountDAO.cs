@@ -40,22 +40,64 @@ namespace Account_Renting
             return null;
         }
 
+        public Account GetByEmailAndPass(string email , string pass)
+        {
+            string query = $"SELECT * FROM Account WHERE Email = '{email}' and Password = '{pass}';";
+            DataTable dt = DbConnection.Instance.getData(query);
+            DataRow[] result = dt.Select($"Email = '{email}'");
+            if (result.Length > 0)
+            {
+                DataRow row = result[0];
+                Account Account = new Account
+                {
+                    AccID = (int)row["AccID"],
+                    Email = row["Email"].ToString(),
+                    Password = row["Password"].ToString(),
+                    IdUser = (int)row["IdUser"]
+                };
+                return Account;
+            }
+            return null;
+        }
+
         public int Insert(Account entity)
         {
-            string sqlStr = "";
-            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
+            string sqlStr = "INSERT INTO Account (Email, Password, IdUser) VALUES (@Email, @Password, @IdUser); SELECT SCOPE_IDENTITY()";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@Email", entity.Email);
+            parameters.Add("@Password", entity.Password);
+            parameters.Add("@IdUser", entity.IdUser);
+
+            int newId = (int)DbConnection.Instance.executeInsertQuery(sqlStr, parameters);
+
+            return newId;
         }
 
         public int Delete(Account entity)
         {
-            string sqlStr = string.Format("delete from Accounts where AccountId = '{0}'", entity.AccID);
-            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
+            string sqlStr = "DELETE FROM Account WHERE AccID = @AccID";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@AccID", entity.AccID);
+
+            int rowsAffected = DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
+
+            return rowsAffected;
         }
 
         public int Update(Account entity)
         {
-            string sqlStr = "";
-            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
+            string sqlStr = "UPDATE Account SET Email = @Email, Password = @Password WHERE AccID = @AccID";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@AccID", entity.AccID);
+            parameters.Add("@Email", entity.Email);
+            parameters.Add("@Password", entity.Password);
+
+            int rowsAffected = DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
+
+            return rowsAffected;
         }
 
     }

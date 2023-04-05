@@ -90,7 +90,11 @@ namespace Car_Renting
                 }
 
                 conn.Open();
-                result = command.ExecuteNonQuery();
+                object insertedId = command.ExecuteScalar();
+                if (insertedId != null)
+                {
+                    result = Convert.ToInt32(insertedId);
+                }
                 conn.Close();
             }
 

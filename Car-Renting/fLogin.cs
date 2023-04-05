@@ -14,6 +14,8 @@ namespace Car_Renting
     public partial class fLogin : Form
     {
         AccountDAO accountdao = new AccountDAO();
+        Account account;
+
         public fLogin()
         {
             InitializeComponent();
@@ -24,23 +26,22 @@ namespace Car_Renting
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string login = txtLogin.Text.Trim();
+            string email = txtLogin.Text.Trim();
             string pass = txtPassword.Text.Trim();
-            if (login == "" || pass == "")
+            if (email == "" || pass == "")
             {
                 MessageBox.Show("Vui lòng nhập thông tin");
                 return;
             }
 
-            string query = $"SELECT * FROM Account WHERE Email = '{login}' and Password = '{pass}';";
-            DataTable dt = DbConnection.Instance.getData(query);
-
-            if (dt.Rows.Count > 0)
+            Account temp = accountdao.GetByEmailAndPass(email, pass);
+            if (temp != null)
             {
+                this.account = temp;
+                Session.currentaccount= this.account;
                 fNavigation f = fNavigation.getInstance();
                 this.Hide();
                 f.ShowDialog();
-                //this.Show();
             }
             else
             {

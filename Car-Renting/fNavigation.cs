@@ -107,7 +107,9 @@ namespace Car_Renting
         private void btnNavAccount_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new fUser());
+            //OpenChildForm(new fDashboardUser());
+            fDashboardUser f = new fDashboardUser();
+            f.ShowDialog();
         }
 
         private void btnNavCanceled_Click(object sender, EventArgs e)
