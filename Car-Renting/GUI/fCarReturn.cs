@@ -32,5 +32,10 @@ namespace Car_Renting
                 f.ShowDialog();
             }
         }
+
+        private void fCarReturn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

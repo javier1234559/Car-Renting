@@ -47,7 +47,6 @@
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbWelcome = new System.Windows.Forms.Label();
-            this.rentsScreen1 = new Car_Renting.UserControls.RentsScreen();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogo)).BeginInit();
@@ -231,7 +230,6 @@
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
             this.panelDesktop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelDesktop.Controls.Add(this.lbWelcome);
-            this.panelDesktop.Controls.Add(this.rentsScreen1);
             this.panelDesktop.Location = new System.Drawing.Point(155, 59);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(959, 482);
@@ -379,12 +377,8 @@
             this.lbWelcome.Text = "Wellcome to Car Rental";
             this.lbWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // rentsScreen1
             // 
-            this.rentsScreen1.Location = new System.Drawing.Point(-1, 62);
-            this.rentsScreen1.Name = "rentsScreen1";
-            this.rentsScreen1.Size = new System.Drawing.Size(0, 0);
-            this.rentsScreen1.TabIndex = 0;
+        
             // 
             // fNavigation
             // 
@@ -413,7 +407,6 @@
 
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLogo;
-        private UserControls.RentsScreen rentsScreen1;
         public System.Windows.Forms.Panel panelDesktop;
         private FontAwesome.Sharp.IconButton btnNavCar;
         private FontAwesome.Sharp.IconButton btnNavAccount;

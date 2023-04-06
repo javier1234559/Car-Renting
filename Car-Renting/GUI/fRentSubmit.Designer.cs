@@ -313,6 +313,7 @@
             this.btnPrint.TabIndex = 25;
             this.btnPrint.Text = "In";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // label1
             // 

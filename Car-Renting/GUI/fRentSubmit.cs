@@ -1,8 +1,8 @@
-﻿using Car_Renting.UserControls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -95,6 +95,30 @@ namespace Car_Renting
             {
                 this.Close();
                 form.OpenChildForm(new fRenting());
+            }
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
+            dialog.Title = "Car_Rental_Contact";
+            dialog.FileName = "Car_Rental_Contact.pdf";
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string filePath = dialog.FileName;
+                PDFGenerate savepdf = PDFGenerate.getInstance();
+                savepdf.GeneratePDFRent(filePath, this.rent, this.car, this.client, Session.currentuser);
+
+                MessageBox.Show($"Xuat file PDF thanh cong tai : {filePath}");
+
+                Process process = new Process();
+                process.StartInfo.FileName = filePath;
+                process.Start();
+
+                if (!process.WaitForExit(5000)) process.Kill();
             }
 
         }
