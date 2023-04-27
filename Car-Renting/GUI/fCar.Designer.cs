@@ -54,8 +54,8 @@
             this.btTim = new FontAwesome.Sharp.IconButton();
             this.comboxTieuChi = new System.Windows.Forms.ComboBox();
             this.comboxLoaiXe = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.txtTimXe = new System.Windows.Forms.TextBox();
             this.btnFilter = new FontAwesome.Sharp.IconButton();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
@@ -78,6 +78,7 @@
             this.ImageCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImageCar.TabIndex = 7;
             this.ImageCar.TabStop = false;
+            this.ImageCar.Click += new System.EventHandler(this.ImageCar_Click);
             // 
             // btnRentFromCars
             // 
@@ -313,8 +314,8 @@
             this.panel4.Controls.Add(this.btTim);
             this.panel4.Controls.Add(this.comboxTieuChi);
             this.panel4.Controls.Add(this.comboxLoaiXe);
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.btnUpdate);
+            this.panel4.Controls.Add(this.btnAdd);
             this.panel4.Controls.Add(this.txtTimXe);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -369,27 +370,29 @@
             this.comboxLoaiXe.TabIndex = 4;
             this.comboxLoaiXe.SelectedIndexChanged += new System.EventHandler(this.comboxLoaiXe_SelectedIndexChanged);
             // 
-            // button1
+            // btnUpdate
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.Location = new System.Drawing.Point(532, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 35);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Sửa";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnUpdate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnUpdate.Location = new System.Drawing.Point(532, 14);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(71, 35);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // button2
+            // btnAdd
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.Location = new System.Drawing.Point(430, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 35);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnAdd.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAdd.Location = new System.Drawing.Point(430, 14);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(69, 35);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtTimXe
             // 
@@ -499,8 +502,8 @@
         private FontAwesome.Sharp.IconButton btTim;
         private System.Windows.Forms.ComboBox comboxTieuChi;
         private System.Windows.Forms.ComboBox comboxLoaiXe;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtTimXe;
     }
 }

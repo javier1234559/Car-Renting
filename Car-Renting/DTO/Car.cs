@@ -30,5 +30,20 @@ namespace Car_Renting
             Description=description;
             ImageCar=imageCar;
         }
+
+        public Car( string carName, string categoryName, string brand, int seats, int pricePerDay, string description, string imageCar)
+        {
+            CarName=carName;
+            CategoryName=categoryName;
+            Brand=brand;
+            Seats=seats;
+            PricePerDay=pricePerDay;
+            Description=description;
+            ImageCar=imageCar;
+        }
+
+
+
+
     }
 }

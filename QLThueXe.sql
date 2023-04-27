@@ -115,11 +115,11 @@ INSERT INTO Account (Email, Password, IdUser) VALUES
 --  (3, 'Full-size');
 
 INSERT INTO Cars (CarName, CategoryName, Brand, Seats, PricePerDay, Description, ImageCar)
-VALUES ('Toyota Camry', 'Sedan', 'Toyota', 5, 50, 'A reliable and comfortable sedan', N'ImageCar\ToyotaYaris.png'),
-       ('Honda Civic', 'Sedan', 'Honda', 5, 45, 'A sporty and efficient sedan',  N'ImageCar\HondaCivic.png'),
-       ('Toyota Camry', 'Truck', 'Toyota', 3, 75, 'A rugged and powerful pickup truck', N'ImageCar\ToyotaCamry.png'),
-	   ('Ford Fusion', 'Truck', 'Ford', 3, 75, 'A rugged and powerful pickup truck', N'ImageCar\FordFusion.png'),
-	   ('Chevrolet Impala', 'Truck', 'Chevrolet', 3, 75, 'A rugged and powerful pickup truck',N'ImageCar\ChevroletImpala.png');
+VALUES ('Toyota Camry', 'Sedan', 'Toyota', 5, 50, 'A reliable and comfortable sedan', N'ToyotaYaris.png'),
+       ('Honda Civic', 'Sedan', 'Honda', 5, 45, 'A sporty and efficient sedan',  N'HondaCivic.png'),
+       ('Toyota Camry', 'Truck', 'Toyota', 3, 75, 'A rugged and powerful pickup truck', N'ToyotaCamry.png'),
+	   ('Ford Fusion', 'Truck', 'Ford', 3, 75, 'A rugged and powerful pickup truck', N'FordFusion.png'),
+	   ('Chevrolet Impala', 'Truck', 'Chevrolet', 3, 75, 'A rugged and powerful pickup truck',N'ChevroletImpala.png');
 
 INSERT INTO Clients (Name, Phone, CCCD, Email, License)
 VALUES ('Tom Smith', '0123456789', '1234567890', 'tom.smith@example.com', '1234567890'),

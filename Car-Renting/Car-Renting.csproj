@@ -253,6 +253,7 @@
     <Compile Include="GUI\fRating.Designer.cs">
       <DependentUpon>fRating.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilites\Upload.cs" />
     <Compile Include="Utilites\PDFGenerate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

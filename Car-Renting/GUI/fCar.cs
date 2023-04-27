@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Car_Renting
 {
@@ -18,10 +21,10 @@ namespace Car_Renting
         public fCar()
         {
             InitializeComponent();
-            loadDataCar();
+            LoadData();
         }
 
-        private void loadDataCar()
+        private void LoadData()
         {
             this.gvCars.DataSource = carDao.GetAllDataTable();
         }
@@ -53,9 +56,12 @@ namespace Car_Renting
                 txtPricePerDay.Text = row.Cells["PricePerDay"].Value.ToString();
                 txtSeat.Text = row.Cells["Seats"].Value.ToString();
                 txtDescription.Text = row.Cells["Description"].Value.ToString();
-                string imagePath = gvCars.CurrentRow.Cells["ImageCar"].Value.ToString();
-                Image image = Image.FromFile(imagePath);
-                ImageCar.Image = image;
+                string nameImage = gvCars.CurrentRow.Cells["ImageCar"].Value.ToString();
+                string imagePath = Upload.GetFullImgPath(nameImage);
+                if (File.Exists(imagePath))
+                {
+                    ImageCar.ImageLocation = imagePath;
+                }
             }
         }
 
@@ -135,6 +141,45 @@ namespace Car_Renting
             {
 
             }
+        }
+
+        private void ImageCar_Click(object sender, EventArgs e)
+        {
+            Upload.SaveImageToResources(this.ImageCar);
+        }
+
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            string name = txtNameCar.Text;
+            string category = txtCategory.Text;
+            string brand = txtBrand.Text;
+            int priceperday = Int32.Parse(txtPricePerDay.Text);
+            int seat = Int32.Parse(txtSeat.Text);
+            string descript = txtDescription.Text;
+            string imagecar = Upload.GetImageName(ImageCar.ImageLocation);
+            Car tempCarToGetId = carDao.GetByImageName(imagecar);
+            int idCar = tempCarToGetId.CarId;
+            Car updateCar = new Car(idCar,name, category, brand, seat, priceperday, descript, imagecar);
+            carDao.Update(updateCar);
+            MessageBox.Show("Update Car thanh cong !");
+            LoadData();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string name = txtNameCar.Text;
+            string category = txtCategory.Text;
+            string brand = txtBrand.Text;
+            int priceperday = Int32.Parse(txtPricePerDay.Text);
+            int seat = Int32.Parse(txtSeat.Text);
+            string descript = txtDescription.Text;
+            string imagecar = Upload.GetImageName(ImageCar.ImageLocation);
+            Car newCar = new Car(name,category,brand,seat,priceperday,descript,imagecar);
+            carDao.Insert(newCar);
+            MessageBox.Show("Insert Car thanh cong !");
+            LoadData();
         }
     }
 }
