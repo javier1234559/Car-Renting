@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Car_Renting
 {
@@ -82,8 +84,11 @@ namespace Car_Renting
                 txtBrand.Text = car.Brand;
                 txtCategory.Text = car.CategoryName;
                 txtPricePerDay.Text = car.PricePerDay.ToString();
-                Image image = Image.FromFile(car.ImageCar);
-                ImageCar.Image = image;
+                string imagePath = Upload.GetFullImgPath(car.ImageCar);
+                if (File.Exists(imagePath))
+                {
+                    ImageCar.ImageLocation = imagePath;
+                }
             }
         }
 

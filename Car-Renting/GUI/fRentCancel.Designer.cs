@@ -31,27 +31,27 @@
             this.btnNavCarReturn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lbael = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnFilter = new FontAwesome.Sharp.IconButton();
+            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.gvCars = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbael = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.btnFilter = new FontAwesome.Sharp.IconButton();
-            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -67,7 +67,7 @@
             this.btnNavCarReturn.Name = "btnNavCarReturn";
             this.btnNavCarReturn.Size = new System.Drawing.Size(124, 35);
             this.btnNavCarReturn.TabIndex = 63;
-            this.btnNavCarReturn.Text = "Xác Nhận";
+            this.btnNavCarReturn.Text = "Submit";
             this.btnNavCarReturn.UseVisualStyleBackColor = false;
             // 
             // label1
@@ -80,11 +80,11 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(127, 21);
+            this.label1.Location = new System.Drawing.Point(162, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 20);
+            this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 50;
-            this.label1.Text = "Chưa Lấy Xe";
+            this.label1.Text = "Pedding";
             // 
             // panel3
             // 
@@ -102,15 +102,54 @@
             this.panel3.Size = new System.Drawing.Size(314, 460);
             this.panel3.TabIndex = 15;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(31, 194);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(234, 73);
+            this.textBox1.TabIndex = 65;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label14.Location = new System.Drawing.Point(28, 147);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(96, 13);
+            this.label14.TabIndex = 64;
+            this.label14.Text = "Cancel Description";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button3.Location = new System.Drawing.Point(166, 75);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(71, 35);
+            this.button3.TabIndex = 49;
+            this.button3.Text = "More";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // lbael
+            // 
+            this.lbael.AutoSize = true;
+            this.lbael.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbael.Location = new System.Drawing.Point(28, 86);
+            this.lbael.Name = "lbael";
+            this.lbael.Size = new System.Drawing.Size(74, 13);
+            this.lbael.TabIndex = 43;
+            this.lbael.Text = "Detail Contact";
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label20.Location = new System.Drawing.Point(17, 26);
+            this.label20.Location = new System.Drawing.Point(28, 26);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(87, 13);
+            this.label20.Size = new System.Drawing.Size(37, 13);
             this.label20.TabIndex = 39;
-            this.label20.Text = "Tình Trạng Thuê";
+            this.label20.Text = "Status";
             // 
             // comboBox1
             // 
@@ -153,6 +192,34 @@
             this.panel4.Size = new System.Drawing.Size(621, 70);
             this.panel4.TabIndex = 6;
             // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 20;
+            this.iconButton1.Location = new System.Drawing.Point(225, 39);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(20, 20);
+            this.iconButton1.TabIndex = 5;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 20;
+            this.iconButton2.Location = new System.Drawing.Point(154, 10);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(20, 20);
+            this.iconButton2.TabIndex = 5;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
@@ -175,6 +242,34 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(121, 20);
             this.textBox2.TabIndex = 1;
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilter.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnFilter.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.btnFilter.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnFilter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFilter.IconSize = 20;
+            this.btnFilter.Location = new System.Drawing.Point(225, 39);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(20, 20);
+            this.btnFilter.TabIndex = 5;
+            this.btnFilter.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearch.IconSize = 20;
+            this.btnSearch.Location = new System.Drawing.Point(154, 10);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(20, 20);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // comboBox2
             // 
@@ -234,101 +329,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(623, 460);
             this.panel2.TabIndex = 16;
-            // 
-            // lbael
-            // 
-            this.lbael.AutoSize = true;
-            this.lbael.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbael.Location = new System.Drawing.Point(28, 86);
-            this.lbael.Name = "lbael";
-            this.lbael.Size = new System.Drawing.Size(119, 13);
-            this.lbael.TabIndex = 43;
-            this.lbael.Text = "Chi tiết Hợp Đồng Thuê";
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button3.Location = new System.Drawing.Point(166, 75);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 35);
-            this.button3.TabIndex = 49;
-            this.button3.Text = "Xem";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(31, 194);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 73);
-            this.textBox1.TabIndex = 65;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label14.Location = new System.Drawing.Point(28, 147);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(91, 13);
-            this.label14.TabIndex = 64;
-            this.label14.Text = "Mô Tả Lý Do Hủy";
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(225, 39);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(20, 20);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(154, 10);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(20, 20);
-            this.iconButton2.TabIndex = 5;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFilter.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.btnFilter.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnFilter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFilter.IconSize = 20;
-            this.btnFilter.Location = new System.Drawing.Point(225, 39);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(20, 20);
-            this.btnFilter.TabIndex = 5;
-            this.btnFilter.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearch.IconSize = 20;
-            this.btnSearch.Location = new System.Drawing.Point(154, 10);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(20, 20);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // fRentCancel
             // 

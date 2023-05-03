@@ -47,6 +47,7 @@
             this.gvClients = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnRentFromClient = new System.Windows.Forms.Button();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtLicence = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRentFromClient = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvClients)).BeginInit();
@@ -161,7 +161,7 @@
             this.btnUpdateClient.Name = "btnUpdateClient";
             this.btnUpdateClient.Size = new System.Drawing.Size(71, 35);
             this.btnUpdateClient.TabIndex = 3;
-            this.btnUpdateClient.Text = "Sửa";
+            this.btnUpdateClient.Text = "Update";
             this.btnUpdateClient.UseVisualStyleBackColor = false;
             this.btnUpdateClient.Click += new System.EventHandler(this.btnUpdateClient_Click);
             // 
@@ -173,7 +173,7 @@
             this.btnAddClient.Name = "btnAddClient";
             this.btnAddClient.Size = new System.Drawing.Size(69, 35);
             this.btnAddClient.TabIndex = 3;
-            this.btnAddClient.Text = "Thêm";
+            this.btnAddClient.Text = "Add";
             this.btnAddClient.UseVisualStyleBackColor = false;
             this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
             // 
@@ -293,6 +293,18 @@
             this.panel3.Size = new System.Drawing.Size(314, 460);
             this.panel3.TabIndex = 13;
             // 
+            // btnRentFromClient
+            // 
+            this.btnRentFromClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnRentFromClient.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnRentFromClient.Location = new System.Drawing.Point(159, 381);
+            this.btnRentFromClient.Name = "btnRentFromClient";
+            this.btnRentFromClient.Size = new System.Drawing.Size(88, 35);
+            this.btnRentFromClient.TabIndex = 18;
+            this.btnRentFromClient.Text = "Continue Rent";
+            this.btnRentFromClient.UseVisualStyleBackColor = false;
+            this.btnRentFromClient.Click += new System.EventHandler(this.btnRentFromClient_Click);
+            // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(127, 264);
@@ -327,9 +339,9 @@
             this.label8.ForeColor = System.Drawing.Color.Gainsboro;
             this.label8.Location = new System.Drawing.Point(37, 216);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 13);
+            this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 7;
-            this.label8.Text = "Bằng Lái xe";
+            this.label8.Text = "License";
             // 
             // label9
             // 
@@ -354,9 +366,9 @@
             this.label7.ForeColor = System.Drawing.Color.Gainsboro;
             this.label7.Location = new System.Drawing.Point(35, 158);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.Size = new System.Drawing.Size(36, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Cmnd";
+            this.label7.Text = "CCCD";
             // 
             // label6
             // 
@@ -364,9 +376,9 @@
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
             this.label6.Location = new System.Drawing.Point(37, 267);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Số Điện Thoại";
+            this.label6.Text = "Number Phone";
             // 
             // label1
             // 
@@ -374,9 +386,9 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(35, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Tên";
+            this.label1.Text = "Name";
             // 
             // label2
             // 
@@ -384,21 +396,9 @@
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(102, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 13);
+            this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Thông Tin Khách Hàng";
-            // 
-            // btnRentFromClient
-            // 
-            this.btnRentFromClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.btnRentFromClient.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnRentFromClient.Location = new System.Drawing.Point(159, 381);
-            this.btnRentFromClient.Name = "btnRentFromClient";
-            this.btnRentFromClient.Size = new System.Drawing.Size(88, 35);
-            this.btnRentFromClient.TabIndex = 18;
-            this.btnRentFromClient.Text = "Thuê Tiếp";
-            this.btnRentFromClient.UseVisualStyleBackColor = false;
-            this.btnRentFromClient.Click += new System.EventHandler(this.btnRentFromClient_Click);
+            this.label2.Text = "Client Information";
             // 
             // fClient
             // 

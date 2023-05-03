@@ -17,7 +17,7 @@ namespace Car_Renting
         private static SqlConnection conn = new SqlConnection(connectionString);
 
 
-        public static DbConnection Instance {
+        public static DbConnection Instance {   
             get { 
                 if(instance == null)
                     instance = new DbConnection();

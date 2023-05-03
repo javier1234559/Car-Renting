@@ -14,16 +14,14 @@ namespace Car_Renting
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
         public string DescriptionRent { get; set; }
-
         public int DateDelayQuantity { get; set; }
         public string State { get; set; }
-        public bool HoldingCCCD { get; set; }
         public int Deposit { get; set; }
         public int EstimatedCost { get; set; }
         public string CancellationReason { get; set; }
 
       
-        public Rent(int rentId, int carId, int clientId, DateTime dateStart, DateTime dateEnd, int dateDelayQuantity, string state, bool holdingCCCD, int deposit, int estimatedCost, string cancellationReason)
+        public Rent(int rentId, int carId, int clientId, DateTime dateStart, DateTime dateEnd, int dateDelayQuantity, string state,int deposit, int estimatedCost, string cancellationReason)
         {
             RentId=rentId;
             CarId=carId;
@@ -32,7 +30,6 @@ namespace Car_Renting
             DateEnd=dateEnd;
             DateDelayQuantity=dateDelayQuantity;
             State=state;
-            HoldingCCCD=holdingCCCD;
             Deposit=deposit;
             EstimatedCost=estimatedCost;
             CancellationReason=cancellationReason;

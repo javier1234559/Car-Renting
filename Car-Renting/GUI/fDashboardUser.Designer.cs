@@ -207,7 +207,7 @@
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(71, 35);
             this.btnDeleteUser.TabIndex = 3;
-            this.btnDeleteUser.Text = "Xóa";
+            this.btnDeleteUser.Text = "Delete";
             this.btnDeleteUser.UseVisualStyleBackColor = false;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
@@ -221,7 +221,7 @@
             this.btnUpdateUser.Name = "btnUpdateUser";
             this.btnUpdateUser.Size = new System.Drawing.Size(71, 35);
             this.btnUpdateUser.TabIndex = 3;
-            this.btnUpdateUser.Text = "Sửa";
+            this.btnUpdateUser.Text = "Update";
             this.btnUpdateUser.UseVisualStyleBackColor = false;
             this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
             // 
@@ -235,7 +235,7 @@
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(69, 35);
             this.btnAddUser.TabIndex = 3;
-            this.btnAddUser.Text = "Thêm";
+            this.btnAddUser.Text = "Add";
             this.btnAddUser.UseVisualStyleBackColor = false;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
@@ -351,9 +351,9 @@
             this.label18.ForeColor = System.Drawing.Color.Black;
             this.label18.Location = new System.Drawing.Point(39, 187);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(74, 13);
+            this.label18.Size = new System.Drawing.Size(75, 13);
             this.label18.TabIndex = 18;
-            this.label18.Text = "Số điện Thoại";
+            this.label18.Text = "NumberPhone";
             // 
             // label19
             // 
@@ -361,9 +361,9 @@
             this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(39, 124);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 13);
+            this.label19.Size = new System.Drawing.Size(45, 13);
             this.label19.TabIndex = 19;
-            this.label19.Text = "Địa Chỉ";
+            this.label19.Text = "Address";
             // 
             // label23
             // 
@@ -391,9 +391,9 @@
             this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Location = new System.Drawing.Point(39, 52);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(26, 13);
+            this.label20.Size = new System.Drawing.Size(35, 13);
             this.label20.TabIndex = 20;
-            this.label20.Text = "Tên";
+            this.label20.Text = "Name";
             // 
             // label21
             // 
@@ -401,9 +401,9 @@
             this.label21.ForeColor = System.Drawing.Color.Black;
             this.label21.Location = new System.Drawing.Point(138, 19);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(109, 13);
+            this.label21.Size = new System.Drawing.Size(84, 13);
             this.label21.TabIndex = 21;
-            this.label21.Text = "Thông Tin Nhân Viên";
+            this.label21.Text = "User Information";
             // 
             // tableLayoutPanel2
             // 
@@ -411,7 +411,7 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 402F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 403F));
             this.tableLayoutPanel2.Controls.Add(this.chartSpline, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.chartDoughnut, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -450,7 +450,7 @@
             series1.Name = "Doanh So Thang";
             series1.YValuesPerPoint = 2;
             this.chartSpline.Series.Add(series1);
-            this.chartSpline.Size = new System.Drawing.Size(694, 240);
+            this.chartSpline.Size = new System.Drawing.Size(693, 240);
             this.chartSpline.TabIndex = 0;
             this.chartSpline.Text = "chart1";
             // 
@@ -471,7 +471,7 @@
             legend2.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
             legend2.TitleAlignment = System.Drawing.StringAlignment.Near;
             this.chartDoughnut.Legends.Add(legend2);
-            this.chartDoughnut.Location = new System.Drawing.Point(706, 1);
+            this.chartDoughnut.Location = new System.Drawing.Point(705, 1);
             this.chartDoughnut.Margin = new System.Windows.Forms.Padding(0);
             this.chartDoughnut.Name = "chartDoughnut";
             this.chartDoughnut.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -496,7 +496,7 @@
             series2.Name = "Series1";
             series2.SmartLabelStyle.Enabled = false;
             this.chartDoughnut.Series.Add(series2);
-            this.chartDoughnut.Size = new System.Drawing.Size(402, 250);
+            this.chartDoughnut.Size = new System.Drawing.Size(403, 250);
             this.chartDoughnut.TabIndex = 1;
             this.chartDoughnut.Text = "chart2";
             // 

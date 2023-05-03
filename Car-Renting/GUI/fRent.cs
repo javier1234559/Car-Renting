@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Car_Renting
 {
@@ -50,10 +52,14 @@ namespace Car_Renting
             txtSeat.Text = car.Seats.ToString();
             txtCategory.Text = car.CategoryName;
             txtBrand.Text = car.Brand;
-            txtPricePerDay.Text =  car.PricePerDay.ToString();
-            txtDescription.Text =  car.Description;
-            Image image = Image.FromFile(car.ImageCar);
-            ImageCar.Image = image;
+            txtPricePerDay.Text = car.PricePerDay.ToString();
+            txtDescription.Text = car.Description;
+            txtNumberPlate.Text = car.NumberPlate;
+            string imagePath = Upload.GetFullImgPath(car.ImageCar);
+            if (File.Exists(imagePath))
+            {
+                ImageCar.ImageLocation = imagePath;
+            }
         }
 
         private bool handleSaveClient()

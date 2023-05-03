@@ -34,6 +34,7 @@ namespace Car_Renting
                     Brand = row["Brand"].ToString(),
                     Seats = (int)row["Seats"],
                     PricePerDay = (int)row["PricePerDay"],
+                    NumberPlate = row["NumberPlate"].ToString(),
                     Description = row["Description"].ToString(),
                     ImageCar = row["ImageCar"].ToString()
                 };
@@ -59,6 +60,7 @@ namespace Car_Renting
                     Brand = row["Brand"].ToString(),
                     Seats = (int)row["Seats"],
                     PricePerDay = (int)row["PricePerDay"],
+                    NumberPlate = row["NumberPlate"].ToString(),
                     Description = row["Description"].ToString(),
                     ImageCar = row["ImageCar"].ToString()
                 };
@@ -71,7 +73,7 @@ namespace Car_Renting
 
         public int Insert(Car entity)
         {
-            string sqlStr = string.Format("INSERT INTO Cars (CarName, CategoryName, Brand, Seats, PricePerDay, Description, ImageCar) VALUES (@CarName, @CategoryName, @Brand, @Seats, @PricePerDay, @Description, @ImageCar); SELECT SCOPE_IDENTITY()");
+            string sqlStr = string.Format("INSERT INTO Cars (CarName, CategoryName, Brand, Seats, PricePerDay, NumberPlate, Description, ImageCar) VALUES (@CarName, @CategoryName, @Brand, @Seats, @PricePerDay, @NumberPlate, @Description, @ImageCar); SELECT SCOPE_IDENTITY()");
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@CarName", entity.CarName);
@@ -79,6 +81,7 @@ namespace Car_Renting
             parameters.Add("@Brand", entity.Brand);
             parameters.Add("@Seats", entity.Seats);
             parameters.Add("@PricePerDay", entity.PricePerDay);
+            parameters.Add("@NumberPlate", entity.NumberPlate);
             parameters.Add("@Description", entity.Description);
             parameters.Add("@ImageCar", entity.ImageCar);
 
@@ -86,6 +89,7 @@ namespace Car_Renting
 
             return newId;
         }
+
 
 
         public int Delete(Car entity)
@@ -96,20 +100,21 @@ namespace Car_Renting
 
         public int Update(Car entity)
         {
-            string sqlStr = "UPDATE Cars SET CarName = @CarName, CategoryName = @CategoryName, Brand = @Brand, Seats = @Seats, PricePerDay = @PricePerDay, Description = @Description, ImageCar = @ImageCar WHERE CarId = @CarId";
+            string sqlStr = "UPDATE Cars SET CarName = @CarName, CategoryName = @CategoryName, Brand = @Brand, Seats = @Seats, PricePerDay = @PricePerDay, NumberPlate = @NumberPlate, Description = @Description, ImageCar = @ImageCar WHERE CarId = @CarId";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@CarName", entity.CarName);
             parameters.Add("@CategoryName", entity.CategoryName);
             parameters.Add("@Brand", entity.Brand);
             parameters.Add("@Seats", entity.Seats);
             parameters.Add("@PricePerDay", entity.PricePerDay);
+            parameters.Add("@NumberPlate", entity.NumberPlate);
             parameters.Add("@Description", entity.Description);
             parameters.Add("@ImageCar", entity.ImageCar);
             parameters.Add("@CarId", entity.CarId);
 
             return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
-
         }
+
 
     }
 }

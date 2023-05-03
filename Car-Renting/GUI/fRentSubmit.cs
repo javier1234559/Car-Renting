@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Car_Renting
 {
@@ -38,8 +40,11 @@ namespace Car_Renting
         {
             //fill car
             txtNameCar.Text = this.car.CarName;
-            Image image = Image.FromFile(this.car.ImageCar);
-            ImageCar.Image = image;
+            string imagePath = Upload.GetFullImgPath(this.car.ImageCar);
+            if (File.Exists(imagePath))
+            {
+                ImageCar.ImageLocation = imagePath;
+            }
 
             //fill client
             txtClientName.Text = this.client.Name;

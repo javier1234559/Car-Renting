@@ -157,10 +157,10 @@
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\RentDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
-    <Compile Include="DTO\Account.cs" />
-    <Compile Include="DTO\Bill.cs" />
-    <Compile Include="DTO\Client.cs" />
-    <Compile Include="DTO\Car.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Bill.cs" />
+    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\Car.cs" />
     <Compile Include="DAO\CarDAO.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="GUI\fBill.cs">
@@ -257,15 +257,16 @@
     <Compile Include="Utilites\PDFGenerate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DTO\Rating.cs" />
-    <Compile Include="DTO\Rent.cs" />
+    <Compile Include="Model\Rating.cs" />
+    <Compile Include="Model\Rent.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilites\Session.cs" />
-    <Compile Include="DTO\User.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Utilites\UtilityControlHandler.cs" />
     <EmbeddedResource Include="GUI\fBill.resx">
       <DependentUpon>fBill.cs</DependentUpon>
     </EmbeddedResource>

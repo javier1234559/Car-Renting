@@ -38,6 +38,7 @@ CategoryName nvarchar(255),
 Brand nvarchar(255),
 Seats INT,
 PricePerDay int,
+NumberPlate nvarchar(10),
 Description nvarchar(500),
 ImageCar nvarchar(500)
 );
@@ -61,7 +62,6 @@ DateStart datetime,
 DateEnd datetime,
 DateDelayQuantity int ,
 State nvarchar(50),
-HoldingCCCD BIT ,
 DescriptionRent nvarchar(500),
 Deposit INT ,
 EstimatedCost INT ,
@@ -114,12 +114,12 @@ INSERT INTO Account (Email, Password, IdUser) VALUES
 --  (2, 'Mid-size'), them 4 (Motorcycle)
 --  (3, 'Full-size');
 
-INSERT INTO Cars (CarName, CategoryName, Brand, Seats, PricePerDay, Description, ImageCar)
-VALUES ('Toyota Camry', 'Sedan', 'Toyota', 5, 50, 'A reliable and comfortable sedan', N'ToyotaYaris.png'),
-       ('Honda Civic', 'Sedan', 'Honda', 5, 45, 'A sporty and efficient sedan',  N'HondaCivic.png'),
-       ('Toyota Camry', 'Truck', 'Toyota', 3, 75, 'A rugged and powerful pickup truck', N'ToyotaCamry.png'),
-	   ('Ford Fusion', 'Truck', 'Ford', 3, 75, 'A rugged and powerful pickup truck', N'FordFusion.png'),
-	   ('Chevrolet Impala', 'Truck', 'Chevrolet', 3, 75, 'A rugged and powerful pickup truck',N'ChevroletImpala.png');
+INSERT INTO Cars (CarName, CategoryName, Brand, Seats, PricePerDay, NumberPlate, Description, ImageCar)
+VALUES ('Toyota Camry', 'Sedan', 'Toyota', 5, 50, 'ABC123', 'A reliable and comfortable sedan', N'ToyotaYaris.png'),
+       ('Honda Civic', 'Sedan', 'Honda', 5, 45, 'DEF456', 'A sporty and efficient sedan',  N'HondaCivic.png'),
+       ('Toyota Camry', 'Truck', 'Toyota', 3, 75, 'GHI789', 'A rugged and powerful pickup truck', N'ToyotaCamry.png'),
+       ('Ford Fusion', 'Truck', 'Ford', 3, 75, 'JKL012', 'A rugged and powerful pickup truck', N'FordFusion.png'),
+       ('Chevrolet Impala', 'Truck', 'Chevrolet', 3, 75, 'MNO345', 'A rugged and powerful pickup truck', N'ChevroletImpala.png');
 
 INSERT INTO Clients (Name, Phone, CCCD, Email, License)
 VALUES ('Tom Smith', '0123456789', '1234567890', 'tom.smith@example.com', '1234567890'),
@@ -127,11 +127,11 @@ VALUES ('Tom Smith', '0123456789', '1234567890', 'tom.smith@example.com', '12345
        ('Jim Brown', '0765432198', '7654321987', 'jim.brown@example.com', '7654321987');
 
 
-INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, HoldingCCCD, Deposit, EstimatedCost, CanceleReason)
-VALUES (1, 1, '2022-01-01 08:00:00', '2022-01-03 17:00:00', 0, 'Completed', 0, 100, 200, NULL),
-       (2, 2, '2022-02-15 10:00:00', '2022-02-17 18:00:00', 1, 'Waiting', 1, 150, 180, NULL),
-	   (1, 1, '2023-04-03 15:45:00', '2022-01-03 17:00:00', 0, 'Completed', 0, 100, 200, NULL),
-       (2, 2, '2023-04-04 15:45:00', '2022-02-17 18:00:00', 1, 'Waiting', 1, 150, 180, NULL);
+INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, Deposit, EstimatedCost, CanceleReason)
+VALUES (1, 1, '2022-01-01 08:00:00', '2022-01-03 17:00:00', 0, 'Completed',  100, 200, NULL),
+       (2, 2, '2022-02-15 10:00:00', '2022-02-17 18:00:00', 1, 'Waiting',  150, 180, NULL),
+	   (1, 1, '2023-04-03 15:45:00', '2022-01-03 17:00:00', 0, 'Completed', 100, 200, NULL),
+       (2, 2, '2023-04-04 15:45:00', '2022-02-17 18:00:00', 1, 'Waiting',  150, 180, NULL);
 
 INSERT INTO Rating(RentId, CarId, RatingValue, FeedBack, ClientId) VALUES
 (1, 5, 4, 'Rất hài lòng với dịch vụ', 1),

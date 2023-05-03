@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using iText.Kernel.XMP.Impl;
 
 namespace Car_Renting
 {
     public partial class fCar : Form
     {
         private CarDAO carDao = new CarDAO();
-        private Car car ;
+        private Car car;
 
         public fCar()
         {
@@ -54,7 +55,8 @@ namespace Car_Renting
                 txtCategory.Text = row.Cells["CategoryName"].Value.ToString();
                 txtBrand.Text = row.Cells["Brand"].Value.ToString();
                 txtPricePerDay.Text = row.Cells["PricePerDay"].Value.ToString();
-                txtSeat.Text = row.Cells["Seats"].Value.ToString();
+                txtSeats.Text = row.Cells["Seats"].Value.ToString();
+                txtNumberPlate.Text = row.Cells["NumberPlate"].Value.ToString();
                 txtDescription.Text = row.Cells["Description"].Value.ToString();
                 string nameImage = gvCars.CurrentRow.Cells["ImageCar"].Value.ToString();
                 string imagePath = Upload.GetFullImgPath(nameImage);
@@ -67,7 +69,7 @@ namespace Car_Renting
 
         private void btnRentFromCars_Click(object sender, EventArgs e)
         {
-            if(car.CarId == 0 )
+            if (car.CarId == 0)
             {
                 MessageBox.Show("Vui long nhap thong tin xe");
                 return;
@@ -148,20 +150,20 @@ namespace Car_Renting
             Upload.SaveImageToResources(this.ImageCar);
         }
 
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
             string name = txtNameCar.Text;
             string category = txtCategory.Text;
             string brand = txtBrand.Text;
-            int priceperday = Int32.Parse(txtPricePerDay.Text);
-            int seat = Int32.Parse(txtSeat.Text);
+            int pricePerday = Int32.Parse(txtPricePerDay.Text);
+            int seat = Int32.Parse(txtSeats.Text);
+            string numberPlate = txtNumberPlate.Text;
             string descript = txtDescription.Text;
             string imagecar = Upload.GetImageName(ImageCar.ImageLocation);
             Car tempCarToGetId = carDao.GetByImageName(imagecar);
             int idCar = tempCarToGetId.CarId;
-            Car updateCar = new Car(idCar,name, category, brand, seat, priceperday, descript, imagecar);
+
+            Car updateCar = new Car(idCar, name, category, brand, seat, pricePerday,numberPlate, descript, imagecar);
             carDao.Update(updateCar);
             MessageBox.Show("Update Car thanh cong !");
             LoadData();
@@ -172,11 +174,12 @@ namespace Car_Renting
             string name = txtNameCar.Text;
             string category = txtCategory.Text;
             string brand = txtBrand.Text;
-            int priceperday = Int32.Parse(txtPricePerDay.Text);
-            int seat = Int32.Parse(txtSeat.Text);
+            int pricePerday = Int32.Parse(txtPricePerDay.Text);
+            int seat = Int32.Parse(txtSeats.Text);
+            string numberPlate = txtNumberPlate.Text;
             string descript = txtDescription.Text;
             string imagecar = Upload.GetImageName(ImageCar.ImageLocation);
-            Car newCar = new Car(name,category,brand,seat,priceperday,descript,imagecar);
+            Car newCar = new Car(name, category, brand, seat , pricePerday ,numberPlate, descript, imagecar);
             carDao.Insert(newCar);
             MessageBox.Show("Insert Car thanh cong !");
             LoadData();

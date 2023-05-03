@@ -37,9 +37,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtSeat = new System.Windows.Forms.TextBox();
+            this.txtSeats = new System.Windows.Forms.TextBox();
+            this.txtNumberPlate = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -88,7 +90,7 @@
             this.btnRentFromCars.Name = "btnRentFromCars";
             this.btnRentFromCars.Size = new System.Drawing.Size(80, 34);
             this.btnRentFromCars.TabIndex = 6;
-            this.btnRentFromCars.Text = "Thuê";
+            this.btnRentFromCars.Text = "Rent";
             this.btnRentFromCars.UseVisualStyleBackColor = false;
             this.btnRentFromCars.Click += new System.EventHandler(this.btnRentFromCars_Click);
             // 
@@ -151,29 +153,17 @@
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
             this.label3.Location = new System.Drawing.Point(11, 126);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Tên Xe";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(11, 307);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Miêu tả";
+            this.label3.Text = "Name Car";
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.ImageCar);
             this.panel3.Controls.Add(this.btnRentFromCars);
-            this.panel3.Controls.Add(this.txtSeat);
+            this.panel3.Controls.Add(this.txtSeats);
+            this.panel3.Controls.Add(this.txtNumberPlate);
             this.panel3.Controls.Add(this.txtPricePerDay);
             this.panel3.Controls.Add(this.txtDescription);
             this.panel3.Controls.Add(this.txtCategory);
@@ -181,8 +171,9 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.txtBrand);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -191,13 +182,47 @@
             this.panel3.Size = new System.Drawing.Size(314, 460);
             this.panel3.TabIndex = 11;
             // 
-            // txtSeat
+            // txtSeats
             // 
-            this.txtSeat.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.txtSeat.Location = new System.Drawing.Point(162, 209);
-            this.txtSeat.Name = "txtSeat";
-            this.txtSeat.Size = new System.Drawing.Size(125, 20);
-            this.txtSeat.TabIndex = 5;
+            this.txtSeats.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.txtSeats.Location = new System.Drawing.Point(162, 209);
+            this.txtSeats.Name = "txtSeats";
+            this.txtSeats.Size = new System.Drawing.Size(125, 20);
+            this.txtSeats.TabIndex = 5;
+            // 
+            // txtNumberPlate
+            // 
+            this.txtNumberPlate.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.txtNumberPlate.Location = new System.Drawing.Point(162, 258);
+            this.txtNumberPlate.Name = "txtNumberPlate";
+            this.txtNumberPlate.Size = new System.Drawing.Size(125, 20);
+            this.txtNumberPlate.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label7.Location = new System.Drawing.Point(159, 242);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Number Plate";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label6.Location = new System.Drawing.Point(11, 296);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Description";
             // 
             // label5
             // 
@@ -208,9 +233,9 @@
             this.label5.ForeColor = System.Drawing.Color.Gainsboro;
             this.label5.Location = new System.Drawing.Point(11, 242);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.Size = new System.Drawing.Size(66, 13);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Giá / Ngày";
+            this.label5.Text = "PricePerDay";
             // 
             // label2
             // 
@@ -221,9 +246,9 @@
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(159, 193);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Số chỗ ngồi";
+            this.label2.Text = "Seats";
             // 
             // label1
             // 
@@ -234,9 +259,9 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(11, 193);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Loại";
+            this.label1.Text = "Category";
             // 
             // comboBox1
             // 
@@ -378,7 +403,7 @@
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(71, 35);
             this.btnUpdate.TabIndex = 3;
-            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -390,7 +415,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(69, 35);
             this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Thêm";
+            this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -481,7 +506,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBrand;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
@@ -495,7 +519,7 @@
         private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.ComboBox comboBox2;
         private FontAwesome.Sharp.IconButton btnFilter;
-        private System.Windows.Forms.TextBox txtSeat;
+        private System.Windows.Forms.TextBox txtSeats;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private FontAwesome.Sharp.IconButton iconButton1;
@@ -505,5 +529,8 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtTimXe;
+        private System.Windows.Forms.TextBox txtNumberPlate;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
