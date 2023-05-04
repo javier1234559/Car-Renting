@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -43,28 +45,28 @@
             this.btThem = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.gvCars = new System.Windows.Forms.DataGridView();
+            this.gvCarReturn = new System.Windows.Forms.DataGridView();
             this.btnNavCarReturn = new System.Windows.Forms.Button();
             this.ImageCar = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDetailContact = new System.Windows.Forms.Button();
             this.lbael = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbNameCar = new System.Windows.Forms.Label();
+            this.lbCategory = new System.Windows.Forms.Label();
+            this.lbBrand = new System.Windows.Forms.Label();
+            this.lbNumbePlate = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCarReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -229,24 +231,37 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.gvCars);
+            this.panel2.Controls.Add(this.gvCarReturn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(623, 460);
             this.panel2.TabIndex = 16;
             // 
-            // gvCars
+            // gvCarReturn
             // 
-            this.gvCars.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gvCarReturn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvCars.Location = new System.Drawing.Point(0, 76);
-            this.gvCars.Name = "gvCars";
-            this.gvCars.RowHeadersWidth = 51;
-            this.gvCars.Size = new System.Drawing.Size(623, 460);
-            this.gvCars.TabIndex = 4;
+            this.gvCarReturn.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.gvCarReturn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvCarReturn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.gvCarReturn.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gvCarReturn.Location = new System.Drawing.Point(0, 76);
+            this.gvCarReturn.Name = "gvCarReturn";
+            this.gvCarReturn.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SteelBlue;
+            this.gvCarReturn.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.gvCarReturn.Size = new System.Drawing.Size(623, 460);
+            this.gvCarReturn.TabIndex = 4;
+            this.gvCarReturn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCarReturn_CellClick);
             // 
             // btnNavCarReturn
             // 
@@ -262,51 +277,13 @@
             // 
             // ImageCar
             // 
-            this.ImageCar.Location = new System.Drawing.Point(20, 180);
+            this.ImageCar.Location = new System.Drawing.Point(54, 180);
             this.ImageCar.Margin = new System.Windows.Forms.Padding(2);
             this.ImageCar.Name = "ImageCar";
             this.ImageCar.Size = new System.Drawing.Size(183, 82);
+            this.ImageCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImageCar.TabIndex = 62;
             this.ImageCar.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(168, 280);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 52;
-            this.label4.Text = "Brand";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(20, 280);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
-            this.label3.TabIndex = 53;
-            this.label3.Text = "Name Car";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(168, 347);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 13);
-            this.label6.TabIndex = 55;
-            this.label6.Text = "Number Plate";
             // 
             // label1
             // 
@@ -359,16 +336,16 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.btnNavCarReturn);
-            this.panel3.Controls.Add(this.ImageCar);
+            this.panel3.Controls.Add(this.lbNameCar);
+            this.panel3.Controls.Add(this.lbCategory);
+            this.panel3.Controls.Add(this.lbBrand);
+            this.panel3.Controls.Add(this.lbNumbePlate);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.btnNavCarReturn);
+            this.panel3.Controls.Add(this.ImageCar);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.btnDetailContact);
@@ -381,21 +358,108 @@
             this.panel3.Size = new System.Drawing.Size(314, 460);
             this.panel3.TabIndex = 15;
             // 
-            // label5
+            // lbNameCar
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbNameCar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(175, 373);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 20);
-            this.label5.TabIndex = 64;
-            this.label5.Text = "GD70-E00";
+            this.lbNameCar.AutoSize = true;
+            this.lbNameCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbNameCar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbNameCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNameCar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbNameCar.Location = new System.Drawing.Point(37, 313);
+            this.lbNameCar.Name = "lbNameCar";
+            this.lbNameCar.Size = new System.Drawing.Size(54, 20);
+            this.lbNameCar.TabIndex = 77;
+            this.lbNameCar.Text = "Camry";
+            // 
+            // lbCategory
+            // 
+            this.lbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbCategory.AutoSize = true;
+            this.lbCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbCategory.Location = new System.Drawing.Point(37, 380);
+            this.lbCategory.Name = "lbCategory";
+            this.lbCategory.Size = new System.Drawing.Size(48, 20);
+            this.lbCategory.TabIndex = 78;
+            this.lbCategory.Text = "Truck";
+            // 
+            // lbBrand
+            // 
+            this.lbBrand.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbBrand.AutoSize = true;
+            this.lbBrand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBrand.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbBrand.Location = new System.Drawing.Point(183, 313);
+            this.lbBrand.Name = "lbBrand";
+            this.lbBrand.Size = new System.Drawing.Size(44, 20);
+            this.lbBrand.TabIndex = 79;
+            this.lbBrand.Text = "John";
+            // 
+            // lbNumbePlate
+            // 
+            this.lbNumbePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNumbePlate.AutoSize = true;
+            this.lbNumbePlate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbNumbePlate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbNumbePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumbePlate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbNumbePlate.Location = new System.Drawing.Point(183, 380);
+            this.lbNumbePlate.Name = "lbNumbePlate";
+            this.lbNumbePlate.Size = new System.Drawing.Size(86, 20);
+            this.lbNumbePlate.TabIndex = 80;
+            this.lbNumbePlate.Text = "GD70-E00";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label4.Location = new System.Drawing.Point(176, 287);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 73;
+            this.label4.Text = "Client Name";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label3.Location = new System.Drawing.Point(28, 287);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 74;
+            this.label3.Text = "Name Car";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label6.Location = new System.Drawing.Point(176, 354);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 13);
+            this.label6.TabIndex = 75;
+            this.label6.Text = "Number Plate";
             // 
             // label7
             // 
@@ -404,10 +468,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label7.Location = new System.Drawing.Point(17, 347);
+            this.label7.Location = new System.Drawing.Point(25, 354);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
-            this.label7.TabIndex = 56;
+            this.label7.TabIndex = 76;
             this.label7.Text = "Category";
             // 
             // label2
@@ -436,54 +500,6 @@
             this.label17.TabIndex = 40;
             this.label17.Text = "Overtime";
             // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label8.Location = new System.Drawing.Point(175, 306);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 20);
-            this.label8.TabIndex = 64;
-            this.label8.Text = "Toyota";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(29, 306);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 20);
-            this.label9.TabIndex = 64;
-            this.label9.Text = "Camry";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label10.Location = new System.Drawing.Point(29, 373);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 20);
-            this.label10.TabIndex = 64;
-            this.label10.Text = "Car";
-            // 
             // fCarReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,7 +515,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCarReturn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -524,23 +540,23 @@
         private System.Windows.Forms.Button btThem;
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView gvCars;
+        private System.Windows.Forms.DataGridView gvCarReturn;
         private System.Windows.Forms.Button btnNavCarReturn;
         private System.Windows.Forms.PictureBox ImageCar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDetailContact;
         private System.Windows.Forms.Label lbael;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbNameCar;
+        private System.Windows.Forms.Label lbCategory;
+        private System.Windows.Forms.Label lbBrand;
+        private System.Windows.Forms.Label lbNumbePlate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

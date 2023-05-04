@@ -104,8 +104,9 @@ namespace Car_Renting
         {
             DateTime start = datepkbegin.Value;
             DateTime end = datepkend.Value;
+            int deposit = CalculateDeposit();
             string descriptionRent = txtdescriptionRent.Text;
-            this.rent  = new Rent(car.CarId, start, end, descriptionRent);
+            this.rent = new Rent(car.CarId, start, end, deposit, descriptionRent);
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -119,6 +120,50 @@ namespace Car_Renting
             saveDataToSession();
             fRentSubmit f = new fRentSubmit();
             f.Show();
+        }
+
+        private void datepkbegin_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime end = datepkend.Value;
+            if (datepkbegin.Value >= end.AddDays(-1))
+            {
+                datepkbegin.ValueChanged -= datepkbegin_ValueChanged;
+                MessageBox.Show("The start date must be at least 1 day earlier than the end date.", "Invalid date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                datepkbegin.Value = DateTime.Now;
+                datepkbegin.ValueChanged += datepkbegin_ValueChanged;
+            }
+            else
+            {
+                CalculateDeposit();
+            }
+        }
+
+        private void datepkend_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime start = datepkbegin.Value;
+            if (datepkend.Value <= start.AddDays(1))
+            {
+                datepkend.ValueChanged -= datepkend_ValueChanged;
+                MessageBox.Show("The end date must be at least 1 day later than the start date.", "Invalid date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                datepkend.Value = DateTime.Now;
+                datepkend.ValueChanged += datepkend_ValueChanged;
+            }
+            else
+            {
+                CalculateDeposit();
+            }
+        }
+
+
+        private int CalculateDeposit()
+        {
+            DateTime start = datepkbegin.Value;
+            DateTime end = datepkend.Value;
+            int pricePerDay = Int32.Parse(txtPricePerDay.Text);
+            int rentalDuration = (int)(end - start).TotalDays;
+            int deposit = (int)(pricePerDay * rentalDuration * 0.3); //30% of the total rental cost
+            txtDeposit.Text = $"{deposit}";
+            return deposit;
         }
     }
 }

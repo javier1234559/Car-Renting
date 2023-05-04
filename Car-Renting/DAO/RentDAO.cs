@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static iText.IO.Util.IntHashtable;
 
 namespace Car_Renting
 {
@@ -18,8 +19,31 @@ namespace Car_Renting
 
         public DataTable GetAllDataTable()
         {
-            string sqlStr = string.Format("select Rents.RentId,Cars.CarName,Clients.Name,DateStart,DateEnd,State,DateDelayQuantity,Deposit,EstimatedCost,CanceleReason,Cars.CategoryName as CategoryName from Rents, Cars, Clients where Rents.CarId = Cars.CarId and Rents.ClientId = Clients.ClientId ");
+            string sqlStr = string.Format("select Rents.RentId,Cars.CarName,Clients.Name,DateStart,DateEnd,State,DateDelayQuantity,Deposit,CanceleReason,Cars.CategoryName as CategoryName from Rents, Cars, Clients where Rents.CarId = Cars.CarId and Rents.ClientId = Clients.ClientId ");
             return DbConnection.Instance.getData(sqlStr);
+        }
+        public DataTable GetAllDataTableByState(string state)
+        {
+            string sqlStr = string.Format("SELECT Rents.RentId, Rents.State, Cars.ImageCar, Cars.CarName, Cars.NumberPlate, Clients.Name, DateStart, DateEnd, State, DateDelayQuantity, Deposit, CanceleReason, Cars.CategoryName AS CategoryName FROM Rents, Cars, Clients WHERE Rents.CarId = Cars.CarId AND Rents.ClientId = Clients.ClientId AND State = '{0}'", state);
+            return DbConnection.Instance.getData(sqlStr);
+        }
+
+        public DataTable GetAllDataTableTwoStates(string state1, string state2)
+        {
+            string sqlStr = string.Format("SELECT Rents.RentId, Rents.State , Cars.ImageCar, Cars.CarName, Cars.NumberPlate, Clients.Name, DateStart, DateEnd, State, DateDelayQuantity, Deposit, CanceleReason, Cars.CategoryName AS CategoryName FROM Rents, Cars, Clients WHERE Rents.CarId = Cars.CarId AND Rents.ClientId = Clients.ClientId AND State IN ('{0}', '{1}')", state1, state2);
+            return DbConnection.Instance.getData(sqlStr);
+        }
+
+
+        public void  ChangeState (int rentID, string state)
+        {
+            string sqlStr = $"UPDATE Rents SET State = @State WHERE RentId = @RentId";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@CarId", rentID);
+            parameters.Add("@State", state);
+
+            DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
         }
 
         public Rent GetById(int id)
@@ -38,7 +62,6 @@ namespace Car_Renting
                 DateTime DateEnd = (DateTime)row["dateEnd"];
                 String State = row["state"].ToString();
                 int tien_coc = (int)row["Deposit"];
-                int EstimatedCost = (int)row["EstimatedCost"];
                 string CancellationReason;
                 if (row["CanceleReason"] == null)
                 {
@@ -59,8 +82,7 @@ namespace Car_Renting
                     DateEnd,
                     date,
                     State,
-                    tien_coc,
-                    EstimatedCost, CancellationReason
+                    tien_coc, CancellationReason
                 );
                 return Rent;
             }
@@ -70,7 +92,7 @@ namespace Car_Renting
 
         public int Insert(Rent entity)
         {
-            string sqlStr = "INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, Deposit, EstimatedCost) VALUES (@CarId, @ClientId, @DateStart, @DateEnd, @DateDelayQuantity, @State, @Deposit, @EstimatedCost); SELECT SCOPE_IDENTITY();";
+            string sqlStr = "INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, Deposit) VALUES (@CarId, @ClientId, @DateStart, @DateEnd, @DateDelayQuantity, @State, @Deposit); SELECT SCOPE_IDENTITY();";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@CarId", entity.CarId);
@@ -80,7 +102,6 @@ namespace Car_Renting
             parameters.Add("@DateDelayQuantity", entity.DateDelayQuantity);
             parameters.Add("@State", entity.State);
             parameters.Add("@Deposit", entity.Deposit);
-            parameters.Add("@EstimatedCost", entity.EstimatedCost);
 
             int newId = (int)DbConnection.Instance.executeInsertQuery(sqlStr, parameters);
 
@@ -89,7 +110,7 @@ namespace Car_Renting
 
         public int Update(Rent entity)
         {
-            string sqlStr = "UPDATE Rents SET CarId = @CarId, ClientId = @ClientId, DateStart = @DateStart, DateEnd = @DateEnd, DateDelayQuantity = @DateDelayQuantity, State = @State, Deposit = @Deposit, EstimatedCost = @EstimatedCost WHERE RentId = @RentId";
+            string sqlStr = "UPDATE Rents SET CarId = @CarId, ClientId = @ClientId, DateStart = @DateStart, DateEnd = @DateEnd, DateDelayQuantity = @DateDelayQuantity, State = @State, Deposit = @Deposit WHERE RentId = @RentId";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@CarId", entity.CarId);
@@ -99,7 +120,6 @@ namespace Car_Renting
             parameters.Add("@DateDelayQuantity", entity.DateDelayQuantity);
             parameters.Add("@State", entity.State);
             parameters.Add("@Deposit", entity.Deposit);
-            parameters.Add("@EstimatedCost", entity.EstimatedCost);
             parameters.Add("@RentId", entity.RentId);
 
             return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);

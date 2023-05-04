@@ -419,7 +419,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "fBill";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fBill";
+            this.Text = "  ";
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

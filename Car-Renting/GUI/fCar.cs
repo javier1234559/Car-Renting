@@ -27,7 +27,7 @@ namespace Car_Renting
 
         private void LoadData()
         {
-            this.gvCars.DataSource = carDao.GetAllDataTable();
+            this.gvCars.DataSource = carDao.GetAllDataTableAvaiable();
         }
 
         private void SearchProducts(string searchKeyword)

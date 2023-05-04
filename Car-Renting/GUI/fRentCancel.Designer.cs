@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNavCarReturn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -50,12 +51,12 @@
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
-            this.gvCars = new System.Windows.Forms.DataGridView();
+            this.gvCarCancel = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCarCancel)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,9 +83,9 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(162, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.Size = new System.Drawing.Size(76, 20);
             this.label1.TabIndex = 50;
-            this.label1.Text = "Pedding";
+            this.label1.Text = "Canceled";
             // 
             // panel3
             // 
@@ -308,22 +309,33 @@
             this.txtTim.Size = new System.Drawing.Size(121, 20);
             this.txtTim.TabIndex = 1;
             // 
-            // gvCars
+            // gvCarCancel
             // 
-            this.gvCars.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gvCarCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvCars.Location = new System.Drawing.Point(0, 76);
-            this.gvCars.Name = "gvCars";
-            this.gvCars.RowHeadersWidth = 51;
-            this.gvCars.Size = new System.Drawing.Size(623, 460);
-            this.gvCars.TabIndex = 4;
+            this.gvCarCancel.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.gvCarCancel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvCarCancel.DefaultCellStyle = dataGridViewCellStyle1;
+            this.gvCarCancel.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gvCarCancel.Location = new System.Drawing.Point(0, 76);
+            this.gvCarCancel.Name = "gvCarCancel";
+            this.gvCarCancel.RowHeadersWidth = 51;
+            this.gvCarCancel.Size = new System.Drawing.Size(623, 460);
+            this.gvCarCancel.TabIndex = 4;
+            this.gvCarCancel.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCarCancel_CellClick);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.gvCars);
+            this.panel2.Controls.Add(this.gvCarCancel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -346,7 +358,7 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCarCancel)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -374,7 +386,7 @@
         private System.Windows.Forms.Button btSua;
         private System.Windows.Forms.Button btThem;
         private System.Windows.Forms.TextBox txtTim;
-        private System.Windows.Forms.DataGridView gvCars;
+        private System.Windows.Forms.DataGridView gvCarCancel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label14;

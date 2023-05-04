@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -35,7 +36,7 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnNavRent = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnFilter = new FontAwesome.Sharp.IconButton();
             this.btnSearch = new FontAwesome.Sharp.IconButton();
@@ -46,11 +47,19 @@
             this.gvRentList = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lbNameCar = new System.Windows.Forms.Label();
+            this.lbCategory = new System.Windows.Forms.Label();
+            this.lbBrand = new System.Windows.Forms.Label();
+            this.lbNumbePlate = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnNavCarReturn = new System.Windows.Forms.Button();
             this.ImageCar = new System.Windows.Forms.PictureBox();
             this.btnCancelRent = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbStatus = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.lbael = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -97,7 +106,7 @@
             this.panel4.Controls.Add(this.iconButton2);
             this.panel4.Controls.Add(this.comboBox3);
             this.panel4.Controls.Add(this.comboBox4);
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.btnNavRent);
             this.panel4.Controls.Add(this.textBox2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -149,16 +158,17 @@
             this.comboBox4.Size = new System.Drawing.Size(89, 21);
             this.comboBox4.TabIndex = 4;
             // 
-            // button2
+            // btnNavRent
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.Location = new System.Drawing.Point(430, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(69, 35);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnNavRent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnNavRent.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnNavRent.Location = new System.Drawing.Point(515, 19);
+            this.btnNavRent.Name = "btnNavRent";
+            this.btnNavRent.Size = new System.Drawing.Size(69, 35);
+            this.btnNavRent.TabIndex = 3;
+            this.btnNavRent.Text = "Add Rent";
+            this.btnNavRent.UseVisualStyleBackColor = false;
+            this.btnNavRent.Click += new System.EventHandler(this.btnNavRent_Click);
             // 
             // textBox2
             // 
@@ -237,13 +247,23 @@
             this.gvRentList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gvRentList.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+            this.gvRentList.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(125)))), ((int)(((byte)(1)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvRentList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gvRentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvRentList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gvRentList.Location = new System.Drawing.Point(0, 76);
             this.gvRentList.Name = "gvRentList";
             this.gvRentList.RowHeadersWidth = 51;
             this.gvRentList.Size = new System.Drawing.Size(623, 460);
             this.gvRentList.TabIndex = 4;
+            this.gvRentList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvRentList_CellClick);
             // 
             // panel2
             // 
@@ -258,11 +278,19 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.lbNameCar);
+            this.panel3.Controls.Add(this.lbCategory);
+            this.panel3.Controls.Add(this.lbBrand);
+            this.panel3.Controls.Add(this.lbNumbePlate);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.btnNavCarReturn);
             this.panel3.Controls.Add(this.ImageCar);
             this.panel3.Controls.Add(this.btnCancelRent);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.lbStatus);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.lbael);
             this.panel3.Controls.Add(this.label20);
@@ -273,6 +301,122 @@
             this.panel3.Size = new System.Drawing.Size(314, 460);
             this.panel3.TabIndex = 13;
             // 
+            // lbNameCar
+            // 
+            this.lbNameCar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNameCar.AutoSize = true;
+            this.lbNameCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbNameCar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbNameCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNameCar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbNameCar.Location = new System.Drawing.Point(26, 307);
+            this.lbNameCar.Name = "lbNameCar";
+            this.lbNameCar.Size = new System.Drawing.Size(54, 20);
+            this.lbNameCar.TabIndex = 69;
+            this.lbNameCar.Text = "Camry";
+            // 
+            // lbCategory
+            // 
+            this.lbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbCategory.AutoSize = true;
+            this.lbCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCategory.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbCategory.Location = new System.Drawing.Point(26, 374);
+            this.lbCategory.Name = "lbCategory";
+            this.lbCategory.Size = new System.Drawing.Size(48, 20);
+            this.lbCategory.TabIndex = 70;
+            this.lbCategory.Text = "Truck";
+            // 
+            // lbBrand
+            // 
+            this.lbBrand.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbBrand.AutoSize = true;
+            this.lbBrand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBrand.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbBrand.Location = new System.Drawing.Point(172, 307);
+            this.lbBrand.Name = "lbBrand";
+            this.lbBrand.Size = new System.Drawing.Size(44, 20);
+            this.lbBrand.TabIndex = 71;
+            this.lbBrand.Text = "John";
+            // 
+            // lbNumbePlate
+            // 
+            this.lbNumbePlate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNumbePlate.AutoSize = true;
+            this.lbNumbePlate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbNumbePlate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbNumbePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumbePlate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbNumbePlate.Location = new System.Drawing.Point(172, 374);
+            this.lbNumbePlate.Name = "lbNumbePlate";
+            this.lbNumbePlate.Size = new System.Drawing.Size(86, 20);
+            this.lbNumbePlate.TabIndex = 72;
+            this.lbNumbePlate.Text = "GD70-E00";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label4.Location = new System.Drawing.Point(165, 281);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Client Name";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label3.Location = new System.Drawing.Point(17, 281);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 66;
+            this.label3.Text = "Name Car";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label6.Location = new System.Drawing.Point(165, 348);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 13);
+            this.label6.TabIndex = 67;
+            this.label6.Text = "Number Plate";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label7.Location = new System.Drawing.Point(14, 348);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.TabIndex = 68;
+            this.label7.Text = "Category";
+            // 
             // btnNavCarReturn
             // 
             this.btnNavCarReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
@@ -281,16 +425,17 @@
             this.btnNavCarReturn.Name = "btnNavCarReturn";
             this.btnNavCarReturn.Size = new System.Drawing.Size(124, 35);
             this.btnNavCarReturn.TabIndex = 63;
-            this.btnNavCarReturn.Text = "Đến Trang Trả Xe";
+            this.btnNavCarReturn.Text = "Come To Car Return";
             this.btnNavCarReturn.UseVisualStyleBackColor = false;
             this.btnNavCarReturn.Click += new System.EventHandler(this.btnNavCarReturn_Click);
             // 
             // ImageCar
             // 
-            this.ImageCar.Location = new System.Drawing.Point(20, 180);
-            this.ImageCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ImageCar.Location = new System.Drawing.Point(54, 181);
+            this.ImageCar.Margin = new System.Windows.Forms.Padding(2);
             this.ImageCar.Name = "ImageCar";
             this.ImageCar.Size = new System.Drawing.Size(183, 82);
+            this.ImageCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImageCar.TabIndex = 62;
             this.ImageCar.TabStop = false;
             // 
@@ -322,21 +467,21 @@
             this.label2.TabIndex = 50;
             this.label2.Text = "00:00";
             // 
-            // label1
+            // lbStatus
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(162, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 20);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "Pedding";
+            this.lbStatus.AutoSize = true;
+            this.lbStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatus.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbStatus.Location = new System.Drawing.Point(162, 26);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(67, 20);
+            this.lbStatus.TabIndex = 50;
+            this.lbStatus.Text = "Pedding";
             // 
             // button3
             // 
@@ -387,7 +532,7 @@
             this.ClientSize = new System.Drawing.Size(943, 460);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.ForeColor = System.Drawing.Color.IndianRed;
+            this.ForeColor = System.Drawing.Color.Orange;
             this.Name = "fRenting";
             this.Text = "fRenting2";
             this.panel1.ResumeLayout(false);
@@ -413,7 +558,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnNavRent;
         private System.Windows.Forms.TextBox textBox2;
         private FontAwesome.Sharp.IconButton btnFilter;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -429,8 +574,16 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnCancelRent;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbStatus;
         private System.Windows.Forms.Button btnNavCarReturn;
         private System.Windows.Forms.PictureBox ImageCar;
+        private System.Windows.Forms.Label lbNameCar;
+        private System.Windows.Forms.Label lbCategory;
+        private System.Windows.Forms.Label lbBrand;
+        private System.Windows.Forms.Label lbNumbePlate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

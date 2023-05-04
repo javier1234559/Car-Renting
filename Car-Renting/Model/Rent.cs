@@ -17,11 +17,10 @@ namespace Car_Renting
         public int DateDelayQuantity { get; set; }
         public string State { get; set; }
         public int Deposit { get; set; }
-        public int EstimatedCost { get; set; }
         public string CancellationReason { get; set; }
 
       
-        public Rent(int rentId, int carId, int clientId, DateTime dateStart, DateTime dateEnd, int dateDelayQuantity, string state,int deposit, int estimatedCost, string cancellationReason)
+        public Rent(int rentId, int carId, int clientId, DateTime dateStart, DateTime dateEnd, int dateDelayQuantity, string state,int deposit, string cancellationReason)
         {
             RentId=rentId;
             CarId=carId;
@@ -31,18 +30,19 @@ namespace Car_Renting
             DateDelayQuantity=dateDelayQuantity;
             State=state;
             Deposit=deposit;
-            EstimatedCost=estimatedCost;
             CancellationReason=cancellationReason;
         }
 
         public Rent() { }
 
-        public Rent(int carId, DateTime dateStart, DateTime dateEnd, string descriptionRent)
+        public Rent(int carId, DateTime dateStart, DateTime dateEnd, int deposit , string descriptionRent)
         {
             CarId=carId;
             DateStart=dateStart;
             DateEnd=dateEnd;
+            Deposit=deposit;
             DescriptionRent=descriptionRent;
+
         }
     }
 }

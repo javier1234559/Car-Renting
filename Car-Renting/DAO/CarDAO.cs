@@ -17,6 +17,17 @@ namespace Car_Renting
 
             return DbConnection.Instance.getData(sql);
         }
+        public DataTable GetAllDataTableAvaiable()
+        {
+             string sql = @"SELECT * FROM Cars 
+                            WHERE CarId NOT IN (
+                              SELECT CarId FROM Rents WHERE State <> 'Available'
+                            )
+                            ";
+
+            return DbConnection.Instance.getData(sql);
+        }
+
 
         public Car GetById(int id)
         {
@@ -68,7 +79,6 @@ namespace Car_Renting
             }
             return null;
         }
-
 
 
         public int Insert(Car entity)

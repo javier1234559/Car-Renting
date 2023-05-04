@@ -50,7 +50,6 @@ Phone varchar(11) ,
 CCCD VARCHAR(30),
 Email nvarchar(320),
 License nvarchar(320),
-CONSTRAINT valid_phone1 CHECK (Phone LIKE '0%' AND ISNUMERIC(Phone) = 1),
 CONSTRAINT valid_email1 CHECK (Email LIKE '%@%.%'),
 );
 
@@ -60,11 +59,10 @@ CarId int ,
 ClientId int,
 DateStart datetime,
 DateEnd datetime,
-DateDelayQuantity int ,
-State nvarchar(50),
-DescriptionRent nvarchar(500),
-Deposit INT ,
-EstimatedCost INT ,
+DateDelayQuantity int NULL,
+State nvarchar(50) NOT NULL,
+DescriptionRent nvarchar(500) NULL,
+Deposit INT NOT NULL,
 CanceleReason nvarchar(500) NUll ,
 Foreign KEY (CarId) REFERENCES Cars(CarId),
 Foreign KEY (ClientId) REFERENCES Clients(ClientId),
@@ -123,15 +121,21 @@ VALUES ('Toyota Camry', 'Sedan', 'Toyota', 5, 50, 'ABC123', 'A reliable and comf
 
 INSERT INTO Clients (Name, Phone, CCCD, Email, License)
 VALUES ('Tom Smith', '0123456789', '1234567890', 'tom.smith@example.com', '1234567890'),
+		('MR Bean', '09098989967', '0909787867', 'tom.bean@example.com', '0909898978'),
        ('Mary Johnson', '0987654321', '0987654321', 'mary.johnson@example.com', '0987654321'),
+	    ('MR Johnson', '1212343454', '0987654821', 'johnson.johnson@example.com', '0987650001'),
        ('Jim Brown', '0765432198', '7654321987', 'jim.brown@example.com', '7654321987');
 
 
-INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, Deposit, EstimatedCost, CanceleReason)
-VALUES (1, 1, '2022-01-01 08:00:00', '2022-01-03 17:00:00', 0, 'Completed',  100, 200, NULL),
-       (2, 2, '2022-02-15 10:00:00', '2022-02-17 18:00:00', 1, 'Waiting',  150, 180, NULL),
-	   (1, 1, '2023-04-03 15:45:00', '2022-01-03 17:00:00', 0, 'Completed', 100, 200, NULL),
-       (2, 2, '2023-04-04 15:45:00', '2022-02-17 18:00:00', 1, 'Waiting',  150, 180, NULL);
+INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, Deposit, CanceleReason)
+VALUES (1, 1, '2023-05-01 10:00:00', '2023-05-05 17:00:00', 0, 'Pending',  100, NULL),
+       (2, 2, '2023-05-10 08:00:00', '2023-05-12 18:00:00', 1, 'Renting',  150, NULL),
+       (3, 3, '2023-05-15 09:00:00', '2023-05-20 17:00:00', 0, 'Available', 200, NULL),
+	   	(4, 5, '2023-05-10 08:00:00', '2023-05-12 18:00:00', 1, 'Waiting',  150, NULL),
+       (5, 4, '2023-05-25 10:00:00', '2023-05-27 18:00:00', 0, 'Canceled',  250, 'Change of plans');
+
+
+
 
 INSERT INTO Rating(RentId, CarId, RatingValue, FeedBack, ClientId) VALUES
 (1, 5, 4, 'Rất hài lòng với dịch vụ', 1),

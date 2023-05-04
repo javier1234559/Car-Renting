@@ -49,8 +49,11 @@ namespace Car_Renting
             txtBrand.Text = car.Brand;
             txtCategory.Text = car.CategoryName;
             txtPricePerDay.Text = car.PricePerDay.ToString();
-            Image image = Image.FromFile(car.ImageCar);
-            ImageCar.Image = image;
+            string imagePath = Upload.GetFullImgPath(car.ImageCar);
+            if (File.Exists(imagePath))
+            {
+                ImageCar.ImageLocation = imagePath;
+            }
         }
 
         private void fillmodalBill(int id)

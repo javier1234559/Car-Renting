@@ -33,10 +33,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtDeposit = new System.Windows.Forms.TextBox();
             this.txtCMND = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.lbDeposit = new System.Windows.Forms.Label();
             this.txtClientName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,7 +52,7 @@
             this.tbnExit = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbSumValue = new System.Windows.Forms.Label();
+            this.lbDeposit = new System.Windows.Forms.Label();
             this.ImageCar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).BeginInit();
@@ -67,10 +65,8 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtPhone);
             this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtDeposit);
             this.panel1.Controls.Add(this.txtCMND);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.lbDeposit);
             this.panel1.Controls.Add(this.txtClientName);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label8);
@@ -111,13 +107,6 @@
             this.txtEmail.Size = new System.Drawing.Size(120, 20);
             this.txtEmail.TabIndex = 2;
             // 
-            // txtDeposit
-            // 
-            this.txtDeposit.Location = new System.Drawing.Point(418, 99);
-            this.txtDeposit.Name = "txtDeposit";
-            this.txtDeposit.Size = new System.Drawing.Size(120, 20);
-            this.txtDeposit.TabIndex = 2;
-            // 
             // txtCMND
             // 
             this.txtCMND.Location = new System.Drawing.Point(117, 53);
@@ -134,16 +123,6 @@
             this.label9.Size = new System.Drawing.Size(32, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Email";
-            // 
-            // lbDeposit
-            // 
-            this.lbDeposit.AutoSize = true;
-            this.lbDeposit.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbDeposit.Location = new System.Drawing.Point(351, 99);
-            this.lbDeposit.Name = "lbDeposit";
-            this.lbDeposit.Size = new System.Drawing.Size(43, 13);
-            this.lbDeposit.TabIndex = 0;
-            this.lbDeposit.Text = "Deposit";
             // 
             // txtClientName
             // 
@@ -233,17 +212,21 @@
             // 
             // datepkend
             // 
+            this.datepkend.Enabled = false;
+            this.datepkend.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datepkend.Location = new System.Drawing.Point(168, 278);
             this.datepkend.Name = "datepkend";
-            this.datepkend.Size = new System.Drawing.Size(200, 20);
+            this.datepkend.Size = new System.Drawing.Size(98, 20);
             this.datepkend.TabIndex = 14;
             // 
             // datepkbegin
             // 
-            this.datepkbegin.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
+            this.datepkbegin.CustomFormat = "MM/dd/yyyy";
+            this.datepkbegin.Enabled = false;
+            this.datepkbegin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datepkbegin.Location = new System.Drawing.Point(168, 230);
             this.datepkbegin.Name = "datepkbegin";
-            this.datepkbegin.Size = new System.Drawing.Size(200, 20);
+            this.datepkbegin.Size = new System.Drawing.Size(98, 20);
             this.datepkbegin.TabIndex = 15;
             // 
             // txtNameCar
@@ -312,23 +295,23 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(435, 372);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 25);
+            this.label1.Size = new System.Drawing.Size(85, 25);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Provisional";
+            this.label1.Text = "Deposit";
             // 
-            // lbSumValue
+            // lbDeposit
             // 
-            this.lbSumValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbDeposit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbSumValue.AutoSize = true;
-            this.lbSumValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSumValue.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbSumValue.Location = new System.Drawing.Point(435, 410);
-            this.lbSumValue.Name = "lbSumValue";
-            this.lbSumValue.Size = new System.Drawing.Size(72, 25);
-            this.lbSumValue.TabIndex = 21;
-            this.lbSumValue.Text = "2000$";
+            this.lbDeposit.AutoSize = true;
+            this.lbDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDeposit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbDeposit.Location = new System.Drawing.Point(435, 410);
+            this.lbDeposit.Name = "lbDeposit";
+            this.lbDeposit.Size = new System.Drawing.Size(72, 25);
+            this.lbDeposit.TabIndex = 21;
+            this.lbDeposit.Text = "2000$";
             // 
             // ImageCar
             // 
@@ -350,7 +333,7 @@
             this.Controls.Add(this.tbnExit);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.txtNameCar);
-            this.Controls.Add(this.lbSumValue);
+            this.Controls.Add(this.lbDeposit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ImageCar);
@@ -378,10 +361,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtDeposit;
         private System.Windows.Forms.TextBox txtCMND;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lbDeposit;
         private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -400,7 +381,7 @@
         private System.Windows.Forms.Button tbnExit;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbSumValue;
+        private System.Windows.Forms.Label lbDeposit;
         private System.Windows.Forms.TextBox txtLisence;
         private System.Windows.Forms.Label label2;
     }

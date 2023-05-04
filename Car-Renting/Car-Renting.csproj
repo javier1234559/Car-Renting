@@ -151,6 +151,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utilites\RentScheduler.cs" />
+    <Compile Include="Utilites\Contraint.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\IBaseDAO.cs" />
     <Compile Include="DAO\ClientDAO.cs" />
@@ -180,12 +182,6 @@
     </Compile>
     <Compile Include="GUI\fRentCancel.Designer.cs">
       <DependentUpon>fRentCancel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\fUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fUser.Designer.cs">
-      <DependentUpon>fUser.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fCar.cs">
       <SubType>Form</SubType>
@@ -247,12 +243,6 @@
     <Compile Include="GUI\fNavigation.Designer.cs">
       <DependentUpon>fNavigation.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fRating.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fRating.Designer.cs">
-      <DependentUpon>fRating.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utilites\Upload.cs" />
     <Compile Include="Utilites\PDFGenerate.cs" />
     <Compile Include="Program.cs" />
@@ -275,9 +265,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fRentCancel.resx">
       <DependentUpon>fRentCancel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fUser.resx">
-      <DependentUpon>fUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fCar.resx">
       <DependentUpon>fCar.cs</DependentUpon>
@@ -308,9 +295,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fNavigation.resx">
       <DependentUpon>fNavigation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fRating.resx">
-      <DependentUpon>fRating.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

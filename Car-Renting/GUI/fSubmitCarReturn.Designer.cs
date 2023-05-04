@@ -62,6 +62,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).BeginInit();
@@ -80,7 +80,7 @@
             // 
             this.btnAccept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
             this.btnAccept.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAccept.Location = new System.Drawing.Point(791, 666);
+            this.btnAccept.Location = new System.Drawing.Point(775, 569);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(101, 35);
             this.btnAccept.TabIndex = 53;
@@ -102,7 +102,7 @@
             this.lbSumValue.AutoSize = true;
             this.lbSumValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSumValue.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbSumValue.Location = new System.Drawing.Point(804, 592);
+            this.lbSumValue.Location = new System.Drawing.Point(804, 528);
             this.lbSumValue.Name = "lbSumValue";
             this.lbSumValue.Size = new System.Drawing.Size(72, 25);
             this.lbSumValue.TabIndex = 49;
@@ -116,7 +116,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(599, 592);
+            this.label1.Location = new System.Drawing.Point(600, 528);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 25);
             this.label1.TabIndex = 50;
@@ -415,10 +415,18 @@
             this.panel3.Controls.Add(this.textBox6);
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.label19);
-            this.panel3.Location = new System.Drawing.Point(37, 479);
+            this.panel3.Location = new System.Drawing.Point(37, 457);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(335, 171);
             this.panel3.TabIndex = 55;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(118, 23);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(72, 21);
+            this.comboBox1.TabIndex = 59;
             // 
             // textBox6
             // 
@@ -459,7 +467,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label20.Location = new System.Drawing.Point(804, 464);
+            this.label20.Location = new System.Drawing.Point(804, 426);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(72, 25);
             this.label20.TabIndex = 49;
@@ -473,7 +481,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label21.Location = new System.Drawing.Point(599, 531);
+            this.label21.Location = new System.Drawing.Point(597, 479);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(153, 25);
             this.label21.TabIndex = 50;
@@ -487,7 +495,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label22.Location = new System.Drawing.Point(599, 464);
+            this.label22.Location = new System.Drawing.Point(599, 426);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(61, 25);
             this.label22.TabIndex = 50;
@@ -495,25 +503,17 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(809, 536);
+            this.textBox9.Location = new System.Drawing.Point(809, 479);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(67, 20);
             this.textBox9.TabIndex = 57;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(118, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(72, 21);
-            this.comboBox1.TabIndex = 59;
             // 
             // fSubmitCarReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.ClientSize = new System.Drawing.Size(934, 734);
+            this.ClientSize = new System.Drawing.Size(934, 640);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

@@ -53,7 +53,8 @@ namespace Car_Renting
             txtPhone.Text = this.client.Phone;
             txtLisence.Text = this.client.License;
 
-            //fill date
+            //fill rent
+            lbDeposit.Text = $"{this.rent.Deposit}";
             datepkbegin.Value = this.rent.DateStart;
             datepkend.Value = this.rent.DateEnd;
             txtdescriptionRent.Text = this.rent.DescriptionRent;
@@ -74,6 +75,11 @@ namespace Car_Renting
         private void handleInsertRent()
         {
             Client temp = clientdao.FindIDClientByCmnd(this.client.CCCD);
+            Rent newRent = this.rent;
+            newRent.State = Contraint.STATE_PEDDING;
+            newRent.DateDelayQuantity = 0;
+            newRent.CancellationReason = "";
+
             if (temp != null)
             {
                 this.rent.ClientId = temp.ClientId;

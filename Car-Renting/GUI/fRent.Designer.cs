@@ -62,10 +62,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.ImageCar = new System.Windows.Forms.PictureBox();
             this.txtNumberPlate = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.ImageCar = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -152,6 +152,7 @@
             this.datepkend.Name = "datepkend";
             this.datepkend.Size = new System.Drawing.Size(200, 20);
             this.datepkend.TabIndex = 7;
+            this.datepkend.ValueChanged += new System.EventHandler(this.datepkend_ValueChanged);
             // 
             // datepkbegin
             // 
@@ -159,6 +160,7 @@
             this.datepkbegin.Name = "datepkbegin";
             this.datepkbegin.Size = new System.Drawing.Size(200, 20);
             this.datepkbegin.TabIndex = 8;
+            this.datepkbegin.ValueChanged += new System.EventHandler(this.datepkbegin_ValueChanged);
             // 
             // panel1
             // 
@@ -422,6 +424,27 @@
             this.panel3.Size = new System.Drawing.Size(365, 476);
             this.panel3.TabIndex = 13;
             // 
+            // txtNumberPlate
+            // 
+            this.txtNumberPlate.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.txtNumberPlate.Location = new System.Drawing.Point(194, 265);
+            this.txtNumberPlate.Name = "txtNumberPlate";
+            this.txtNumberPlate.Size = new System.Drawing.Size(125, 20);
+            this.txtNumberPlate.TabIndex = 15;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label16.Location = new System.Drawing.Point(191, 249);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(71, 13);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "Number Plate";
+            // 
             // btnSubmit
             // 
             this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
@@ -443,27 +466,6 @@
             this.ImageCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImageCar.TabIndex = 7;
             this.ImageCar.TabStop = false;
-            // 
-            // txtNumberPlate
-            // 
-            this.txtNumberPlate.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.txtNumberPlate.Location = new System.Drawing.Point(194, 265);
-            this.txtNumberPlate.Name = "txtNumberPlate";
-            this.txtNumberPlate.Size = new System.Drawing.Size(125, 20);
-            this.txtNumberPlate.TabIndex = 15;
-            // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label16.Location = new System.Drawing.Point(191, 249);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(71, 13);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "Number Plate";
             // 
             // fRent
             // 
