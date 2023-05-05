@@ -199,7 +199,7 @@ namespace Car_Renting
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = gvUser.Rows[e.RowIndex];
-                if (row.Cells["IdUser"].Value == null) return;
+                if (String.IsNullOrEmpty(row.Cells["IdUser"].Value?.ToString())) return;
                 //Load data to modal car
                 int iduser = (int)row.Cells["IdUser"].Value;
                 int idaccount = (int)row.Cells["AccID"].Value;

@@ -36,6 +36,8 @@ namespace Car_Renting
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = gvClients.Rows[e.RowIndex];
+                if (String.IsNullOrEmpty(row.Cells["ClientId"].Value?.ToString())) return;
+
                 //Load data to modal car
                 int idclient = (int)row.Cells["ClientId"].Value;
                 this.client = clientdao.GetById(idclient);

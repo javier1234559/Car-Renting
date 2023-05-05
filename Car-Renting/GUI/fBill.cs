@@ -78,6 +78,8 @@ namespace Car_Renting
                 {
                 DataGridViewRow row = gvBills.Rows[e.RowIndex];
 
+                if (String.IsNullOrEmpty(row.Cells["BillId"].Value?.ToString())) return;
+
                 //Load data to modal bill
                 int idbill = (int)row.Cells["BillId"].Value;
                 fillmodalBill(idbill);

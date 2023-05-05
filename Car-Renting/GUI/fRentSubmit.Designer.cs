@@ -78,6 +78,7 @@
             // 
             // txtLisence
             // 
+            this.txtLisence.Enabled = false;
             this.txtLisence.Location = new System.Drawing.Point(117, 96);
             this.txtLisence.Name = "txtLisence";
             this.txtLisence.Size = new System.Drawing.Size(120, 20);
@@ -95,6 +96,7 @@
             // 
             // txtPhone
             // 
+            this.txtPhone.Enabled = false;
             this.txtPhone.Location = new System.Drawing.Point(418, 11);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(120, 20);
@@ -102,6 +104,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Enabled = false;
             this.txtEmail.Location = new System.Drawing.Point(418, 56);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(120, 20);
@@ -109,6 +112,7 @@
             // 
             // txtCMND
             // 
+            this.txtCMND.Enabled = false;
             this.txtCMND.Location = new System.Drawing.Point(117, 53);
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(120, 20);
@@ -126,6 +130,7 @@
             // 
             // txtClientName
             // 
+            this.txtClientName.Enabled = false;
             this.txtClientName.Location = new System.Drawing.Point(117, 18);
             this.txtClientName.Name = "txtClientName";
             this.txtClientName.Size = new System.Drawing.Size(120, 20);
@@ -174,6 +179,7 @@
             // 
             // txtdescriptionRent
             // 
+            this.txtdescriptionRent.Enabled = false;
             this.txtdescriptionRent.Location = new System.Drawing.Point(33, 372);
             this.txtdescriptionRent.Multiline = true;
             this.txtdescriptionRent.Name = "txtdescriptionRent";
@@ -231,6 +237,7 @@
             // 
             // txtNameCar
             // 
+            this.txtNameCar.Enabled = false;
             this.txtNameCar.Location = new System.Drawing.Point(440, 337);
             this.txtNameCar.Name = "txtNameCar";
             this.txtNameCar.Size = new System.Drawing.Size(152, 20);

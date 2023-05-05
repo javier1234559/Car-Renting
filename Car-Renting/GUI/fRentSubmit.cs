@@ -15,26 +15,40 @@ namespace Car_Renting
 {
     public partial class fRentSubmit : Form
     {
+        // DAO
+        private ClientDAO clientDAO = new ClientDAO();
+        private RentDAO rentDAO = new RentDAO();
+        private CarDAO carDAO = new CarDAO();
         //Store data in the current form
         private Rent rent;
         private Car car;
         private Client client;
-        //Dao
-        private ClientDAO clientdao = new ClientDAO();
-        private RentDAO rentdao = new RentDAO();
-        
+       
 
         public fRentSubmit()
         {
             InitializeComponent();
-            if(Session.currentrent!= null)
-            {
-                this.rent = Session.currentrent;
-                this.car = Session.currentcar; 
-                this.client = Session.currentclient;
-                fillDataRent();
-            }
+            
         }
+
+        public fRentSubmit(Rent cancelRent , String strategy)
+        {
+            InitializeComponent();
+
+            switch (strategy)
+            {
+                case "Canceled_RENT":
+                    fillDataRentCanceledDetail(cancelRent);
+                    break;
+                case "ViewBeforeReturn_RENT":
+                    fillDataRentReturnDetail(cancelRent);
+                    break;
+                default:
+                    throw new ArgumentException("Invalid strategy: " + strategy);
+            }
+
+        }
+        //------ Load Data -----------
 
         private void fillDataRent()
         {
@@ -60,37 +74,32 @@ namespace Car_Renting
             txtdescriptionRent.Text = this.rent.DescriptionRent;
 
         }
+        
+        public void fillDataRentCanceledDetail(Rent cancelRent)
+        {
+            this.rent = cancelRent;
+            this.car = carDAO.GetById(cancelRent.CarId);
+            this.client = clientDAO.GetById(cancelRent.ClientId);
+
+            btnAccept.Visible = false;
+            fillDataRent();
+        }
+
+        public void fillDataRentReturnDetail(Rent returnDetail)
+        {
+            this.rent = returnDetail;
+            this.car = carDAO.GetById(returnDetail.CarId);
+            this.client = clientDAO.GetById(returnDetail.ClientId);
+
+            btnAccept.Visible = false;
+            fillDataRent();
+        }
+
+        //------ Event -----------
 
         private void tbnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void handleInsertClient()
-        {
-            int lastesid = clientdao.Insert(this.client);
-            this.client.ClientId = lastesid;
-        }
-
-        private void handleInsertRent()
-        {
-            Client temp = clientdao.FindIDClientByCmnd(this.client.CCCD);
-            Rent newRent = this.rent;
-            newRent.State = Contraint.STATE_PEDDING;
-            newRent.DateDelayQuantity = 0;
-            newRent.CancellationReason = "";
-
-            if (temp != null)
-            {
-                this.rent.ClientId = temp.ClientId;
-                this.rent.RentId =  rentdao.Insert(this.rent);
-            }
-
-        }
-
-        private void updateSessionRent()
-        {
-            Session.currentrent = this.rent;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -134,5 +143,33 @@ namespace Car_Renting
 
         }
 
+        //------ Logic -----------
+
+        private void handleInsertClient()
+        {
+            int lastesid = clientDAO.Insert(this.client);
+            this.client.ClientId = lastesid;
+        }
+
+        private void handleInsertRent()
+        {
+            Client temp = clientDAO.FindIDClientByCmnd(this.client.CCCD);
+            Rent newRent = this.rent;
+            newRent.State = Contraint.STATE_PEDDING;
+            newRent.DateDelayQuantity = 0;
+            newRent.CancellationReason = "";
+
+            if (temp != null)
+            {
+                this.rent.ClientId = temp.ClientId;
+                this.rent.RentId =  rentDAO.Insert(this.rent);
+            }
+
+        }
+
+        private void updateSessionRent()
+        {
+            Session.currentrent = this.rent;
+        }
     }
 }

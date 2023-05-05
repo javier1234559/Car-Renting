@@ -391,6 +391,7 @@
             this.gvBills.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gvBills.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gvBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvBills.Location = new System.Drawing.Point(0, 76);
             this.gvBills.Name = "gvBills";

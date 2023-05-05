@@ -113,6 +113,12 @@ namespace Car_Renting
         {
             if (this.car == null) return;
 
+            if(String.IsNullOrEmpty(txtDeposit.Text))
+            {
+                MessageBox.Show("Hay chon ngay thue !!");
+                return;
+            }
+
             //handle save data when press submit
             if (handleSaveClient()) return;
 
@@ -153,7 +159,6 @@ namespace Car_Renting
                 CalculateDeposit();
             }
         }
-
 
         private int CalculateDeposit()
         {

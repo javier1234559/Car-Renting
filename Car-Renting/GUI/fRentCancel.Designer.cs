@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnNavCarReturn = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnCancellationReasonSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCancellationReason = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnRentCancelDetail = new System.Windows.Forms.Button();
             this.lbael = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -60,16 +60,17 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnNavCarReturn
+            // btnCancellationReasonSubmit
             // 
-            this.btnNavCarReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.btnNavCarReturn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnNavCarReturn.Location = new System.Drawing.Point(141, 310);
-            this.btnNavCarReturn.Name = "btnNavCarReturn";
-            this.btnNavCarReturn.Size = new System.Drawing.Size(124, 35);
-            this.btnNavCarReturn.TabIndex = 63;
-            this.btnNavCarReturn.Text = "Submit";
-            this.btnNavCarReturn.UseVisualStyleBackColor = false;
+            this.btnCancellationReasonSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnCancellationReasonSubmit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCancellationReasonSubmit.Location = new System.Drawing.Point(141, 310);
+            this.btnCancellationReasonSubmit.Name = "btnCancellationReasonSubmit";
+            this.btnCancellationReasonSubmit.Size = new System.Drawing.Size(124, 35);
+            this.btnCancellationReasonSubmit.TabIndex = 63;
+            this.btnCancellationReasonSubmit.Text = "Submit";
+            this.btnCancellationReasonSubmit.UseVisualStyleBackColor = false;
+            this.btnCancellationReasonSubmit.Click += new System.EventHandler(this.btnCancellationReasonSubmit_Click);
             // 
             // label1
             // 
@@ -90,11 +91,11 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtCancellationReason);
             this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.btnNavCarReturn);
+            this.panel3.Controls.Add(this.btnCancellationReasonSubmit);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.btnRentCancelDetail);
             this.panel3.Controls.Add(this.lbael);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -103,13 +104,13 @@
             this.panel3.Size = new System.Drawing.Size(314, 460);
             this.panel3.TabIndex = 15;
             // 
-            // textBox1
+            // txtCancellationReason
             // 
-            this.textBox1.Location = new System.Drawing.Point(31, 194);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 73);
-            this.textBox1.TabIndex = 65;
+            this.txtCancellationReason.Location = new System.Drawing.Point(31, 194);
+            this.txtCancellationReason.Multiline = true;
+            this.txtCancellationReason.Name = "txtCancellationReason";
+            this.txtCancellationReason.Size = new System.Drawing.Size(234, 73);
+            this.txtCancellationReason.TabIndex = 65;
             // 
             // label14
             // 
@@ -121,16 +122,17 @@
             this.label14.TabIndex = 64;
             this.label14.Text = "Cancel Description";
             // 
-            // button3
+            // btnRentCancelDetail
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button3.Location = new System.Drawing.Point(166, 75);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 35);
-            this.button3.TabIndex = 49;
-            this.button3.Text = "More";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnRentCancelDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnRentCancelDetail.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnRentCancelDetail.Location = new System.Drawing.Point(166, 75);
+            this.btnRentCancelDetail.Name = "btnRentCancelDetail";
+            this.btnRentCancelDetail.Size = new System.Drawing.Size(71, 35);
+            this.btnRentCancelDetail.TabIndex = 49;
+            this.btnRentCancelDetail.Text = "More";
+            this.btnRentCancelDetail.UseVisualStyleBackColor = false;
+            this.btnRentCancelDetail.Click += new System.EventHandler(this.btnRentCancelDetail_Click);
             // 
             // lbael
             // 
@@ -316,14 +318,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gvCarCancel.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gvCarCancel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvCarCancel.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvCarCancel.DefaultCellStyle = dataGridViewCellStyle2;
             this.gvCarCancel.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gvCarCancel.Location = new System.Drawing.Point(0, 76);
             this.gvCarCancel.Name = "gvCarCancel";
@@ -367,13 +369,13 @@
         #endregion
 
         private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.Button btnNavCarReturn;
+        private System.Windows.Forms.Button btnCancellationReasonSubmit;
         private FontAwesome.Sharp.IconButton btnSearch;
         private FontAwesome.Sharp.IconButton btnFilter;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnRentCancelDetail;
         private System.Windows.Forms.Label lbael;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -388,7 +390,7 @@
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.DataGridView gvCarCancel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCancellationReason;
         private System.Windows.Forms.Label label14;
     }
 }

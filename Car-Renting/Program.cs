@@ -18,7 +18,7 @@ namespace Car_Renting
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            RentScheduler.Start();
+            //RentScheduler.Start();
             Application.Run(new fLogin());
         }
     }

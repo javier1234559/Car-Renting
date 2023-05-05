@@ -46,6 +46,8 @@ namespace Car_Renting
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = gvCars.Rows[e.RowIndex];
+                if (String.IsNullOrEmpty(row.Cells["CarId"].Value?.ToString())) return;
+
                 //Load data to modal car
                 int idcar = (int)row.Cells["CarId"].Value;
                 this.car = carDao.GetById(idcar);

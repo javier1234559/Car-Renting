@@ -36,6 +36,7 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnNavRent = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnFilter = new FontAwesome.Sharp.IconButton();
@@ -58,7 +59,7 @@
             this.btnNavCarReturn = new System.Windows.Forms.Button();
             this.ImageCar = new System.Windows.Forms.PictureBox();
             this.btnCancelRent = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbTimeRemain = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.lbael = new System.Windows.Forms.Label();
@@ -106,6 +107,7 @@
             this.panel4.Controls.Add(this.iconButton2);
             this.panel4.Controls.Add(this.comboBox3);
             this.panel4.Controls.Add(this.comboBox4);
+            this.panel4.Controls.Add(this.btnRefresh);
             this.panel4.Controls.Add(this.btnNavRent);
             this.panel4.Controls.Add(this.textBox2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -157,6 +159,18 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(89, 21);
             this.comboBox4.TabIndex = 4;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnRefresh.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnRefresh.Location = new System.Drawing.Point(429, 19);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(69, 35);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnNavRent
             // 
@@ -289,7 +303,7 @@
             this.panel3.Controls.Add(this.btnNavCarReturn);
             this.panel3.Controls.Add(this.ImageCar);
             this.panel3.Controls.Add(this.btnCancelRent);
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.lbTimeRemain);
             this.panel3.Controls.Add(this.lbStatus);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.lbael);
@@ -451,21 +465,21 @@
             this.btnCancelRent.UseVisualStyleBackColor = false;
             this.btnCancelRent.Click += new System.EventHandler(this.btnCancelRent_Click);
             // 
-            // label2
+            // lbTimeRemain
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbTimeRemain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(167, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 25);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "00:00";
+            this.lbTimeRemain.AutoSize = true;
+            this.lbTimeRemain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbTimeRemain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbTimeRemain.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimeRemain.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbTimeRemain.Location = new System.Drawing.Point(167, 79);
+            this.lbTimeRemain.Name = "lbTimeRemain";
+            this.lbTimeRemain.Size = new System.Drawing.Size(96, 25);
+            this.lbTimeRemain.TabIndex = 50;
+            this.lbTimeRemain.Text = "00:00:00";
             // 
             // lbStatus
             // 
@@ -573,7 +587,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnCancelRent;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbTimeRemain;
         private System.Windows.Forms.Label lbStatus;
         private System.Windows.Forms.Button btnNavCarReturn;
         private System.Windows.Forms.PictureBox ImageCar;
@@ -585,5 +599,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

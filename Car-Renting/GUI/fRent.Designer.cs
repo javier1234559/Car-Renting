@@ -121,6 +121,7 @@
             // 
             // txtDeposit
             // 
+            this.txtDeposit.Enabled = false;
             this.txtDeposit.Location = new System.Drawing.Point(370, 243);
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(120, 20);

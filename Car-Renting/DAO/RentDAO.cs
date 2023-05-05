@@ -40,7 +40,7 @@ namespace Car_Renting
             string sqlStr = $"UPDATE Rents SET State = @State WHERE RentId = @RentId";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@CarId", rentID);
+            parameters.Add("@RentId", rentID);
             parameters.Add("@State", state);
 
             DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);

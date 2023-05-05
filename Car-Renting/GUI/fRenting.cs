@@ -9,20 +9,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.AxHost;
 
 namespace Car_Renting
 {
     public partial class fRenting : Form
     {
-        RentDAO rentsDAO = new RentDAO();
-
-        private Rent rent; 
+        //DAO
+        private RentDAO rentsDAO = new RentDAO();
         private CarDAO cardao = new CarDAO();
+        //Store 
+        private Rent rent;
+        private Timer countdownTimer;
 
         public fRenting()
         {
             InitializeComponent();
             ShowListRent();
+            UpdateStateRenting();
         }
         
         private void ShowListRent()
@@ -30,18 +34,14 @@ namespace Car_Renting
             this.gvRentList.DataSource = rentsDAO.GetAllDataTableTwoStates(Contraint.STATE_PEDDING,Contraint.STATE_RENTING);
         }
 
-        private void AutoCountDown(DateTime start, DateTime end)
-        {
-            //DateTime start = datepkbegin.Value;
-            //DateTime end = datepkend.Value;
-        }
-
         private void btnCancelRent_Click(object sender, EventArgs e)
         {
             fNavigation form = fNavigation.getInstance();
-
+            Session.currentrentCanceled = this.rent;
+            rentsDAO.ChangeState(this.rent.RentId, Contraint.STATE_CANCLED);
             if (form != null)
             {
+
                 form.OpenChildForm(new fRentCancel());
             }
         }
@@ -53,6 +53,7 @@ namespace Car_Renting
             if (form != null)
             {
                 form.OpenChildForm(new fCarReturn());
+                Session.currentrentCanceled = this.rent;
             }
         }
 
@@ -72,7 +73,9 @@ namespace Car_Renting
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = gvRentList.Rows[e.RowIndex];
-                
+                if (String.IsNullOrEmpty(row.Cells["RentId"].Value?.ToString())) return;
+
+                this.rent = rentsDAO.GetById(Int32.Parse(row.Cells["RentId"].Value.ToString()));
                 lbNameCar.Text = row.Cells["CarName"].Value.ToString();
                 lbBrand.Text = row.Cells["Name"].Value.ToString();
                 lbCategory.Text = row.Cells["CategoryName"].Value.ToString();
@@ -84,7 +87,106 @@ namespace Car_Renting
                 {
                     ImageCar.ImageLocation = imagePath;
                 }
+                StartCountdown(this.rent.DateStart, this.rent.DateEnd);
+
             }
+
         }
+
+        private void StartCountdown(DateTime start, DateTime end)
+        {
+            if (countdownTimer != null)
+            {
+                countdownTimer.Stop();
+            }
+
+            countdownTimer = new Timer();
+            countdownTimer.Interval = 1000; // 1 second
+            countdownTimer.Tick += (sender, e) => {
+                DateTime currentTime = DateTime.Now;
+
+                int startCompare = DateTime.Compare(currentTime, start);
+                int endCompare = DateTime.Compare(currentTime, end);
+
+                if (startCompare < 0)
+                {
+                    TimeSpan remainingTime = end.Subtract(start);
+                    double totalSeconds = remainingTime.TotalSeconds;
+                    int hours = (int)(totalSeconds / 3600);
+                    int minutes = (int)((totalSeconds % 3600) / 60);
+                    int seconds = (int)(totalSeconds % 60);
+                    lbTimeRemain.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, seconds);
+
+                }
+                else if (startCompare >= 0 && endCompare < 0)
+                {
+                    TimeSpan timeDiff = currentTime - start; // When currentTime is later than start about 2 second then Update
+                    if (timeDiff.TotalSeconds <= 2)
+                    {
+                        UpdateStateRenting();
+                        lbStatus.Text = Contraint.STATE_RENTING;
+                    }
+
+
+                    TimeSpan remainingTime = end.Subtract(currentTime);
+                    double totalSeconds = remainingTime.TotalSeconds;
+                    int hours = (int)(totalSeconds / 3600);
+                    int minutes = (int)((totalSeconds % 3600) / 60);
+                    int seconds = (int)(totalSeconds % 60);
+                    lbTimeRemain.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, seconds);
+
+                }
+                else
+                {
+                    lbTimeRemain.Text = "00:00:00";
+                    UpdateStateRenting();
+                    countdownTimer.Stop();
+                }
+            };
+
+            countdownTimer.Start();
+        }
+
+
+        private void UpdateStateRenting()
+        {
+            DateTime currentTime = DateTime.Now;
+
+            DataTable rentsPeddingList = rentsDAO.GetAllDataTableByState(Contraint.STATE_PEDDING);
+
+            // Loop through each rent and check if it's time to update the state
+            foreach (DataRow rent in rentsPeddingList.Rows)
+            {
+                DateTime endDate = (DateTime)rent["DateStart"];
+
+                if (currentTime >= endDate)
+                {
+                    int rentId = Int32.Parse(rent["RentId"].ToString());
+                    rentsDAO.ChangeState(rentId, Contraint.STATE_RENTING);
+                }
+            }
+            DataTable rentsRentingList = rentsDAO.GetAllDataTableByState(Contraint.STATE_RENTING);
+
+            // Loop through each rent and check if it's time to update the state
+            foreach (DataRow rent in rentsRentingList.Rows)
+            {
+                DateTime endDate = (DateTime)rent["DateEnd"];
+
+                if (currentTime >= endDate)
+                {
+                    int rentId = Int32.Parse(rent["RentId"].ToString());
+                    rentsDAO.ChangeState(rentId, Contraint.STATE_WAITING);
+                }
+            }
+
+            ShowListRent();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            UpdateStateRenting();
+        }
+
+        
     }
 }

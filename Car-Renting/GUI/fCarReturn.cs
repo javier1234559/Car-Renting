@@ -13,12 +13,19 @@ namespace Car_Renting
 {
     public partial class fCarReturn : Form
     {
-        RentDAO rentsDAO = new RentDAO();
+        private RentDAO rentsDAO = new RentDAO();
+        private CarDAO cardao = new CarDAO();
+        private ClientDAO clientDAO = new ClientDAO();
+        private Rent rent;
 
         public fCarReturn()
         {
             InitializeComponent();
             ShowListRent();
+            if (Session.currentrentCanceled != null)
+            {
+                this.rent = Session.currentrentCanceled;
+            }
         }
 
         private void ShowListRent()
@@ -28,7 +35,8 @@ namespace Car_Renting
 
         private void btnDetailContact_Click(object sender, EventArgs e)
         {
-
+            fRentSubmit f = new fRentSubmit(this.rent, "ViewBeforeReturn_RENT");
+            f.ShowDialog();
         }
 
         private void btnNavCarReturn_Click(object sender, EventArgs e)
@@ -47,7 +55,9 @@ namespace Car_Renting
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = gvCarReturn.Rows[e.RowIndex];
+                if (String.IsNullOrEmpty(row.Cells["RentId"].Value?.ToString())) return;
 
+                this.rent = rentsDAO.GetById(Int32.Parse(row.Cells["RentId"].Value.ToString()));
                 lbNameCar.Text = row.Cells["CarName"].Value.ToString();
                 lbBrand.Text = row.Cells["Name"].Value.ToString();
                 lbCategory.Text = row.Cells["CategoryName"].Value.ToString();

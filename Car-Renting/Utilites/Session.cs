@@ -24,5 +24,6 @@ namespace Car_Renting
 
         public static Account currentaccountAtDashboard { get; set; }
 
+        public static Rent currentrentCanceled { get; set; }
     }
 }
