@@ -35,6 +35,11 @@ namespace Car_Renting
 
         private void btnDetailContact_Click(object sender, EventArgs e)
         {
+            if (this.rent == null)
+            {
+                MessageBox.Show("Hay chon hoa don de xem chi tiet !!");
+                return;
+            }
             fRentSubmit f = new fRentSubmit(this.rent, "ViewBeforeReturn_RENT");
             f.ShowDialog();
         }

@@ -16,7 +16,7 @@ namespace Car_Renting
         //DAO
         RentDAO rentsDAO = new RentDAO();
         //Store data in the current form
-        Rent rent = new Rent();
+        Rent rent ;
 
         public fRentCancel()
         {
@@ -46,6 +46,11 @@ namespace Car_Renting
 
         private void btnRentCancelDetail_Click(object sender, EventArgs e)
         {
+            if(this.rent == null)
+            {
+                MessageBox.Show("Hay chon hoa don de xem chi tiet !!");
+                return;
+            }
             fRentSubmit f = new fRentSubmit(this.rent , "Canceled_RENT");
             f.ShowDialog();
         }

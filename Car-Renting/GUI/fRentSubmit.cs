@@ -33,7 +33,9 @@ namespace Car_Renting
 
         public fRentSubmit(Rent cancelRent , String strategy)
         {
+            
             InitializeComponent();
+            
 
             switch (strategy)
             {
