@@ -61,7 +61,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbOverTime = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -346,7 +346,7 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.btnNavCarReturn);
             this.panel3.Controls.Add(this.ImageCar);
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.lbOverTime);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.btnDetailContact);
             this.panel3.Controls.Add(this.lbael);
@@ -474,21 +474,21 @@
             this.label7.TabIndex = 76;
             this.label7.Text = "Category";
             // 
-            // label2
+            // lbOverTime
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbOverTime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(161, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 25);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "00:00";
+            this.lbOverTime.AutoSize = true;
+            this.lbOverTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.lbOverTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbOverTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOverTime.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbOverTime.Location = new System.Drawing.Point(161, 72);
+            this.lbOverTime.Name = "lbOverTime";
+            this.lbOverTime.Size = new System.Drawing.Size(66, 25);
+            this.lbOverTime.TabIndex = 50;
+            this.lbOverTime.Text = "00:00";
             // 
             // label17
             // 
@@ -548,7 +548,7 @@
         private System.Windows.Forms.Label lbael;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbOverTime;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lbNameCar;
         private System.Windows.Forms.Label lbCategory;

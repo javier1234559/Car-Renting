@@ -36,6 +36,15 @@ namespace Car_Renting
 
         private void btnCancelRent_Click(object sender, EventArgs e)
         {
+            string message = "Are you sure to cancel this renting ?";
+            string title = "Cancel Renting";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.No)
+            {
+                return ;
+            }
+
             fNavigation form = fNavigation.getInstance();
             Session.currentrentCanceled = this.rent;
             rentsDAO.ChangeState(this.rent.RentId, Contraint.STATE_CANCLED);
@@ -187,6 +196,15 @@ namespace Car_Renting
             UpdateStateRenting();
         }
 
-        
+        private void btnDetailContact_Click(object sender, EventArgs e)
+        {
+            if (this.rent == null)
+            {
+                MessageBox.Show("Pls select the item first !!");
+                return;
+            }
+            fRentSubmit f = new fRentSubmit(this.rent);
+            f.ShowDialog();
+        }
     }
 }

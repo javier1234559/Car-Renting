@@ -51,7 +51,7 @@ namespace Car_Renting
                 MessageBox.Show("Hay chon hoa don de xem chi tiet !!");
                 return;
             }
-            fRentSubmit f = new fRentSubmit(this.rent , "Canceled_RENT");
+            fRentSubmit f = new fRentSubmit(this.rent);
             f.ShowDialog();
         }
 

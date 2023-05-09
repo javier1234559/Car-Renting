@@ -61,7 +61,7 @@
             this.btnCancelRent = new System.Windows.Forms.Button();
             this.lbTimeRemain = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDetailContact = new System.Windows.Forms.Button();
             this.lbael = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -305,7 +305,7 @@
             this.panel3.Controls.Add(this.btnCancelRent);
             this.panel3.Controls.Add(this.lbTimeRemain);
             this.panel3.Controls.Add(this.lbStatus);
-            this.panel3.Controls.Add(this.button3);
+            this.panel3.Controls.Add(this.btnDetailContact);
             this.panel3.Controls.Add(this.lbael);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.label17);
@@ -497,16 +497,17 @@
             this.lbStatus.TabIndex = 50;
             this.lbStatus.Text = "Pedding";
             // 
-            // button3
+            // btnDetailContact
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
-            this.button3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button3.Location = new System.Drawing.Point(166, 131);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 35);
-            this.button3.TabIndex = 49;
-            this.button3.Text = "More";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnDetailContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
+            this.btnDetailContact.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnDetailContact.Location = new System.Drawing.Point(166, 131);
+            this.btnDetailContact.Name = "btnDetailContact";
+            this.btnDetailContact.Size = new System.Drawing.Size(71, 35);
+            this.btnDetailContact.TabIndex = 49;
+            this.btnDetailContact.Text = "More";
+            this.btnDetailContact.UseVisualStyleBackColor = false;
+            this.btnDetailContact.Click += new System.EventHandler(this.btnDetailContact_Click);
             // 
             // lbael
             // 
@@ -582,7 +583,7 @@
         private System.Windows.Forms.DataGridView gvRentList;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDetailContact;
         private System.Windows.Forms.Label lbael;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label17;

@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtDeposit = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -45,31 +45,31 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtLicense = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCMND = new System.Windows.Forms.TextBox();
-            this.txtClientId = new System.Windows.Forms.TextBox();
+            this.txtClientName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCompensationDescription = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCompensation = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCompensationName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ImageCar = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lbDayStart = new System.Windows.Forms.Label();
+            this.lbDateEnd = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.cbRating = new System.Windows.Forms.ComboBox();
+            this.txtFeedBack = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lbPrice = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).BeginInit();
@@ -145,13 +145,13 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Email";
             // 
-            // textBox2
+            // txtDescription
             // 
-            this.textBox2.Location = new System.Drawing.Point(35, 367);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(335, 73);
-            this.textBox2.TabIndex = 47;
+            this.txtDescription.Location = new System.Drawing.Point(35, 367);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(335, 73);
+            this.txtDescription.TabIndex = 47;
             // 
             // txtDeposit
             // 
@@ -238,10 +238,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.txtLicense);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txtCMND);
-            this.panel1.Controls.Add(this.txtClientId);
+            this.panel1.Controls.Add(this.txtClientName);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.txtPhone);
@@ -255,12 +255,12 @@
             this.panel1.Size = new System.Drawing.Size(514, 156);
             this.panel1.TabIndex = 41;
             // 
-            // textBox5
+            // txtLicense
             // 
-            this.textBox5.Location = new System.Drawing.Point(92, 99);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(120, 20);
-            this.textBox5.TabIndex = 23;
+            this.txtLicense.Location = new System.Drawing.Point(92, 99);
+            this.txtLicense.Name = "txtLicense";
+            this.txtLicense.Size = new System.Drawing.Size(120, 20);
+            this.txtLicense.TabIndex = 23;
             // 
             // label6
             // 
@@ -279,12 +279,12 @@
             this.txtCMND.Size = new System.Drawing.Size(120, 20);
             this.txtCMND.TabIndex = 19;
             // 
-            // txtClientId
+            // txtClientName
             // 
-            this.txtClientId.Location = new System.Drawing.Point(92, 18);
-            this.txtClientId.Name = "txtClientId";
-            this.txtClientId.Size = new System.Drawing.Size(120, 20);
-            this.txtClientId.TabIndex = 20;
+            this.txtClientName.Location = new System.Drawing.Point(92, 18);
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.Size = new System.Drawing.Size(120, 20);
+            this.txtClientName.TabIndex = 20;
             // 
             // label7
             // 
@@ -308,24 +308,24 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox4);
+            this.panel2.Controls.Add(this.txtCompensationDescription);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.txtCompensation);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txtCompensationName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(587, 225);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(335, 171);
             this.panel2.TabIndex = 55;
             // 
-            // textBox4
+            // txtCompensationDescription
             // 
-            this.textBox4.Location = new System.Drawing.Point(15, 90);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(302, 63);
-            this.textBox4.TabIndex = 58;
+            this.txtCompensationDescription.Location = new System.Drawing.Point(15, 90);
+            this.txtCompensationDescription.Multiline = true;
+            this.txtCompensationDescription.Name = "txtCompensationDescription";
+            this.txtCompensationDescription.Size = new System.Drawing.Size(302, 63);
+            this.txtCompensationDescription.TabIndex = 58;
             // 
             // label5
             // 
@@ -333,16 +333,16 @@
             this.label5.ForeColor = System.Drawing.Color.Gainsboro;
             this.label5.Location = new System.Drawing.Point(12, 61);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.Size = new System.Drawing.Size(130, 13);
             this.label5.TabIndex = 57;
-            this.label5.Text = "Description";
+            this.label5.Text = "Compensation Description";
             // 
-            // textBox3
+            // txtCompensation
             // 
-            this.textBox3.Location = new System.Drawing.Point(188, 29);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(129, 20);
-            this.textBox3.TabIndex = 56;
+            this.txtCompensation.Location = new System.Drawing.Point(188, 29);
+            this.txtCompensation.Name = "txtCompensation";
+            this.txtCompensation.Size = new System.Drawing.Size(129, 20);
+            this.txtCompensation.TabIndex = 56;
             // 
             // label4
             // 
@@ -357,12 +357,12 @@
             this.label4.TabIndex = 55;
             this.label4.Text = "Compensation";
             // 
-            // textBox1
+            // txtCompensationName
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 54;
+            this.txtCompensationName.Location = new System.Drawing.Point(15, 29);
+            this.txtCompensationName.Name = "txtCompensationName";
+            this.txtCompensationName.Size = new System.Drawing.Size(120, 20);
+            this.txtCompensationName.TabIndex = 54;
             // 
             // label2
             // 
@@ -387,32 +387,32 @@
             this.ImageCar.TabIndex = 48;
             this.ImageCar.TabStop = false;
             // 
-            // label12
+            // lbDayStart
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label12.Location = new System.Drawing.Point(158, 222);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 24);
-            this.label12.TabIndex = 40;
-            this.label12.Text = "01/01/2022";
+            this.lbDayStart.AutoSize = true;
+            this.lbDayStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDayStart.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbDayStart.Location = new System.Drawing.Point(158, 222);
+            this.lbDayStart.Name = "lbDayStart";
+            this.lbDayStart.Size = new System.Drawing.Size(100, 24);
+            this.lbDayStart.TabIndex = 40;
+            this.lbDayStart.Text = "01/01/2022";
             // 
-            // label16
+            // lbDateEnd
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label16.Location = new System.Drawing.Point(158, 275);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 24);
-            this.label16.TabIndex = 40;
-            this.label16.Text = "01/02/2022";
+            this.lbDateEnd.AutoSize = true;
+            this.lbDateEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDateEnd.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbDateEnd.Location = new System.Drawing.Point(158, 275);
+            this.lbDateEnd.Name = "lbDateEnd";
+            this.lbDateEnd.Size = new System.Drawing.Size(100, 24);
+            this.lbDateEnd.TabIndex = 40;
+            this.lbDateEnd.Text = "01/02/2022";
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.comboBox1);
-            this.panel3.Controls.Add(this.textBox6);
+            this.panel3.Controls.Add(this.cbRating);
+            this.panel3.Controls.Add(this.txtFeedBack);
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.label19);
             this.panel3.Location = new System.Drawing.Point(37, 457);
@@ -420,21 +420,21 @@
             this.panel3.Size = new System.Drawing.Size(335, 171);
             this.panel3.TabIndex = 55;
             // 
-            // comboBox1
+            // cbRating
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(118, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(72, 21);
-            this.comboBox1.TabIndex = 59;
+            this.cbRating.FormattingEnabled = true;
+            this.cbRating.Location = new System.Drawing.Point(118, 23);
+            this.cbRating.Name = "cbRating";
+            this.cbRating.Size = new System.Drawing.Size(72, 21);
+            this.cbRating.TabIndex = 59;
             // 
-            // textBox6
+            // txtFeedBack
             // 
-            this.textBox6.Location = new System.Drawing.Point(15, 90);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(302, 63);
-            this.textBox6.TabIndex = 58;
+            this.txtFeedBack.Location = new System.Drawing.Point(15, 90);
+            this.txtFeedBack.Multiline = true;
+            this.txtFeedBack.Name = "txtFeedBack";
+            this.txtFeedBack.Size = new System.Drawing.Size(302, 63);
+            this.txtFeedBack.TabIndex = 58;
             // 
             // label17
             // 
@@ -459,19 +459,19 @@
             this.label19.TabIndex = 53;
             this.label19.Text = "Rating";
             // 
-            // label20
+            // lbPrice
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label20.Location = new System.Drawing.Point(804, 426);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(72, 25);
-            this.label20.TabIndex = 49;
-            this.label20.Text = "2000$";
+            this.lbPrice.AutoSize = true;
+            this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrice.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbPrice.Location = new System.Drawing.Point(804, 426);
+            this.lbPrice.Name = "lbPrice";
+            this.lbPrice.Size = new System.Drawing.Size(72, 25);
+            this.lbPrice.TabIndex = 49;
+            this.lbPrice.Text = "2000$";
             // 
             // label21
             // 
@@ -501,12 +501,12 @@
             this.label22.TabIndex = 50;
             this.label22.Text = "Price";
             // 
-            // textBox9
+            // txtDiscount
             // 
-            this.textBox9.Location = new System.Drawing.Point(809, 479);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(67, 20);
-            this.textBox9.TabIndex = 57;
+            this.txtDiscount.Location = new System.Drawing.Point(809, 479);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(67, 20);
+            this.txtDiscount.TabIndex = 57;
             // 
             // fSubmitCarReturn
             // 
@@ -514,21 +514,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
             this.ClientSize = new System.Drawing.Size(934, 640);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.txtDiscount);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.txtNameCar);
-            this.Controls.Add(this.label20);
+            this.Controls.Add(this.lbPrice);
             this.Controls.Add(this.lbSumValue);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ImageCar);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.lbDateEnd);
+            this.Controls.Add(this.lbDayStart);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
@@ -558,7 +558,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox ImageCar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtDeposit;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPhone;
@@ -570,28 +570,28 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCompensationDescription;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCompensation;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCompensationName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtLicense;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCMND;
-        private System.Windows.Forms.TextBox txtClientId;
+        private System.Windows.Forms.TextBox txtClientName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbDayStart;
+        private System.Windows.Forms.Label lbDateEnd;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtFeedBack;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lbPrice;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtDiscount;
+        private System.Windows.Forms.ComboBox cbRating;
     }
 }

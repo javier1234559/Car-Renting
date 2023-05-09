@@ -30,7 +30,7 @@ namespace Car_Renting
             string pass = txtPassword.Text.Trim();
             if (email == "" || pass == "")
             {
-                MessageBox.Show("Vui lòng nhập thông tin");
+                MessageBox.Show("Please enter value to text box !");
                 return;
             }
 
@@ -45,7 +45,7 @@ namespace Car_Renting
             }
             else
             {
-                MessageBox.Show("Dang nhap khong thanh cong. Vui long thu lai.");
+                MessageBox.Show("Login failed , Please try again !");
             }
         }
 
@@ -56,7 +56,7 @@ namespace Car_Renting
 
         private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(MessageBox.Show("Bạn có thật sự muốn thoát ?","Thông báo ",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            if(MessageBox.Show("Are you sure to exit the program ?","Exit",MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
                 e.Cancel= true;
         }
     }

@@ -82,7 +82,8 @@ namespace Car_Renting
                     DateEnd,
                     date,
                     State,
-                    tien_coc, CancellationReason
+                    tien_coc,
+                    CancellationReason
                 );
                 return Rent;
             }

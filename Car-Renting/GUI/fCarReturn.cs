@@ -13,10 +13,13 @@ namespace Car_Renting
 {
     public partial class fCarReturn : Form
     {
+        //DAO
         private RentDAO rentsDAO = new RentDAO();
         private CarDAO cardao = new CarDAO();
         private ClientDAO clientDAO = new ClientDAO();
+        //STORE
         private Rent rent;
+        private Timer countdownTimer;
 
         public fCarReturn()
         {
@@ -27,20 +30,24 @@ namespace Car_Renting
                 this.rent = Session.currentrentCanceled;
             }
         }
+        
+        //------ Load Data -----------
 
         private void ShowListRent()
         {
             this.gvCarReturn.DataSource = rentsDAO.GetAllDataTableByState(Contraint.STATE_WAITING);
         }
 
+        //------ Event -----------
+
         private void btnDetailContact_Click(object sender, EventArgs e)
         {
             if (this.rent == null)
             {
-                MessageBox.Show("Hay chon hoa don de xem chi tiet !!");
+                MessageBox.Show("Pls select the item first !!");
                 return;
             }
-            fRentSubmit f = new fRentSubmit(this.rent, "ViewBeforeReturn_RENT");
+            fRentSubmit f = new fRentSubmit(this.rent);
             f.ShowDialog();
         }
 
@@ -49,7 +56,7 @@ namespace Car_Renting
             fNavigation form = fNavigation.getInstance();
             if (form != null)
             {
-                fSubmitCarReturn f = new fSubmitCarReturn();
+                fSubmitCarReturn f = new fSubmitCarReturn(this.rent);
                 f.ShowDialog();
             }
         }
@@ -62,6 +69,7 @@ namespace Car_Renting
                 DataGridViewRow row = gvCarReturn.Rows[e.RowIndex];
                 if (String.IsNullOrEmpty(row.Cells["RentId"].Value?.ToString())) return;
 
+              
                 this.rent = rentsDAO.GetById(Int32.Parse(row.Cells["RentId"].Value.ToString()));
                 lbNameCar.Text = row.Cells["CarName"].Value.ToString();
                 lbBrand.Text = row.Cells["Name"].Value.ToString();
@@ -73,7 +81,37 @@ namespace Car_Renting
                 {
                     ImageCar.ImageLocation = imagePath;
                 }
+                StartCountdown(this.rent.DateEnd);
             }
         }
+
+        //------ Logic -----------
+
+        private void StartCountdown(DateTime end)
+        {
+            if (countdownTimer != null)
+            {
+                countdownTimer.Stop();
+            }
+
+            countdownTimer = new Timer();
+            countdownTimer.Interval = 1000; // 1 second
+            countdownTimer.Tick += (sender, e) => {
+                DateTime currentTime = DateTime.Now;
+                TimeSpan remainingTime = currentTime.Subtract(end);
+
+                double totalSeconds = remainingTime.TotalSeconds;
+                int hours = (int)(totalSeconds / 3600);
+                int minutes = (int)((totalSeconds % 3600) / 60);
+                int seconds = (int)(totalSeconds % 60);
+                lbOverTime.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, seconds);
+                
+            };
+
+            countdownTimer.Start();
+        }
+
+
+
     }
 }

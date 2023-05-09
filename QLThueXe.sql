@@ -127,12 +127,12 @@ VALUES ('Tom Smith', '0123456789', '1234567890', 'tom.smith@example.com', '12345
        ('Jim Brown', '0765432198', '7654321987', 'jim.brown@example.com', '7654321987');
 
 
-INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, Deposit, CanceleReason)
-VALUES (1, 1, '2023-05-01 18:45:10', '2023-05-04 19:48:00', 0, 'Renting',  100, NULL),
-       (2, 2, '2023-05-05 19:13:35', '2024-05-10 19:20:00', 1, 'Pending',  150, NULL),
-       (3, 3, '2023-05-15 09:00:00', '2023-05-20 17:00:00', 0, 'Available', 200, NULL),
-	   	(4, 5, '2023-05-10 08:00:00', '2023-05-12 18:00:00', 1, 'Waiting',  150, NULL),	
-       (5, 4, '2023-05-25 10:00:00', '2023-05-27 18:00:00', 0, 'Canceled',  250, 'Change of plans');
+INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd,DescriptionRent ,DateDelayQuantity, State, Deposit, CanceleReason)
+VALUES (1, 1, '2023-05-01 18:45:10', '2023-05-9 23:48:00', 'Mo ta hoa don ',0, 'Renting',  100, NULL),
+       (2, 2, '2023-05-05 19:13:35', '2024-05-10 19:20:00','Mo ta hoa don ' ,1, 'Pending',  150, NULL),
+       (3, 3, '2023-05-15 09:00:00', '2023-05-20 17:00:00','Mo ta hoa don ' ,0, 'Available', 200, NULL),
+	   	(4, 5, '2023-05-04 08:00:00', '2023-05-09 18:00:00', 'Mo ta hoa don ',1, 'Waiting',  150, NULL),	
+       (5, 4, '2023-05-25 10:00:00', '2023-05-27 18:00:00','Mo ta hoa don ', 0, 'Canceled',  250, 'Change of plans');
 
 
 

@@ -29,27 +29,32 @@ namespace Car_Renting
         {
             InitializeComponent();
             
-        }
-
-        public fRentSubmit(Rent cancelRent , String strategy)
-        {
-            
-            InitializeComponent();
-            
-
-            switch (strategy)
+            if(Session.currentrent != null && Session.currentcar != null && Session.currentclient != null)
             {
-                case "Canceled_RENT":
-                    fillDataRentCanceledDetail(cancelRent);
-                    break;
-                case "ViewBeforeReturn_RENT":
-                    fillDataRentReturnDetail(cancelRent);
-                    break;
-                default:
-                    throw new ArgumentException("Invalid strategy: " + strategy);
+                this.rent = Session.currentrent;
+                this.car = Session.currentcar;
+                this.client = Session.currentclient;
+                fillDataRent();
             }
+            else
+            {
+                MessageBox.Show("Lỗi không có giá trị thuê trong bộ nhớ đệm ");
+            }
+        }
+
+        public fRentSubmit(Rent detailRent )
+        {
+            InitializeComponent();
+
+            this.rent = detailRent;
+            this.car = carDAO.GetById(detailRent.CarId);
+            this.client = clientDAO.GetById(detailRent.ClientId);
+
+            btnAccept.Visible = false;
+            fillDataRent();
 
         }
+
         //------ Load Data -----------
 
         private void fillDataRent()
@@ -77,26 +82,6 @@ namespace Car_Renting
 
         }
         
-        public void fillDataRentCanceledDetail(Rent cancelRent)
-        {
-            this.rent = cancelRent;
-            this.car = carDAO.GetById(cancelRent.CarId);
-            this.client = clientDAO.GetById(cancelRent.ClientId);
-
-            btnAccept.Visible = false;
-            fillDataRent();
-        }
-
-        public void fillDataRentReturnDetail(Rent returnDetail)
-        {
-            this.rent = returnDetail;
-            this.car = carDAO.GetById(returnDetail.CarId);
-            this.client = clientDAO.GetById(returnDetail.ClientId);
-
-            btnAccept.Visible = false;
-            fillDataRent();
-        }
-
         //------ Event -----------
 
         private void tbnExit_Click(object sender, EventArgs e)
