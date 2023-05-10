@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Car_Renting
 {
-    public class BillDAO : IBaseDAO<Bill>
+    public class BillDAO : BaseDAO<Bill>
     {
         public DataTable GetAllDataTable()
         {

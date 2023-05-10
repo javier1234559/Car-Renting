@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Car_Renting
 {
-    class ClientDAO : IBaseDAO<Client>
+    class ClientDAO : BaseDAO<Client>
     {
        
         public DataTable GetAllDataTable() {

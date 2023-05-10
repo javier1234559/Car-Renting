@@ -78,6 +78,7 @@ CreateDate datetime,
 CompensationName nvarchar(30),
 Compensation int,
 CompensationDescript nvarchar(300),
+DiscountCode NVARCHAR(20),
 Foreign KEY (RentId) REFERENCES Rents(RentId),
 Foreign KEY (IdUser) REFERENCES Users(IdUser),
 );
