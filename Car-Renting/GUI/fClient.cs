@@ -20,9 +20,9 @@ namespace Car_Renting
         {
             InitializeComponent();
             loadDataClients();
-            if (Session.currentclient != null)
+            if (Session.Currentclient != null)
             {
-                this.client = Session.currentclient;
+                this.client = Session.Currentclient;
             }
         }
 
@@ -119,7 +119,7 @@ namespace Car_Renting
             if (form != null)
             {
                 this.Close();
-                Session.currentclient = this.client;
+                Session.Currentclient = this.client;
                 form.OpenChildForm(new fRent());
                 form.DisableButton();
                 form.leftBorderBtn.Visible = false; ;

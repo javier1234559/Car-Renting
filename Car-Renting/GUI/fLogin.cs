@@ -38,7 +38,7 @@ namespace Car_Renting
             if (temp != null)
             {
                 this.account = temp;
-                Session.currentaccount= this.account;
+                Session.LoginedAccount = this.account;
                 fNavigation f = fNavigation.getInstance();
                 this.Hide();
                 f.ShowDialog();

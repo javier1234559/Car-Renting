@@ -11,13 +11,13 @@ namespace Car_Renting
 {
     class ClientDAO : BaseDAO<Client>
     {
-       
-        public DataTable GetAllDataTable() {
+
+        public override DataTable GetAllDataTable() {
             string sqlStr = string.Format("SELECT * FROM Clients");
             return DbConnection.Instance.getData(sqlStr);
         }
 
-        public Client GetById(int id)
+        public override Client GetById(int id)
         {
             string sqlStr = string.Format("SELECT * FROM Clients WHERE ClientId={0}", id);
             DataTable dt = DbConnection.Instance.getData(sqlStr);
@@ -41,7 +41,7 @@ namespace Car_Renting
 
         public Client FindIDClientByCmnd(string CMND)
         {
-            string sqlStr = string.Format("select ClientId from Clients where  CCCD='{0}' ", CMND);
+            string sqlStr = string.Format("select ClientId from Clients where  CCCD ='{0}' ", CMND);
             DataTable dt = DbConnection.Instance.getData(sqlStr);
             Client client = new Client();
             if (dt.Rows.Count > 0)
@@ -54,7 +54,7 @@ namespace Car_Renting
             return null;
         }
 
-        public int Insert(Client entity)
+        public override int Insert(Client entity)
         {
             string sqlStr = string.Format("INSERT INTO Clients (Name, Phone, CCCD, Email, License) VALUES (@Name, @Phone, @CCCD, @Email, @License); SELECT SCOPE_IDENTITY()");
 
@@ -70,7 +70,7 @@ namespace Car_Renting
             return newId;
         }
 
-        public int Update(Client entity)
+        public override int Update(Client entity)
         {
             string sqlStr = "UPDATE Clients SET Name = @Name, Phone = @Phone, CCCD = @CCCD, Email = @Email, License = @License WHERE ClientId = @ClientId";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -84,7 +84,7 @@ namespace Car_Renting
             return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
 
         }
-        public int Delete(Client entity)
+        public override int Delete(Client entity)
         {
             string sqlStr = string.Format("delete from Clients where ClientId = '{0}'", entity.ClientId);
             return DbConnection.Instance.ExecuteNonQuery(sqlStr);

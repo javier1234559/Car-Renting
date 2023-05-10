@@ -22,9 +22,9 @@ namespace Car_Renting
         {
             InitializeComponent();
             ShowListRent();
-            if(Session.currentrentCanceled != null)
+            if(Session.CurrentrentCanceled != null)
             {
-                this.rent = Session.currentrentCanceled;
+                this.rent = Session.CurrentrentCanceled;
             }
         }
         private void ShowListRent()

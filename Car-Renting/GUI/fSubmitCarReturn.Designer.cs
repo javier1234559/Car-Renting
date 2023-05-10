@@ -30,7 +30,7 @@
         {
             this.btnAccept = new System.Windows.Forms.Button();
             this.txtNameCar = new System.Windows.Forms.TextBox();
-            this.lbSumValue = new System.Windows.Forms.Label();
+            this.lbTotalCost = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,35 +62,36 @@
             this.lbDayStart = new System.Windows.Forms.Label();
             this.lbDateEnd = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.gpRating = new System.Windows.Forms.GroupBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.txtFeedBack = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.lbPrice = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.txtDiscountCode = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).BeginInit();
             this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gpRating.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAccept
             // 
             this.btnAccept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
             this.btnAccept.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAccept.Location = new System.Drawing.Point(775, 569);
+            this.btnAccept.Location = new System.Drawing.Point(775, 581);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(101, 35);
             this.btnAccept.TabIndex = 53;
             this.btnAccept.Text = "Done";
             this.btnAccept.UseVisualStyleBackColor = false;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // txtNameCar
             // 
@@ -99,19 +100,19 @@
             this.txtNameCar.Size = new System.Drawing.Size(152, 20);
             this.txtNameCar.TabIndex = 52;
             // 
-            // lbSumValue
+            // lbTotalCost
             // 
-            this.lbSumValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbTotalCost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbSumValue.AutoSize = true;
-            this.lbSumValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSumValue.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbSumValue.Location = new System.Drawing.Point(804, 528);
-            this.lbSumValue.Name = "lbSumValue";
-            this.lbSumValue.Size = new System.Drawing.Size(72, 25);
-            this.lbSumValue.TabIndex = 49;
-            this.lbSumValue.Text = "2000$";
+            this.lbTotalCost.AutoSize = true;
+            this.lbTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalCost.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbTotalCost.Location = new System.Drawing.Point(804, 528);
+            this.lbTotalCost.Name = "lbTotalCost";
+            this.lbTotalCost.Size = new System.Drawing.Size(60, 25);
+            this.lbTotalCost.TabIndex = 49;
+            this.lbTotalCost.Text = "2000";
             // 
             // label1
             // 
@@ -123,9 +124,9 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(600, 528);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 25);
+            this.label1.Size = new System.Drawing.Size(92, 25);
             this.label1.TabIndex = 50;
-            this.label1.Text = "Total";
+            this.label1.Text = "Total ($)";
             // 
             // label3
             // 
@@ -348,6 +349,7 @@
             this.txtCompensation.Name = "txtCompensation";
             this.txtCompensation.Size = new System.Drawing.Size(129, 20);
             this.txtCompensation.TabIndex = 56;
+            this.txtCompensation.TextChanged += new System.EventHandler(this.txtCompensation_TextChanged);
             // 
             // label4
             // 
@@ -416,27 +418,99 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Controls.Add(this.gpRating);
             this.panel3.Controls.Add(this.txtFeedBack);
             this.panel3.Controls.Add(this.label17);
-            this.panel3.Location = new System.Drawing.Point(37, 457);
+            this.panel3.Location = new System.Drawing.Point(35, 457);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(335, 171);
             this.panel3.TabIndex = 55;
             // 
+            // gpRating
+            // 
+            this.gpRating.BackColor = System.Drawing.Color.Transparent;
+            this.gpRating.Controls.Add(this.radioButton4);
+            this.gpRating.Controls.Add(this.radioButton5);
+            this.gpRating.Controls.Add(this.radioButton3);
+            this.gpRating.Controls.Add(this.radioButton2);
+            this.gpRating.Controls.Add(this.radioButton1);
+            this.gpRating.ForeColor = System.Drawing.Color.Gainsboro;
+            this.gpRating.Location = new System.Drawing.Point(2, 3);
+            this.gpRating.Name = "gpRating";
+            this.gpRating.Size = new System.Drawing.Size(333, 55);
+            this.gpRating.TabIndex = 59;
+            this.gpRating.TabStop = false;
+            this.gpRating.Text = "Rating";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Checked = true;
+            this.radioButton4.Location = new System.Drawing.Point(234, 20);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(31, 17);
+            this.radioButton4.TabIndex = 0;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "5";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(175, 20);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(31, 17);
+            this.radioButton5.TabIndex = 0;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "4";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(120, 20);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(31, 17);
+            this.radioButton3.TabIndex = 0;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "3";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(70, 20);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(31, 17);
+            this.radioButton2.TabIndex = 0;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(22, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(31, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // txtFeedBack
             // 
-            this.txtFeedBack.Location = new System.Drawing.Point(13, 95);
+            this.txtFeedBack.Location = new System.Drawing.Point(3, 96);
             this.txtFeedBack.Multiline = true;
             this.txtFeedBack.Name = "txtFeedBack";
-            this.txtFeedBack.Size = new System.Drawing.Size(302, 63);
+            this.txtFeedBack.Size = new System.Drawing.Size(329, 63);
             this.txtFeedBack.TabIndex = 58;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label17.Location = new System.Drawing.Point(12, 71);
+            this.label17.Location = new System.Drawing.Point(3, 71);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(56, 13);
             this.label17.TabIndex = 57;
@@ -452,9 +526,9 @@
             this.lbPrice.ForeColor = System.Drawing.Color.Gainsboro;
             this.lbPrice.Location = new System.Drawing.Point(804, 426);
             this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Size = new System.Drawing.Size(72, 25);
+            this.lbPrice.Size = new System.Drawing.Size(60, 25);
             this.lbPrice.TabIndex = 49;
-            this.lbPrice.Text = "2000$";
+            this.lbPrice.Text = "2000";
             // 
             // label21
             // 
@@ -480,87 +554,17 @@
             this.label22.ForeColor = System.Drawing.Color.Gainsboro;
             this.label22.Location = new System.Drawing.Point(599, 426);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(61, 25);
+            this.label22.Size = new System.Drawing.Size(93, 25);
             this.label22.TabIndex = 50;
-            this.label22.Text = "Price";
+            this.label22.Text = "Price ($)";
             // 
-            // txtDiscount
+            // txtDiscountCode
             // 
-            this.txtDiscount.Location = new System.Drawing.Point(809, 479);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(67, 20);
-            this.txtDiscount.TabIndex = 57;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton5);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.groupBox1.Location = new System.Drawing.Point(15, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 55);
-            this.groupBox1.TabIndex = 59;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Rating";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(22, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(31, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(70, 20);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(31, 17);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(120, 20);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(31, 17);
-            this.radioButton3.TabIndex = 0;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "3";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(234, 20);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(31, 17);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "5";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(175, 20);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(31, 17);
-            this.radioButton5.TabIndex = 0;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "4";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.txtDiscountCode.Location = new System.Drawing.Point(809, 479);
+            this.txtDiscountCode.Name = "txtDiscountCode";
+            this.txtDiscountCode.Size = new System.Drawing.Size(67, 20);
+            this.txtDiscountCode.TabIndex = 57;
+            this.txtDiscountCode.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
             // fSubmitCarReturn
             // 
@@ -568,13 +572,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
             this.ClientSize = new System.Drawing.Size(934, 640);
-            this.Controls.Add(this.txtDiscount);
+            this.Controls.Add(this.txtDiscountCode);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.txtNameCar);
             this.Controls.Add(this.lbPrice);
-            this.Controls.Add(this.lbSumValue);
+            this.Controls.Add(this.lbTotalCost);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label1);
@@ -598,8 +602,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gpRating.ResumeLayout(false);
+            this.gpRating.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -609,7 +613,7 @@
 
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.TextBox txtNameCar;
-        private System.Windows.Forms.Label lbSumValue;
+        private System.Windows.Forms.Label lbTotalCost;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox ImageCar;
@@ -646,8 +650,8 @@
         private System.Windows.Forms.Label lbPrice;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox txtDiscount;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtDiscountCode;
+        private System.Windows.Forms.GroupBox gpRating;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton3;

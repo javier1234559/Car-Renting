@@ -31,8 +31,8 @@ namespace Car_Renting
         {
             InitializeComponent();
             loadData();
-            if (Session.currentBill != null){
-                this.bill = Session.currentBill;
+            if (Session.CurrentBill != null){
+                this.bill = Session.CurrentBill;
                 fillDataBill();
             }
         }
@@ -68,7 +68,7 @@ namespace Car_Renting
 
         private void updateSession()
         {
-            Session.currentBill = this.bill;
+            Session.CurrentBill = this.bill;
 
         }
 

@@ -6,30 +6,27 @@ using System.Threading.Tasks;
 
 namespace Car_Renting
 {
-    class Rating
+    public class Rating
     {
         public int RatingId { get; set; }
         public int RentId { get; set; }
         public int CarId { get; set; }
         public int RatingValue { get; set; }
-        public string Feedback { get; set; }
+        public string FeedBack { get; set; }
         public int ClientId { get; set; }
 
-        //
-        public Rent Rent { get; set; }
-        public Car Car { get; set; }
-        public Client Client { get; set; }
+        // Constructor
+        public Rating( int rentId, int carId, int ratingValue, string feedBack, int clientId)
+        {
+            RentId = rentId;
+            CarId = carId;
+            RatingValue = ratingValue;
+            FeedBack = feedBack;
+            ClientId = clientId;
+        }
 
         public Rating() { }
 
-        public Rating(int ratingId, int rentId, int carId, int ratingValue, string feedback, int clientId)
-        {
-            RatingId=ratingId;
-            RentId=rentId;
-            CarId=carId;
-            RatingValue=ratingValue;
-            Feedback=feedback;
-            ClientId=clientId;
-        }
     }
+
 }

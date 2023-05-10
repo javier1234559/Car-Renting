@@ -82,7 +82,7 @@ namespace Car_Renting
             if (form != null)
             {
                 this.Close();
-                Session.currentcar = this.car;
+                Session.Currentcar = this.car;
                 form.OpenChildForm(new fRent());
                 form.DisableButton();
                 form.leftBorderBtn.Visible = false; ;

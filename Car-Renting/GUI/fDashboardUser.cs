@@ -27,10 +27,10 @@ namespace Car_Renting
         {
             InitializeComponent();
             loadData();
-            if (Session.currentaccount != null) this.account = Session.currentaccount;
-            if (Session.currentuserAtDashboard != null)
+            if (Session.Currentaccount != null) this.account = Session.Currentaccount;
+            if (Session.CurrentuserAtDashboard != null)
             {
-                this.user = Session.currentuserAtDashboard;
+                this.user = Session.CurrentuserAtDashboard;
                 fillDataUser();
                 loadDataChart();
             }
@@ -190,8 +190,8 @@ namespace Car_Renting
 
         private void updateSession()
         {
-            Session.currentuserAtDashboard = this.user;
-            Session.currentaccountAtDashboard = this.account;
+            Session.CurrentuserAtDashboard = this.user;
+            Session.CurrentaccountAtDashboard = this.account;
         }
 
         private void gvUser_CellClick(object sender, DataGridViewCellEventArgs e)

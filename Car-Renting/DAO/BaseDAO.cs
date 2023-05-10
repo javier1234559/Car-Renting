@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Car_Renting.DAO
 {
-    public interface IBaseDAO <T>
+    public abstract class BaseDAO<T>
     {
-        DataTable GetAllDataTable();
-        T GetById(int id);
-        int Insert(T entity);
-        int Update(T entity);
-        int Delete(T entity);
-
+        public abstract DataTable GetAllDataTable();
+        public abstract T GetById(int id);
+        public abstract int Insert(T entity);
+        public abstract int Update(T entity);
+        public abstract int Delete(T entity);
     }
+
 }

@@ -119,6 +119,11 @@ namespace Car_Renting
 
         }
 
+        private void btnNavDiscount_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new fDiscount());
+        }
 
 
 

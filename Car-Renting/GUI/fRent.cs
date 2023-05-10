@@ -25,14 +25,14 @@ namespace Car_Renting
         public fRent()
         {
             InitializeComponent();
-            if (Session.currentcar != null)
+            if (Session.Currentcar != null)
             {
-                this.car = Session.currentcar;
+                this.car = Session.Currentcar;
                 fillDataCar();
             }
-            if (Session.currentclient != null)
+            if (Session.Currentclient != null)
             {
-                this.client = Session.currentclient;
+                this.client = Session.Currentclient;
                 fillDataClient();
             }
         }
@@ -73,9 +73,9 @@ namespace Car_Renting
 
             if (this.clientdao.FindIDClientByCmnd(temp.CCCD) != null)
             {
-                if (Session.currentclient != null && Session.currentclient.CCCD == temp.CCCD)
+                if (Session.Currentclient != null && Session.Currentclient.CCCD == temp.CCCD)
                 {
-                    this.client = Session.currentclient;
+                    this.client = Session.Currentclient;
                     return false;
                 }
                 else
@@ -95,9 +95,9 @@ namespace Car_Renting
 
         private void saveDataToSession()
         {
-            Session.currentcar = this.car;
-            Session.currentclient= this.client;
-            Session.currentrent = this.rent;
+            Session.Currentcar = this.car;
+            Session.Currentclient= this.client;
+            Session.Currentrent = this.rent;
         }
 
         private void handleSaveRent()

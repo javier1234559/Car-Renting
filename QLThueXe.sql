@@ -2,97 +2,108 @@
 USE master;
 GO
 IF EXISTS(SELECT * FROM sys.databases WHERE name = 'QLThueXe')
-BEGIN
-    ALTER DATABASE QLThueXe SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE QLThueXe;
-END
+	BEGIN
+		ALTER DATABASE QLThueXe SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+		DROP DATABASE QLThueXe;
+	END
 CREATE DATABASE QLThueXe;
 GO
 USE QLThueXe;
 GO
 
 create table Users(
-IdUser int primary key IDENTITY(1,1),
-Name varchar(255),
-Phone varchar(11) ,
-Address VARCHAR(255),
-TotalRevenue int,
-CONSTRAINT valid_phone CHECK (Phone LIKE '0%' AND ISNUMERIC(Phone) = 1),
+	IdUser int primary key IDENTITY(1,1),
+	Name varchar(255),
+	Phone varchar(11) ,
+	Address VARCHAR(255),
+	TotalRevenue int,
+	CONSTRAINT valid_phone CHECK (Phone LIKE '0%' AND ISNUMERIC(Phone) = 1),
 );
 
 
 Create table Account (
-AccID int primary key IDENTITY(1,1),
-Email nvarchar(320), 
-Password nvarchar(100),
-IdUser int 
-Foreign KEY (IdUser) REFERENCES Users(IdUser),
-CONSTRAINT valid_email CHECK (Email LIKE '%@%.%'),
+	AccID int primary key IDENTITY(1,1),
+	Email nvarchar(320), 
+	Password nvarchar(100),
+	IdUser int 
+	Foreign KEY (IdUser) REFERENCES Users(IdUser),
+	CONSTRAINT valid_email CHECK (Email LIKE '%@%.%'),
 );
 
 
 create table Cars(
-CarId int primary key IDENTITY(1,1),
-CarName nvarchar(255),
-CategoryName nvarchar(255),
-Brand nvarchar(255),
-Seats INT,
-PricePerDay int,
-NumberPlate nvarchar(10),
-Description nvarchar(500),
-ImageCar nvarchar(500)
+	CarId int primary key IDENTITY(1,1),
+	CarName nvarchar(255),
+	CategoryName nvarchar(255),
+	Brand nvarchar(255),
+	Seats INT,
+	PricePerDay int,
+	NumberPlate nvarchar(10),
+	Description nvarchar(500),
+	ImageCar nvarchar(500)
 );
 
 Create table Clients(
-ClientId int primary key IDENTITY(1,1),
-Name nvarchar(255),
-Phone varchar(11) ,
-CCCD VARCHAR(30),
-Email nvarchar(320),
-License nvarchar(320),
-CONSTRAINT valid_email1 CHECK (Email LIKE '%@%.%'),
+	ClientId int primary key IDENTITY(1,1),
+	Name nvarchar(255),
+	Phone varchar(11) ,
+	CCCD VARCHAR(30),
+	Email nvarchar(320),
+	License nvarchar(320),
+	CONSTRAINT valid_email1 CHECK (Email LIKE '%@%.%'),
 );
 
 Create table Rents(
-RentId int primary key IDENTITY(1,1),
-CarId int ,
-ClientId int,
-DateStart datetime,
-DateEnd datetime,
-DateDelayQuantity int NULL,
-State nvarchar(50) NOT NULL,
-DescriptionRent nvarchar(500) NULL,
-Deposit INT NOT NULL,
-CanceleReason nvarchar(500) NUll ,
-Foreign KEY (CarId) REFERENCES Cars(CarId),
-Foreign KEY (ClientId) REFERENCES Clients(ClientId),
+	RentId int primary key IDENTITY(1,1),
+	CarId int ,
+	ClientId int,
+	DateStart datetime,
+	DateEnd datetime,
+	DateDelayQuantity int DEFAULT 0,
+	State nvarchar(50) NOT NULL DEFAULT 'Available',
+	DescriptionRent nvarchar(500) DEFAULT '',
+	Deposit INT NOT NULL,
+	CanceleReason nvarchar(500) DEFAULT '' ,
+	Foreign KEY (CarId) REFERENCES Cars(CarId),
+	Foreign KEY (ClientId) REFERENCES Clients(ClientId),
 );
+
+CREATE TABLE Discount (
+	   Id INT PRIMARY KEY IDENTITY,
+	   Code VARCHAR(50) UNIQUE,
+	   DiscountPercent DECIMAL(18,2),
+	   StartDate DATETIME,
+	   EndDate DATETIME,
+	   Quantity INT,
+	   CreatedDate DATETIME,
+	   CreatedBy VARCHAR(50)
+	);
 
 
 Create table Bills(
-BillId int primary key IDENTITY(1,1),
-RentId int ,
-IdUser int,
-TotalCost int,
-CreateDate datetime,
-CompensationName nvarchar(30),
-Compensation int,
-CompensationDescript nvarchar(300),
-DiscountCode NVARCHAR(20),
-Foreign KEY (RentId) REFERENCES Rents(RentId),
-Foreign KEY (IdUser) REFERENCES Users(IdUser),
+	BillId int primary key IDENTITY(1,1),
+	RentId int ,
+	IdUser int,
+	TotalCost DECIMAL(18,3),
+	CreateDate datetime,
+	CompensationName nvarchar(30) DEFAULT '',
+	Compensation int DEFAULT 0,
+	CompensationDescript nvarchar(300) DEFAULT '',
+	DiscountCode NVARCHAR(20) DEFAULT '',
+	Foreign KEY (RentId) REFERENCES Rents(RentId),
+	Foreign KEY (IdUser) REFERENCES Users(IdUser),
 );
 
 Create table Rating(
-RatingId int primary key IDENTITY(1,1),
-RentId int,
-CarId int ,
-RatingValue int,
-FeedBack text,
-ClientId int,
-Foreign KEY (RentId) REFERENCES Rents(RentId),
-Foreign KEY (ClientId) REFERENCES Clients(ClientId),
-Foreign KEY (CarId) REFERENCES Cars(CarId),
+	RatingId int primary key IDENTITY(1,1),
+	RentId int,
+	CarId int ,
+	ClientId int,
+	RatingValue int,
+	FeedBack text,
+	Foreign KEY (RentId) REFERENCES Rents(RentId),
+	Foreign KEY (ClientId) REFERENCES Clients(ClientId),
+	Foreign KEY (CarId) REFERENCES Cars(CarId),
 );
 
 INSERT INTO Users (Name, Phone, Address, TotalRevenue)
@@ -107,11 +118,6 @@ INSERT INTO Account (Email, Password, IdUser) VALUES
   ( 'jane@example.com', 'password456', 2),
   ('doe@example.com', 'password789', 3),
   ('1@gmail.com','1',4);
-
---INSERT INTO CategoyCar (CategoryId, CategoryName) VALUES
---  (1, 'Compact'),
---  (2, 'Mid-size'), them 4 (Motorcycle)
---  (3, 'Full-size');
 
 INSERT INTO Cars (CarName, CategoryName, Brand, Seats, PricePerDay, NumberPlate, Description, ImageCar)
 VALUES ('Toyota Camry', 'Sedan', 'Toyota', 5, 50, 'ABC123', 'A reliable and comfortable sedan', N'ToyotaYaris.png'),
@@ -129,22 +135,21 @@ VALUES ('Tom Smith', '0123456789', '1234567890', 'tom.smith@example.com', '12345
 
 
 INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd,DescriptionRent ,DateDelayQuantity, State, Deposit, CanceleReason)
-VALUES (1, 1, '2023-05-01 18:45:10', '2023-05-9 23:48:00', 'Mo ta hoa don ',0, 'Renting',  100, NULL),
-       (2, 2, '2023-05-05 19:13:35', '2024-05-10 19:20:00','Mo ta hoa don ' ,1, 'Pending',  150, NULL),
-       (3, 3, '2023-05-15 09:00:00', '2023-05-20 17:00:00','Mo ta hoa don ' ,0, 'Available', 200, NULL),
-	   	(4, 5, '2023-05-04 08:00:00', '2023-05-09 18:00:00', 'Mo ta hoa don ',1, 'Waiting',  150, NULL),	
+VALUES (1, 1, '2023-05-01 18:45:10', '2023-05-9 23:48:00', 'Mo ta hoa don ',0, 'Renting',  100, ''),
+       (2, 2, '2023-05-05 19:13:35', '2024-05-10 19:20:00','Mo ta hoa don ' ,1, 'Pending',  150, ''),
+       (3, 3, '2023-05-15 09:00:00', '2023-05-20 17:00:00','Mo ta hoa don ' ,0, 'Available', 200, ''),
+	   	(4, 5, '2023-05-04 08:00:00', '2023-05-09 18:00:00', 'Mo ta hoa don ',1, 'Waiting',  150, ''),	
        (5, 4, '2023-05-25 10:00:00', '2023-05-27 18:00:00','Mo ta hoa don ', 0, 'Canceled',  250, 'Change of plans');
 
-
-
-
 INSERT INTO Rating(RentId, CarId, RatingValue, FeedBack, ClientId) VALUES
-(1, 5, 4, 'Rất hài lòng với dịch vụ', 1),
-(2, 2, 3, 'Xe tốt nhưng giá hơi cao', 2);
+	(1, 5, 4, 'Rất hài lòng với dịch vụ', 1),
+	(2, 2, 3, 'Xe tốt nhưng giá hơi cao', 2);
 
-INSERT INTO Bills(RentId, IdUser, TotalCost, CreateDate, CompensationName, Compensation, CompensationDescript) VALUES
-(1, 1, 150000, '2022-02-15 10:30:00', 'Hong Xe', 20000, 'Tien den bu hu hai'),
-(2, 2, 500000, '2022-03-01 15:45:00', 'Tra Tre Han', 100,'Tra tre han '),
-(3, 1, 1000, '2023-04-03 15:45:00', 'Hong Xe', 20000, 'Tien den bu hu hai'),
-(4, 2, 900, '2023-04-04 15:45:00', null, null,null);
+INSERT INTO Discount(Code, DiscountPercent, StartDate, EndDate, Quantity, CreatedDate, CreatedBy)
+	VALUES ('DIS0', 0.5, '2023-05-10 00:00:00', '2023-05-20 00:00:00', 100, '2023-05-10 12:00:00', 'Nhat');
+
+INSERT INTO Bills (RentId, IdUser, TotalCost, CreateDate, CompensationName, Compensation, CompensationDescript, DiscountCode)
+	VALUES (1, 1, 15000.00, '2022-01-01 08:00:00', '', 0, '', 'DIS0'),
+	(2, 2, 2000.05, '2022-02-01 10:00:00', 'Tire replacement', 500000, 'Replace 2 tires', ''),
+	(3, 3, 30000.00, '2022-03-01 12:00:00', '', 0, '', '');
 

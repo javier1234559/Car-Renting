@@ -151,10 +151,20 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Utilites\RentScheduler.cs" />
+    <Compile Include="BUS\DiscountManager.cs" />
+    <Compile Include="BUS\CarReturnManager.cs" />
+    <Compile Include="GUI\fDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\fDiscount.Designer.cs">
+      <DependentUpon>fDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Discount.cs" />
+    <Compile Include="DAO\DiscountDAO.cs" />
+    <Compile Include="DAO\RatingDAO.cs" />
     <Compile Include="Utilites\Contraint.cs" />
     <Compile Include="DAO\BillDAO.cs" />
-    <Compile Include="DAO\IBaseDAO.cs" />
+    <Compile Include="DAO\BaseDAO.cs" />
     <Compile Include="DAO\ClientDAO.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\RentDAO.cs" />
@@ -257,6 +267,9 @@
     <Compile Include="Utilites\Session.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Utilites\UtilityControlHandler.cs" />
+    <EmbeddedResource Include="GUI\fDiscount.resx">
+      <DependentUpon>fDiscount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\fBill.resx">
       <DependentUpon>fBill.cs</DependentUpon>
     </EmbeddedResource>

@@ -29,11 +29,11 @@ namespace Car_Renting
         {
             InitializeComponent();
             
-            if(Session.currentrent != null && Session.currentcar != null && Session.currentclient != null)
+            if(Session.Currentrent != null && Session.Currentcar != null && Session.Currentclient != null)
             {
-                this.rent = Session.currentrent;
-                this.car = Session.currentcar;
-                this.client = Session.currentclient;
+                this.rent = Session.Currentrent;
+                this.car = Session.Currentcar;
+                this.client = Session.Currentclient;
                 fillDataRent();
             }
             else
@@ -117,7 +117,7 @@ namespace Car_Renting
             {
                 string filePath = dialog.FileName;
                 PDFGenerate savepdf = PDFGenerate.getInstance();
-                savepdf.GeneratePDFRent(filePath, this.rent, this.car, this.client, Session.currentuser);
+                savepdf.GeneratePDFRent(filePath, this.rent, this.car, this.client, Session.Currentuser);
 
                 MessageBox.Show($"Xuat file PDF thanh cong tai : {filePath}");
 
@@ -156,7 +156,7 @@ namespace Car_Renting
 
         private void updateSessionRent()
         {
-            Session.currentrent = this.rent;
+            Session.Currentrent = this.rent;
         }
     }
 }

@@ -297,7 +297,7 @@
             // 
             this.btnRentFromClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(78)))));
             this.btnRentFromClient.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnRentFromClient.Location = new System.Drawing.Point(159, 381);
+            this.btnRentFromClient.Location = new System.Drawing.Point(159, 394);
             this.btnRentFromClient.Name = "btnRentFromClient";
             this.btnRentFromClient.Size = new System.Drawing.Size(88, 35);
             this.btnRentFromClient.TabIndex = 18;

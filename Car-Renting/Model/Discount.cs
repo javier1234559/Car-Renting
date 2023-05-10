@@ -17,6 +17,8 @@ namespace Car_Renting
         public DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }
 
+        public Discount () { }
+
         public Discount(int id, string code, decimal discountPercent, DateTime startDate, DateTime endDate, int quantity, DateTime createdDate, string createdBy)
         {
             Id=id;

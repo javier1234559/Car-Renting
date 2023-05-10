@@ -30,23 +30,24 @@
         {
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnNavClient = new FontAwesome.Sharp.IconButton();
-            this.btnNavBill = new FontAwesome.Sharp.IconButton();
             this.btnNavCarReturn = new FontAwesome.Sharp.IconButton();
             this.btnNavRenting = new FontAwesome.Sharp.IconButton();
             this.btnNavRent = new FontAwesome.Sharp.IconButton();
+            this.btnNavCanceled = new FontAwesome.Sharp.IconButton();
             this.btnNavCar = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnLogo = new System.Windows.Forms.PictureBox();
+            this.btnNavBill = new FontAwesome.Sharp.IconButton();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.btnNavCanceled = new FontAwesome.Sharp.IconButton();
+            this.lbWelcome = new System.Windows.Forms.Label();
             this.btnNavAccount = new FontAwesome.Sharp.IconButton();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.btnMinimize = new FontAwesome.Sharp.IconButton();
             this.btnMaximize = new FontAwesome.Sharp.IconButton();
+            this.btnNavDiscount = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbWelcome = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogo)).BeginInit();
@@ -59,10 +60,10 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.panelMenu.Controls.Add(this.btnNavClient);
-            this.panelMenu.Controls.Add(this.btnNavBill);
             this.panelMenu.Controls.Add(this.btnNavCarReturn);
             this.panelMenu.Controls.Add(this.btnNavRenting);
             this.panelMenu.Controls.Add(this.btnNavRent);
+            this.panelMenu.Controls.Add(this.btnNavCanceled);
             this.panelMenu.Controls.Add(this.btnNavCar);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -73,7 +74,6 @@
             // 
             // btnNavClient
             // 
-            this.btnNavClient.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNavClient.FlatAppearance.BorderSize = 0;
             this.btnNavClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavClient.ForeColor = System.Drawing.Color.Gainsboro;
@@ -82,36 +82,15 @@
             this.btnNavClient.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNavClient.IconSize = 32;
             this.btnNavClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavClient.Location = new System.Drawing.Point(0, 350);
+            this.btnNavClient.Location = new System.Drawing.Point(1, 359);
             this.btnNavClient.Name = "btnNavClient";
             this.btnNavClient.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnNavClient.Size = new System.Drawing.Size(155, 50);
+            this.btnNavClient.Size = new System.Drawing.Size(154, 50);
             this.btnNavClient.TabIndex = 8;
             this.btnNavClient.Text = "Client";
             this.btnNavClient.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNavClient.UseVisualStyleBackColor = true;
             this.btnNavClient.Click += new System.EventHandler(this.btnNavClient_Click);
-            // 
-            // btnNavBill
-            // 
-            this.btnNavBill.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNavBill.FlatAppearance.BorderSize = 0;
-            this.btnNavBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNavBill.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnNavBill.IconChar = FontAwesome.Sharp.IconChar.Wallet;
-            this.btnNavBill.IconColor = System.Drawing.Color.White;
-            this.btnNavBill.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNavBill.IconSize = 32;
-            this.btnNavBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavBill.Location = new System.Drawing.Point(0, 300);
-            this.btnNavBill.Name = "btnNavBill";
-            this.btnNavBill.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnNavBill.Size = new System.Drawing.Size(155, 50);
-            this.btnNavBill.TabIndex = 6;
-            this.btnNavBill.Text = "Bill";
-            this.btnNavBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNavBill.UseVisualStyleBackColor = true;
-            this.btnNavBill.Click += new System.EventHandler(this.btnNavBill_Click);
             // 
             // btnNavCarReturn
             // 
@@ -176,6 +155,26 @@
             this.btnNavRent.UseVisualStyleBackColor = true;
             this.btnNavRent.Click += new System.EventHandler(this.btnNavRent_Click);
             // 
+            // btnNavCanceled
+            // 
+            this.btnNavCanceled.FlatAppearance.BorderSize = 0;
+            this.btnNavCanceled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNavCanceled.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnNavCanceled.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.btnNavCanceled.IconColor = System.Drawing.Color.White;
+            this.btnNavCanceled.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNavCanceled.IconSize = 32;
+            this.btnNavCanceled.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNavCanceled.Location = new System.Drawing.Point(0, 306);
+            this.btnNavCanceled.Name = "btnNavCanceled";
+            this.btnNavCanceled.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnNavCanceled.Size = new System.Drawing.Size(155, 47);
+            this.btnNavCanceled.TabIndex = 9;
+            this.btnNavCanceled.Text = "Canceled";
+            this.btnNavCanceled.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNavCanceled.UseVisualStyleBackColor = true;
+            this.btnNavCanceled.Click += new System.EventHandler(this.btnNavCanceled_Click);
+            // 
             // btnNavCar
             // 
             this.btnNavCar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -222,6 +221,27 @@
             this.btnLogo.TabStop = false;
             this.btnLogo.Click += new System.EventHandler(this.btnLogo_Click);
             // 
+            // btnNavBill
+            // 
+            this.btnNavBill.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnNavBill.FlatAppearance.BorderSize = 0;
+            this.btnNavBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNavBill.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnNavBill.IconChar = FontAwesome.Sharp.IconChar.Wallet;
+            this.btnNavBill.IconColor = System.Drawing.Color.White;
+            this.btnNavBill.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNavBill.IconSize = 32;
+            this.btnNavBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNavBill.Location = new System.Drawing.Point(310, 0);
+            this.btnNavBill.Name = "btnNavBill";
+            this.btnNavBill.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnNavBill.Size = new System.Drawing.Size(155, 53);
+            this.btnNavBill.TabIndex = 6;
+            this.btnNavBill.Text = "Bill";
+            this.btnNavBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNavBill.UseVisualStyleBackColor = true;
+            this.btnNavBill.Click += new System.EventHandler(this.btnNavBill_Click);
+            // 
             // panelDesktop
             // 
             this.panelDesktop.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -235,28 +255,24 @@
             this.panelDesktop.Size = new System.Drawing.Size(959, 482);
             this.panelDesktop.TabIndex = 1;
             // 
-            // btnNavCanceled
+            // lbWelcome
             // 
-            this.btnNavCanceled.FlatAppearance.BorderSize = 0;
-            this.btnNavCanceled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNavCanceled.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnNavCanceled.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.btnNavCanceled.IconColor = System.Drawing.Color.White;
-            this.btnNavCanceled.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNavCanceled.IconSize = 32;
-            this.btnNavCanceled.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavCanceled.Location = new System.Drawing.Point(180, 3);
-            this.btnNavCanceled.Name = "btnNavCanceled";
-            this.btnNavCanceled.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnNavCanceled.Size = new System.Drawing.Size(155, 47);
-            this.btnNavCanceled.TabIndex = 9;
-            this.btnNavCanceled.Text = "Canceled";
-            this.btnNavCanceled.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNavCanceled.UseVisualStyleBackColor = true;
-            this.btnNavCanceled.Click += new System.EventHandler(this.btnNavCanceled_Click);
+            this.lbWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWelcome.AutoSize = true;
+            this.lbWelcome.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(203)))), ((int)(((byte)(196)))));
+            this.lbWelcome.Location = new System.Drawing.Point(129, 190);
+            this.lbWelcome.Name = "lbWelcome";
+            this.lbWelcome.Size = new System.Drawing.Size(612, 84);
+            this.lbWelcome.TabIndex = 1;
+            this.lbWelcome.Text = "Wellcome to Car Rental";
+            this.lbWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnNavAccount
             // 
+            this.btnNavAccount.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnNavAccount.FlatAppearance.BorderSize = 0;
             this.btnNavAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavAccount.ForeColor = System.Drawing.Color.Gainsboro;
@@ -265,10 +281,10 @@
             this.btnNavAccount.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNavAccount.IconSize = 32;
             this.btnNavAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNavAccount.Location = new System.Drawing.Point(6, 4);
+            this.btnNavAccount.Location = new System.Drawing.Point(0, 0);
             this.btnNavAccount.Name = "btnNavAccount";
             this.btnNavAccount.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNavAccount.Size = new System.Drawing.Size(155, 46);
+            this.btnNavAccount.Size = new System.Drawing.Size(155, 53);
             this.btnNavAccount.TabIndex = 7;
             this.btnNavAccount.Text = "Manage Account";
             this.btnNavAccount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -278,8 +294,9 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.panelTitleBar.Controls.Add(this.btnNavBill);
             this.panelTitleBar.Controls.Add(this.panel3);
-            this.panelTitleBar.Controls.Add(this.btnNavCanceled);
+            this.panelTitleBar.Controls.Add(this.btnNavDiscount);
             this.panelTitleBar.Controls.Add(this.btnNavAccount);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(155, 0);
@@ -353,6 +370,27 @@
             this.btnMaximize.UseVisualStyleBackColor = true;
             this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
             // 
+            // btnNavDiscount
+            // 
+            this.btnNavDiscount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnNavDiscount.FlatAppearance.BorderSize = 0;
+            this.btnNavDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNavDiscount.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnNavDiscount.IconChar = FontAwesome.Sharp.IconChar.Tag;
+            this.btnNavDiscount.IconColor = System.Drawing.Color.White;
+            this.btnNavDiscount.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNavDiscount.IconSize = 32;
+            this.btnNavDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNavDiscount.Location = new System.Drawing.Point(155, 0);
+            this.btnNavDiscount.Name = "btnNavDiscount";
+            this.btnNavDiscount.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnNavDiscount.Size = new System.Drawing.Size(155, 53);
+            this.btnNavDiscount.TabIndex = 9;
+            this.btnNavDiscount.Text = "Discount";
+            this.btnNavDiscount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNavDiscount.UseVisualStyleBackColor = true;
+            this.btnNavDiscount.Click += new System.EventHandler(this.btnNavDiscount_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(203)))), ((int)(((byte)(196)))));
@@ -361,24 +399,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(959, 6);
             this.panel1.TabIndex = 3;
-            // 
-            // lbWelcome
-            // 
-            this.lbWelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbWelcome.AutoSize = true;
-            this.lbWelcome.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(203)))), ((int)(((byte)(196)))));
-            this.lbWelcome.Location = new System.Drawing.Point(129, 190);
-            this.lbWelcome.Name = "lbWelcome";
-            this.lbWelcome.Size = new System.Drawing.Size(612, 84);
-            this.lbWelcome.TabIndex = 1;
-            this.lbWelcome.Text = "Wellcome to Car Rental";
-            this.lbWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // 
-        
             // 
             // fNavigation
             // 
@@ -424,5 +444,6 @@
         private FontAwesome.Sharp.IconButton btnExit;
         private FontAwesome.Sharp.IconButton btnMaximize;
         private System.Windows.Forms.Label lbWelcome;
+        private FontAwesome.Sharp.IconButton btnNavDiscount;
     }
 }

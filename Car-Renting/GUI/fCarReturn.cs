@@ -13,21 +13,18 @@ namespace Car_Renting
 {
     public partial class fCarReturn : Form
     {
-        //DAO
-        private RentDAO rentsDAO = new RentDAO();
-        private CarDAO cardao = new CarDAO();
-        private ClientDAO clientDAO = new ClientDAO();
-        //STORE
+        private CarReturnManager _carReturnManager ; 
         private Rent rent;
         private Timer countdownTimer;
 
         public fCarReturn()
         {
+            _carReturnManager = new CarReturnManager();
             InitializeComponent();
             ShowListRent();
-            if (Session.currentrentCanceled != null)
+            if (Session.CurrentrentCanceled != null)
             {
-                this.rent = Session.currentrentCanceled;
+                this.rent = Session.CurrentrentCanceled;
             }
         }
         
@@ -35,7 +32,7 @@ namespace Car_Renting
 
         private void ShowListRent()
         {
-            this.gvCarReturn.DataSource = rentsDAO.GetAllDataTableByState(Contraint.STATE_WAITING);
+            this.gvCarReturn.DataSource = _carReturnManager.LoadData();
         }
 
         //------ Event -----------
@@ -53,12 +50,8 @@ namespace Car_Renting
 
         private void btnNavCarReturn_Click(object sender, EventArgs e)
         {
-            fNavigation form = fNavigation.getInstance();
-            if (form != null)
-            {
-                fSubmitCarReturn f = new fSubmitCarReturn(this.rent);
-                f.ShowDialog();
-            }
+            fSubmitCarReturn f = new fSubmitCarReturn(this.rent);
+            f.ShowDialog();
         }
 
         private void gvCarReturn_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -69,8 +62,7 @@ namespace Car_Renting
                 DataGridViewRow row = gvCarReturn.Rows[e.RowIndex];
                 if (String.IsNullOrEmpty(row.Cells["RentId"].Value?.ToString())) return;
 
-              
-                this.rent = rentsDAO.GetById(Int32.Parse(row.Cells["RentId"].Value.ToString()));
+                this.rent = _carReturnManager.GetRentById(Int32.Parse(row.Cells["RentId"].Value.ToString()));
                 lbNameCar.Text = row.Cells["CarName"].Value.ToString();
                 lbBrand.Text = row.Cells["Name"].Value.ToString();
                 lbCategory.Text = row.Cells["CategoryName"].Value.ToString();
@@ -110,7 +102,6 @@ namespace Car_Renting
 
             countdownTimer.Start();
         }
-
 
 
     }

@@ -46,7 +46,7 @@ namespace Car_Renting
             }
 
             fNavigation form = fNavigation.getInstance();
-            Session.currentrentCanceled = this.rent;
+            Session.CurrentrentCanceled = this.rent;
             rentsDAO.ChangeState(this.rent.RentId, Contraint.STATE_CANCLED);
             if (form != null)
             {
@@ -62,7 +62,7 @@ namespace Car_Renting
             if (form != null)
             {
                 form.OpenChildForm(new fCarReturn());
-                Session.currentrentCanceled = this.rent;
+                Session.CurrentrentCanceled = this.rent;
             }
         }
 

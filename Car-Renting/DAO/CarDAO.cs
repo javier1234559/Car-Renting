@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Car_Renting
 {
-    class CarDAO : IBaseDAO <Car>
+    class CarDAO : BaseDAO <Car>
     {
-        public DataTable GetAllDataTable()
+        public override DataTable GetAllDataTable()
         {
             var sql = @"SELECT * from Cars;";
 
@@ -29,7 +29,7 @@ namespace Car_Renting
         }
 
 
-        public Car GetById(int id)
+        public override Car GetById(int id)
         {
             string sqlStr = $"SELECT * FROM Cars WHERE CarId = {id}";
             DataTable dt = DbConnection.Instance.getData(sqlStr);
@@ -81,7 +81,7 @@ namespace Car_Renting
         }
 
 
-        public int Insert(Car entity)
+        public override int Insert(Car entity)
         {
             string sqlStr = string.Format("INSERT INTO Cars (CarName, CategoryName, Brand, Seats, PricePerDay, NumberPlate, Description, ImageCar) VALUES (@CarName, @CategoryName, @Brand, @Seats, @PricePerDay, @NumberPlate, @Description, @ImageCar); SELECT SCOPE_IDENTITY()");
 
@@ -102,13 +102,13 @@ namespace Car_Renting
 
 
 
-        public int Delete(Car entity)
+        public override int Delete(Car entity)
         {
             string sqlStr = string.Format("delete from Cars where CarId = '{0}'", entity.CarId);
             return DbConnection.Instance.ExecuteNonQuery(sqlStr);
         }
 
-        public int Update(Car entity)
+        public override int Update(Car entity)
         {
             string sqlStr = "UPDATE Cars SET CarName = @CarName, CategoryName = @CategoryName, Brand = @Brand, Seats = @Seats, PricePerDay = @PricePerDay, NumberPlate = @NumberPlate, Description = @Description, ImageCar = @ImageCar WHERE CarId = @CarId";
             Dictionary<string, object> parameters = new Dictionary<string, object>();

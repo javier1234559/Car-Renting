@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace Account_Renting
 {
-    class AccountDAO : IBaseDAO<Account>
+    class AccountDAO : BaseDAO<Account>
     {
 
-        public DataTable GetAllDataTable()
+        public override DataTable GetAllDataTable()
         {
             var sql = @"SELECT * FROM Account";
 
             return DbConnection.Instance.getData(sql);
         }
 
-        public Account GetById(int id)
+        public override Account GetById(int id)
         {
             string sqlStr = string.Format("SELECT * FROM Account");
             DataTable dt = DbConnection.Instance.getData(sqlStr);
@@ -40,7 +40,7 @@ namespace Account_Renting
             return null;
         }
 
-        public Account GetByEmailAndPass(string email , string pass)
+        public  Account GetByEmailAndPass(string email , string pass)
         {
             string query = $"SELECT * FROM Account WHERE Email = '{email}' and Password = '{pass}';";
             DataTable dt = DbConnection.Instance.getData(query);
@@ -60,7 +60,7 @@ namespace Account_Renting
             return null;
         }
 
-        public int Insert(Account entity)
+        public override int Insert(Account entity)
         {
             string sqlStr = "INSERT INTO Account (Email, Password, IdUser) VALUES (@Email, @Password, @IdUser); SELECT SCOPE_IDENTITY()";
 
@@ -74,7 +74,7 @@ namespace Account_Renting
             return newId;
         }
 
-        public int Delete(Account entity)
+        public override int Delete(Account entity)
         {
             string sqlStr = "DELETE FROM Account WHERE AccID = @AccID";
 
@@ -86,7 +86,7 @@ namespace Account_Renting
             return rowsAffected;
         }
 
-        public int Update(Account entity)
+        public override int Update(Account entity)
         {
             string sqlStr = "UPDATE Account SET Email = @Email, Password = @Password WHERE AccID = @AccID";
 

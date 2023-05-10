@@ -10,7 +10,7 @@ using static iText.IO.Util.IntHashtable;
 
 namespace Car_Renting
 {
-    class RentDAO : IBaseDAO<Rent>
+    class RentDAO : BaseDAO<Rent>
     {
         public List<Rent> GetAllList()
         {
@@ -18,7 +18,7 @@ namespace Car_Renting
             return list;
         }
 
-        public DataTable GetAllDataTable()
+        public override DataTable GetAllDataTable()
         {
             string sqlStr = string.Format("select Rents.RentId,Cars.CarName,Clients.Name,DateStart,DateEnd,State,DateDelayQuantity,Deposit,CanceleReason,Cars.CategoryName as CategoryName ,Rents.DescriptionRent from Rents, Cars, Clients where Rents.CarId = Cars.CarId and Rents.ClientId = Clients.ClientId ");
             return DbConnection.Instance.getData(sqlStr);
@@ -47,7 +47,7 @@ namespace Car_Renting
             DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
         }
 
-        public Rent GetById(int id)
+        public override Rent GetById(int id)
         {
             string sqlStr = string.Format("SELECT * FROM Rents");
             DataTable dt = DbConnection.Instance.getData(sqlStr);
@@ -75,7 +75,7 @@ namespace Car_Renting
         }
 
 
-        public int Insert(Rent entity)
+        public override int Insert(Rent entity)
         {
             string sqlStr = "INSERT INTO Rents(CarId, ClientId, DateStart, DateEnd, DateDelayQuantity, State, DescriptionRent, Deposit) " +
                    "VALUES (@CarId, @ClientId, @DateStart, @DateEnd, @DateDelayQuantity, @State, @DescriptionRent, @Deposit); " +
@@ -96,7 +96,7 @@ namespace Car_Renting
             return newId;
         }
 
-        public int Update(Rent entity)
+        public override int Update(Rent entity)
         {
             string sqlStr = "UPDATE Rents SET CarId = @CarId, ClientId = @ClientId, DateStart = @DateStart, DateEnd = @DateEnd, DateDelayQuantity = @DateDelayQuantity, State = @State, DescriptionRent = @DescriptionRent, Deposit = @Deposit WHERE RentId = @RentId";
 
@@ -114,7 +114,7 @@ namespace Car_Renting
             return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
         }
 
-        public int Delete(Rent entity)
+        public override int Delete(Rent entity)
         {
             throw new NotImplementedException();
         }

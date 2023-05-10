@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Car_Renting
 {
-    class UserDAO : IBaseDAO<User>
+    class UserDAO : BaseDAO<User>
     {
-        public DataTable GetAllDataTable()
+        public override DataTable GetAllDataTable()
         {
             string sqlStr = "SELECT * FROM Users";
             return DbConnection.Instance.getData(sqlStr);
@@ -37,7 +37,7 @@ namespace Car_Renting
             return DbConnection.Instance.getData(sqlStr);
         }
 
-        public User GetById(int id)
+        public override User GetById(int id)
         {
             string sqlStr = string.Format("SELECT * FROM Users WHERE IdUser={0}", id);
             DataTable dt = DbConnection.Instance.getData(sqlStr);
@@ -79,7 +79,7 @@ namespace Car_Renting
             return null;
         }
 
-        public int Insert(User entity)
+        public override int Insert(User entity)
         {
             string sqlStr = "INSERT INTO Users (Name, Phone, Address, TotalRevenue) VALUES (@Name, @Phone, @Address, @TotalRevenue); SELECT SCOPE_IDENTITY()";
 
@@ -94,7 +94,7 @@ namespace Car_Renting
             return newId;
         }
 
-        public int Update(User entity)
+        public override int Update(User entity)
         {
             string sqlStr = "UPDATE Users SET Name = @Name, Phone = @Phone, Address = @Address, TotalRevenue = @TotalRevenue WHERE IdUser = @IdUser";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
@@ -132,7 +132,7 @@ namespace Car_Renting
             return null;
         }
 
-        public int Delete(User entity)
+        public override int Delete(User entity)
         {
             string sqlStr = "DELETE FROM Users WHERE IdUser = @IdUser";
 
