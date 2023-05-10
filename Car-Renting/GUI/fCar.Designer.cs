@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ImageCar = new System.Windows.Forms.PictureBox();
             this.btnRentFromCars = new System.Windows.Forms.Button();
             this.txtPricePerDay = new System.Windows.Forms.TextBox();
@@ -53,10 +53,7 @@
             this.gvCars = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btTim = new FontAwesome.Sharp.IconButton();
-            this.comboxTieuChi = new System.Windows.Forms.ComboBox();
-            this.comboxLoaiXe = new System.Windows.Forms.ComboBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtTimXe = new System.Windows.Forms.TextBox();
@@ -308,14 +305,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gvCars.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvCars.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvCars.DefaultCellStyle = dataGridViewCellStyle2;
             this.gvCars.GridColor = System.Drawing.Color.Black;
             this.gvCars.Location = new System.Drawing.Point(0, 76);
             this.gvCars.Name = "gvCars";
@@ -346,10 +343,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.iconButton1);
             this.panel4.Controls.Add(this.btTim);
-            this.panel4.Controls.Add(this.comboxTieuChi);
-            this.panel4.Controls.Add(this.comboxLoaiXe);
             this.panel4.Controls.Add(this.btnUpdate);
             this.panel4.Controls.Add(this.btnAdd);
             this.panel4.Controls.Add(this.txtTimXe);
@@ -359,20 +353,6 @@
             this.panel4.Size = new System.Drawing.Size(621, 70);
             this.panel4.TabIndex = 6;
             // 
-            // iconButton1
-            // 
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(225, 39);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(20, 20);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
             // btTim
             // 
             this.btTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -381,30 +361,12 @@
             this.btTim.IconColor = System.Drawing.Color.Gainsboro;
             this.btTim.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btTim.IconSize = 20;
-            this.btTim.Location = new System.Drawing.Point(154, 10);
+            this.btTim.Location = new System.Drawing.Point(153, 21);
             this.btTim.Name = "btTim";
             this.btTim.Size = new System.Drawing.Size(20, 20);
             this.btTim.TabIndex = 5;
             this.btTim.UseVisualStyleBackColor = true;
             this.btTim.Click += new System.EventHandler(this.btTim_Click_1);
-            // 
-            // comboxTieuChi
-            // 
-            this.comboxTieuChi.FormattingEnabled = true;
-            this.comboxTieuChi.Location = new System.Drawing.Point(116, 39);
-            this.comboxTieuChi.Name = "comboxTieuChi";
-            this.comboxTieuChi.Size = new System.Drawing.Size(89, 21);
-            this.comboxTieuChi.TabIndex = 4;
-            this.comboxTieuChi.SelectedIndexChanged += new System.EventHandler(this.comboxTieuChi_SelectedIndexChanged);
-            // 
-            // comboxLoaiXe
-            // 
-            this.comboxLoaiXe.FormattingEnabled = true;
-            this.comboxLoaiXe.Location = new System.Drawing.Point(11, 39);
-            this.comboxLoaiXe.Name = "comboxLoaiXe";
-            this.comboxLoaiXe.Size = new System.Drawing.Size(89, 21);
-            this.comboxLoaiXe.TabIndex = 4;
-            this.comboxLoaiXe.SelectedIndexChanged += new System.EventHandler(this.comboxLoaiXe_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
@@ -432,7 +394,7 @@
             // 
             // txtTimXe
             // 
-            this.txtTimXe.Location = new System.Drawing.Point(11, 10);
+            this.txtTimXe.Location = new System.Drawing.Point(10, 21);
             this.txtTimXe.Name = "txtTimXe";
             this.txtTimXe.Size = new System.Drawing.Size(121, 20);
             this.txtTimXe.TabIndex = 1;
@@ -533,10 +495,7 @@
         private System.Windows.Forms.TextBox txtSeats;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btTim;
-        private System.Windows.Forms.ComboBox comboxTieuChi;
-        private System.Windows.Forms.ComboBox comboxLoaiXe;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtTimXe;

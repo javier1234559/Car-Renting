@@ -16,7 +16,7 @@ namespace Car_Renting
         public string CompensationName { get; set; }
         public int Compensation { get; set; }
         public string CompensationDescript { get; set; }
-        public string DiscountCode { get; set; }
+        public string DiscountCode { get; set; } = "";
 
         public Bill() { }
 

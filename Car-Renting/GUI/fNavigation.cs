@@ -94,7 +94,8 @@ namespace Car_Renting
         private void btnNavBill_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new fBill());
+            fBillDashBoard f = new fBillDashBoard();
+            f.ShowDialog();
 
         }
 
@@ -125,6 +126,11 @@ namespace Car_Renting
             OpenChildForm(new fDiscount());
         }
 
+        private void btnNavStatusRent_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new fStatusRent());
+        }
 
 
         // Logic for Graphic UI
@@ -221,5 +227,6 @@ namespace Car_Renting
             Application.Exit();
         }
 
+      
     }
 }

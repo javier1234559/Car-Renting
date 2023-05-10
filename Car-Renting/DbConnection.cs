@@ -26,6 +26,7 @@ namespace Car_Renting
             private set { DbConnection.instance = value; }
         }
         //Design Partern Singleton  
+
         private DbConnection() { }
 
         public  DataTable getData(string sqlStr)
@@ -51,7 +52,6 @@ namespace Car_Renting
 
         public  int ExecuteNonQuery(string sqlStr)
         {
-            //ExecuteNoneQuery just count the number of insert , update , del query not Select
             int NumberofSuccess = 5;
             try
             {
@@ -124,33 +124,6 @@ namespace Car_Renting
 
             return result;
         }
-
-        //Mot so ham tham khao 
-
-        //public DataTable GetData(string query, List<SqlParameter> parameters = null)
-        //{
-        //    DataTable dt = new DataTable();
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        connection.Open();
-        //        using (SqlCommand command = new SqlCommand(query, connection))
-        //        {
-        //            if (parameters != null)
-        //            {
-        //                command.Parameters.AddRange(parameters.ToArray());
-        //            }
-
-        //            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-        //            {
-        //                adapter.Fill(dt);
-        //            }
-        //        }
-        //    }
-
-        //    return dt;
-        //}
-
-
 
     }
 

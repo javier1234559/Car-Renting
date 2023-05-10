@@ -76,7 +76,7 @@ CREATE TABLE Discount (
 	   EndDate DATETIME,
 	   Quantity INT,
 	   CreatedDate DATETIME,
-	   CreatedBy VARCHAR(50)
+	   CreatedBy NVARCHAR(50)
 	);
 
 
@@ -99,8 +99,8 @@ Create table Rating(
 	RentId int,
 	CarId int ,
 	ClientId int,
-	RatingValue int,
-	FeedBack text,
+	RatingValue int ,
+	FeedBack NVARCHAR(200) DEFAULT '',
 	Foreign KEY (RentId) REFERENCES Rents(RentId),
 	Foreign KEY (ClientId) REFERENCES Clients(ClientId),
 	Foreign KEY (CarId) REFERENCES Cars(CarId),
@@ -136,20 +136,30 @@ VALUES ('Tom Smith', '0123456789', '1234567890', 'tom.smith@example.com', '12345
 
 INSERT INTO Rents (CarId, ClientId, DateStart, DateEnd,DescriptionRent ,DateDelayQuantity, State, Deposit, CanceleReason)
 VALUES (1, 1, '2023-05-01 18:45:10', '2023-05-9 23:48:00', 'Mo ta hoa don ',0, 'Renting',  100, ''),
-       (2, 2, '2023-05-05 19:13:35', '2024-05-10 19:20:00','Mo ta hoa don ' ,1, 'Pending',  150, ''),
-       (3, 3, '2023-05-15 09:00:00', '2023-05-20 17:00:00','Mo ta hoa don ' ,0, 'Available', 200, ''),
+       (2, 2, '2023-05-05 19:13:35', '2024-05-10 19:20:00','Mo ta hoa don ' ,10, 'Pending',  150, ''),
+       (2, 3, '2023-05-15 09:00:00', '2023-05-20 17:00:00','Mo ta hoa don ' ,0, 'Available', 200, ''),
 	   	(4, 5, '2023-05-04 08:00:00', '2023-05-09 18:00:00', 'Mo ta hoa don ',1, 'Waiting',  150, ''),	
-       (5, 4, '2023-05-25 10:00:00', '2023-05-27 18:00:00','Mo ta hoa don ', 0, 'Canceled',  250, 'Change of plans');
+       (5, 4, '2023-05-25 10:00:00', '2023-05-27 18:00:00','Mo ta hoa don ', 0, 'Canceled',  250, 'Change of plans'),
+	   	(3, 4, '2023-04-04 08:00:00', '2023-5-09 18:00:00', 'Mo ta hoa don ',0, 'Available',  150, ''),	
+		(4, 5, '2023-02-04 08:00:00', '2023-02-23 18:00:00', 'Mo ta hoa don ',0, 'Available',  150, ''),	
+		(1, 5, '2023-04-04 08:00:00', '2023-05-09 18:00:00', 'Mo ta hoa don ',0, 'Available',  150, ''),	
+		(5, 5, '2023-03-04 08:00:00', '2023-04-09 18:00:00', 'Mo ta hoa don ',0, 'Available',  150, '');
 
 INSERT INTO Rating(RentId, CarId, RatingValue, FeedBack, ClientId) VALUES
-	(1, 5, 4, 'Rất hài lòng với dịch vụ', 1),
-	(2, 2, 3, 'Xe tốt nhưng giá hơi cao', 2);
+		(3, 3, 5, 'Excellent Service', 2),
+		(6, 3, 3, 'Service could have been better', 3),
+		(7, 4, 4, 'Good Service overall', 4),
+		(8, 4, 2, 'Disappointed with the service', 5),
+		(9, 2, 5, 'Great Service', 2);
+
 
 INSERT INTO Discount(Code, DiscountPercent, StartDate, EndDate, Quantity, CreatedDate, CreatedBy)
-	VALUES ('DIS0', 0.5, '2023-05-10 00:00:00', '2023-05-20 00:00:00', 100, '2023-05-10 12:00:00', 'Nhat');
+	VALUES ('DIS0', 0.5, '2023-05-10 00:00:00', '2023-05-20 00:00:00', 3, '2023-05-10 12:00:00', 'Nhat');
 
 INSERT INTO Bills (RentId, IdUser, TotalCost, CreateDate, CompensationName, Compensation, CompensationDescript, DiscountCode)
-	VALUES (1, 1, 15000.00, '2022-01-01 08:00:00', '', 0, '', 'DIS0'),
-	(2, 2, 2000.05, '2022-02-01 10:00:00', 'Tire replacement', 500000, 'Replace 2 tires', ''),
-	(3, 3, 30000.00, '2022-03-01 12:00:00', '', 0, '', '');
+	VALUES (3, 1, 15000.00, '2022-01-01 08:00:00', '', 0, '', 'DIS0'),
+			(6, 2, 9000.00, '2023-5-09 18:00:00', '', 0, '', 'DIS0'),
+			(7, 3, 18000.00, '2023-02-23 18:00:00', '', 0, '', 'DIS0'),
+			(8, 2, 15000.00, '2023-05-09 18:00:00', 'Hu xe', 9000, 'Gay tai nan dan den hu xe', 'DIS0'),
+			(9, 1, 21000.00, '2023-04-09 18:00:00', '', 0, '', 'DIS0');
 

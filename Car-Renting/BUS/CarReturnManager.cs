@@ -14,6 +14,7 @@ namespace Car_Renting
         private BillDAO _billDAO;
         private RentDAO _rentsDAO ;
         private CarDAO _carDAO ;
+        private UserDAO _userDAO;
         private ClientDAO _clientDAO;
         private RatingDAO _ratingDAO;
         private DiscountManager _discountManager;
@@ -26,6 +27,7 @@ namespace Car_Renting
             this._clientDAO = new ClientDAO();
             this._ratingDAO = new RatingDAO();
             this._billDAO = new BillDAO();
+            this._userDAO = new UserDAO();
         }
 
         public DataTable LoadData()
@@ -50,9 +52,20 @@ namespace Car_Renting
 
         public void HandleSubmit(Bill bill , Rating rating )
         {
+            //add Revenue User
+            User userHadSubmit = _userDAO.GetById(bill.IdUser);
+            userHadSubmit.TotalRevenue += Decimal.ToInt32(bill.TotalCost);
+            _userDAO.Update(userHadSubmit);
+
+            //Insert Data
             _ratingDAO.Insert(rating);
              _billDAO.Insert(bill);
+            
+
+            //Change State Rent
             _rentsDAO.ChangeState(bill.RentId, Contraint.STATE_AVAILABLE);
+
+            //Decrease Quantity Discount
             if (!String.IsNullOrEmpty(bill.DiscountCode))
             {
                 Discount discount = _discountManager.GetDiscountByCode(bill.DiscountCode);

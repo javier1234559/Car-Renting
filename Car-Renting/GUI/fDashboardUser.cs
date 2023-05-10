@@ -100,12 +100,13 @@ namespace Car_Renting
 
         private int sumRevenue(DataTable dt)
         {
-            int total = 0;
+            Decimal total = 0;
             foreach (DataRow row in dt.Rows)
             {
-                total += Int32.Parse(row["TotalCost"].ToString());
+                total += Decimal.Parse(row["TotalCost"].ToString());
             }
-            return total;
+
+            return Decimal.ToInt32(total);
         }
 
         private void drawSpline()
@@ -244,7 +245,7 @@ namespace Car_Renting
             int idnewuser = userDao.Insert(newuser);
             Account newaccount = new Account(email,password,idnewuser);
             int idnewaccount = accountDao.Insert(newaccount);
-            MessageBox.Show( $"Them thanh cong nhan vien moi : {newuser.Name} !");
+            MessageBox.Show( $"Create new User successfully User Name is : {newuser.Name} !");
             loadData();
         }
 
@@ -252,7 +253,7 @@ namespace Car_Renting
         {
             if (this.account == null || this.user == null)
             {
-                MessageBox.Show("Vui long chon mot nhan vien muon sua");
+                MessageBox.Show("Please choose user want to update");
                 return;
             }
                 
@@ -267,7 +268,7 @@ namespace Car_Renting
             userDao.Update(updateuser);
             accountDao.Update(updateaccount);
 
-            MessageBox.Show("Update thong tin nhan vien thanh cong !");
+            MessageBox.Show("Update user successfully !");
             loadData();
 
         }
@@ -276,7 +277,7 @@ namespace Car_Renting
         {
             if (this.account == null || this.user == null)
             {
-                MessageBox.Show("Vui long chon mot nhan vien muon xoa");
+                MessageBox.Show("Please choose user want to delete");
                 return;
             }
             Account deleteaccount = this.account;
@@ -285,7 +286,7 @@ namespace Car_Renting
             accountDao.Delete(deleteaccount);
             userDao.Delete(deleteuser);
 
-            MessageBox.Show("Xoa thong tin nhan vien thanh cong !");
+            MessageBox.Show("Delete user successfully !");
             loadData();
         }
 

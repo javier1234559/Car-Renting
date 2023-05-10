@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,89 @@ namespace Car_Renting
         {
             string sqlStr = string.Format("SELECT * FROM Bills");
             return DbConnection.Instance.getData(sqlStr);
+        }
+
+        public DataTable GetFullDataBill()
+        {
+            string sqlQuery = "SELECT B.*, R.DateStart, R.DateEnd, R.Deposit, RT.RatingValue, RT.FeedBack\r\nFROM Bills B\r\nJOIN Rents R ON B.RentId = R.RentId\r\nLEFT JOIN Rating RT ON R.RentId = RT.RentId";
+            return DbConnection.Instance.getData(sqlQuery);
+        }
+
+        public Dictionary<string, int> GetDataBestSeller(DateTime start, DateTime end)
+        {
+            string sqlQuery = "SELECT Cars.CarName, COUNT(*) AS CarCount " +
+                              "FROM Cars " +
+                              "INNER JOIN Rents ON Cars.CarId = Rents.CarId " +
+                              "INNER JOIN Bills ON Rents.RentId = Bills.RentId " +
+                              "WHERE Bills.CreateDate BETWEEN '"+ start +"' AND '" + end +
+                              "' GROUP BY Cars.CarName";
+
+            Dictionary<string, int> carCountByBill = new Dictionary<string, int>();
+
+            DataTable dt = DbConnection.Instance.getData(sqlQuery);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string carName = row["CarName"].ToString();
+                int carCount = Convert.ToInt32(row["CarCount"]);
+
+                carCountByBill.Add(carName, carCount);
+            }
+
+            return carCountByBill;
+        }
+
+        public Dictionary<string, int> GetDataDamaged(DateTime start, DateTime end)
+        {
+            string sqlQuery = "SELECT Cars.CarName, COUNT(*) AS CarCount " +
+                              "FROM Cars " +
+                              "INNER JOIN Rents ON Cars.CarId = Rents.CarId " +
+                              "INNER JOIN Bills ON Rents.RentId = Bills.RentId " +
+                              "WHERE Bills.CreateDate BETWEEN '" + start.ToString("yyyy-MM-dd") + "' AND '" + end.ToString("yyyy-MM-dd") + "' " +
+                              "AND Bills.Compensation > 0 " +
+                              "GROUP BY Cars.CarName";
+
+            Dictionary<string, int> carCountByBill = new Dictionary<string, int>();
+
+            DataTable dt = DbConnection.Instance.getData(sqlQuery);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string carName = row["CarName"].ToString();
+                int carCount = Convert.ToInt32(row["CarCount"]);
+
+                carCountByBill.Add(carName, carCount);
+            }
+
+            return carCountByBill;
+        }
+
+        public Dictionary<string, int> GetDataRating()
+        {
+            string sqlQuery = "SELECT Cars.CarName, AVG(CAST(RT.RatingValue AS float)) AS AvgRatingValue " +
+                              "FROM Cars " +
+                              "INNER JOIN Rents ON Cars.CarId = Rents.CarId " +
+                              "LEFT JOIN Rating RT ON Rents.RentId = RT.RentId " +
+                              "GROUP BY Cars.CarName";
+
+            Dictionary<string, double> avgRatingByCar = new Dictionary<string, double>();
+
+            DataTable dt = DbConnection.Instance.getData(sqlQuery);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string carName = row["CarName"].ToString();
+                double avgRatingValue = Convert.ToDouble(row["AvgRatingValue"]);
+
+                avgRatingByCar.Add(carName, avgRatingValue);
+            }
+
+            Dictionary<string, int> avgRatingByCarInt = avgRatingByCar.ToDictionary(
+                pair => pair.Key,
+                pair => Convert.ToInt32(pair.Value)
+            );
+
+            return avgRatingByCarInt;
         }
 
         public override Bill GetById(int id)
@@ -81,7 +165,6 @@ namespace Car_Renting
 
             return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
         }
-
 
         public override int Delete(Bill entity)
         {

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -411,7 +411,7 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 404F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 405F));
             this.tableLayoutPanel2.Controls.Add(this.chartSpline, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.chartDoughnut, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -425,53 +425,53 @@
             // chartSpline
             // 
             this.chartSpline.BorderlineColor = System.Drawing.Color.DarkOrange;
-            chartArea3.AxisX.IsMarginVisible = false;
-            chartArea3.AxisX.LineColor = System.Drawing.Color.Silver;
-            chartArea3.AxisX.LineWidth = 0;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea3.AxisY.LineColor = System.Drawing.Color.Linen;
-            chartArea3.AxisY.LineWidth = 0;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.MediumPurple;
-            chartArea3.Name = "ChartArea1";
-            this.chartSpline.ChartAreas.Add(chartArea3);
+            chartArea1.AxisX.IsMarginVisible = false;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.LineWidth = 0;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.Linen;
+            chartArea1.AxisY.LineWidth = 0;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.MediumPurple;
+            chartArea1.Name = "ChartArea1";
+            this.chartSpline.ChartAreas.Add(chartArea1);
             this.chartSpline.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chartSpline.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.chartSpline.Legends.Add(legend1);
             this.chartSpline.Location = new System.Drawing.Point(1, 1);
             this.chartSpline.Margin = new System.Windows.Forms.Padding(0, 0, 10, 10);
             this.chartSpline.Name = "chartSpline";
             this.chartSpline.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(255)))));
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series3.Legend = "Legend1";
-            series3.MarkerSize = 10;
-            series3.Name = "Doanh So Thang";
-            series3.YValuesPerPoint = 2;
-            this.chartSpline.Series.Add(series3);
-            this.chartSpline.Size = new System.Drawing.Size(692, 240);
+            series1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(255)))));
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series1.Legend = "Legend1";
+            series1.MarkerSize = 10;
+            series1.Name = "Doanh So Thang";
+            series1.YValuesPerPoint = 2;
+            this.chartSpline.Series.Add(series1);
+            this.chartSpline.Size = new System.Drawing.Size(691, 240);
             this.chartSpline.TabIndex = 0;
             this.chartSpline.Text = "chart1";
             // 
             // chartDoughnut
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartDoughnut.ChartAreas.Add(chartArea4);
+            chartArea2.Name = "ChartArea1";
+            this.chartDoughnut.ChartAreas.Add(chartArea2);
             this.chartDoughnut.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.TopRight;
-            legend4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            legend4.DockedToChartArea = "ChartArea1";
-            legend4.IsDockedInsideChartArea = false;
-            legend4.ItemColumnSpacing = 5;
-            legend4.LegendItemOrder = System.Windows.Forms.DataVisualization.Charting.LegendItemOrder.SameAsSeriesOrder;
-            legend4.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend4.MaximumAutoSize = 1F;
-            legend4.Name = "Legend1";
-            legend4.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
-            legend4.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chartDoughnut.Legends.Add(legend4);
-            this.chartDoughnut.Location = new System.Drawing.Point(704, 1);
+            legend2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.TopRight;
+            legend2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            legend2.DockedToChartArea = "ChartArea1";
+            legend2.IsDockedInsideChartArea = false;
+            legend2.ItemColumnSpacing = 5;
+            legend2.LegendItemOrder = System.Windows.Forms.DataVisualization.Charting.LegendItemOrder.SameAsSeriesOrder;
+            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend2.MaximumAutoSize = 1F;
+            legend2.Name = "Legend1";
+            legend2.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
+            legend2.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chartDoughnut.Legends.Add(legend2);
+            this.chartDoughnut.Location = new System.Drawing.Point(703, 1);
             this.chartDoughnut.Margin = new System.Windows.Forms.Padding(0);
             this.chartDoughnut.Name = "chartDoughnut";
             this.chartDoughnut.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -486,17 +486,17 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(9))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(8))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(163)))), ((int)(((byte)(5)))))};
-            series4.BorderColor = System.Drawing.Color.White;
-            series4.BorderWidth = 5;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.EmptyPointStyle.IsVisibleInLegend = false;
-            series4.IsVisibleInLegend = false;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            series4.SmartLabelStyle.Enabled = false;
-            this.chartDoughnut.Series.Add(series4);
-            this.chartDoughnut.Size = new System.Drawing.Size(404, 250);
+            series2.BorderColor = System.Drawing.Color.White;
+            series2.BorderWidth = 5;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.EmptyPointStyle.IsVisibleInLegend = false;
+            series2.IsVisibleInLegend = false;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series2.SmartLabelStyle.Enabled = false;
+            this.chartDoughnut.Series.Add(series2);
+            this.chartDoughnut.Size = new System.Drawing.Size(405, 250);
             this.chartDoughnut.TabIndex = 1;
             this.chartDoughnut.Text = "chart2";
             // 

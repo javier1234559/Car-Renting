@@ -48,7 +48,7 @@ namespace Car_Renting
         {
             // Get the selected row
             DataGridViewRow row = gvDiscount.Rows[e.RowIndex];
-
+            if (String.IsNullOrEmpty(row.Cells["Id"].Value?.ToString())) return;
             // Fill the data into the controls
             LBDiscountCode.Text = row.Cells["Code"].Value.ToString();
             txtDiscountPercent.Text = row.Cells["DiscountPercent"].Value.ToString();
