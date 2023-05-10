@@ -33,6 +33,12 @@ namespace Car_Renting
             gvBill.DataSource = _billDAO.GetFullDataBill();
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text.Trim();
+            gvBill.DataSource = _billDAO.SearchFullDataBill(searchKeyword);
+        }
+
         private void btnStatisticDamage_Click(object sender, EventArgs e)
         {
             this.data = _billDAO.GetDataDamaged(this.start,this.end);
@@ -45,7 +51,6 @@ namespace Car_Renting
             DrawChart();
         }
 
-
         private void btnStatisticByRating_Click(object sender, EventArgs e)
         {
             this.data = _billDAO.GetDataRating();
@@ -54,6 +59,7 @@ namespace Car_Renting
 
         private void DrawChart()
         {
+            if (this.data == null) return; 
 
             chartColumn.Series["ColumnSeries"].Points.Clear();
 
@@ -96,5 +102,6 @@ namespace Car_Renting
 
             DrawChart();
         }
+
     }
 }

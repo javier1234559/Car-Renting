@@ -11,10 +11,15 @@ namespace Car_Renting
 {
     class ClientDAO : BaseDAO<Client>
     {
-
         public override DataTable GetAllDataTable() {
             string sqlStr = string.Format("SELECT * FROM Clients");
             return DbConnection.Instance.getData(sqlStr);
+        }
+
+        public DataTable Search(string keyword)
+        {
+            string sqlQuery = string.Format("SELECT * FROM Clients WHERE Name LIKE '%{0}%' OR Phone LIKE '%{0}%' OR Email LIKE '%{0}%' OR CCCD LIKE '%{0}%'", keyword);
+            return DbConnection.Instance.getData(sqlQuery);
         }
 
         public override Client GetById(int id)

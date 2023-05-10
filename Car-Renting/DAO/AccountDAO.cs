@@ -11,13 +11,32 @@ namespace Account_Renting
 {
     class AccountDAO : BaseDAO<Account>
     {
-
         public override DataTable GetAllDataTable()
         {
             var sql = @"SELECT * FROM Account";
 
             return DbConnection.Instance.getData(sql);
         }
+
+        public DataTable GetFullDataUser()
+        {
+            string sql = "SELECT Users.IdUser, Users.Name, Users.Phone, Users.Address, Users.TotalRevenue, Account.AccID, Account.Email, Account.Password " +
+                         "FROM Users " +
+                         "JOIN Account ON Users.IdUser = Account.IdUser";
+
+            return DbConnection.Instance.getData(sql);
+        }
+
+        public DataTable SearchFullDataUser(string keyword)
+        {
+            string sql = "SELECT Users.IdUser, Users.Name, Users.Phone, Users.Address, Users.TotalRevenue, Account.AccID, Account.Email, Account.Password " +
+                         "FROM Users " +
+                         "JOIN Account ON Users.IdUser = Account.IdUser " +
+                         "WHERE Users.Name LIKE '%" + keyword + "%' OR Users.Phone LIKE '%" + keyword + "%' OR Account.Email LIKE '%" + keyword + "%'";
+
+            return DbConnection.Instance.getData(sql);
+        }
+
 
         public override Account GetById(int id)
         {

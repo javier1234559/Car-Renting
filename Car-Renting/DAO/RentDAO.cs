@@ -12,17 +12,35 @@ namespace Car_Renting
 {
     class RentDAO : BaseDAO<Rent>
     {
-        public List<Rent> GetAllList()
+        public DataTable SearchTwoState(string keyword , string state1, string state2)
         {
-            List<Rent> list = new List<Rent>();
-            return list;
+            string sqlStr = string.Format("SELECT Rents.RentId, Rents.State , Cars.ImageCar, Cars.CarName, Cars.NumberPlate, Clients.Name, DateStart, DateEnd, State, DateDelayQuantity, Deposit, CanceleReason, Cars.CategoryName AS CategoryName , Rents.DescriptionRent " +
+                                           "FROM Rents " +
+                                           "INNER JOIN Cars ON Rents.CarId = Cars.CarId " +
+                                           "INNER JOIN Clients ON Rents.ClientId = Clients.ClientId " +
+                                           "WHERE (Cars.CarName LIKE '%{0}%' OR Clients.Name LIKE '%{0}%') " +
+                                           "AND State IN ('{1}', '{2}')", keyword, state1, state2);
+            return DbConnection.Instance.getData(sqlStr);
         }
+
+        public DataTable Search(string keyword, string state)
+        {
+            string sqlStr = string.Format("SELECT Rents.RentId, Rents.State , Cars.ImageCar, Cars.CarName, Cars.NumberPlate, Clients.Name, DateStart, DateEnd, State, DateDelayQuantity, Deposit, CanceleReason, Cars.CategoryName AS CategoryName , Rents.DescriptionRent " +
+                                           "FROM Rents " +
+                                           "INNER JOIN Cars ON Rents.CarId = Cars.CarId " +
+                                           "INNER JOIN Clients ON Rents.ClientId = Clients.ClientId " +
+                                           "WHERE (Cars.CarName LIKE '%{0}%' OR Clients.Name LIKE '%{0}%') " +
+                                           "AND State IN ('{1}')", keyword, state);
+            return DbConnection.Instance.getData(sqlStr);
+        }
+
 
         public override DataTable GetAllDataTable()
         {
             string sqlStr = string.Format("select Rents.RentId,Cars.CarName,Clients.Name,DateStart,DateEnd,State,DateDelayQuantity,Deposit,CanceleReason,Cars.CategoryName as CategoryName ,Rents.DescriptionRent from Rents, Cars, Clients where Rents.CarId = Cars.CarId and Rents.ClientId = Clients.ClientId ");
             return DbConnection.Instance.getData(sqlStr);
         }
+
         public DataTable GetAllDataTableByState(string state)
         {
             string sqlStr = string.Format("SELECT Rents.RentId, Rents.State, Cars.ImageCar, Cars.CarName, Cars.NumberPlate, Clients.Name, DateStart, DateEnd, State, DateDelayQuantity, Deposit, CanceleReason, Cars.CategoryName AS CategoryName , Rents.DescriptionRent FROM Rents, Cars, Clients WHERE Rents.CarId = Cars.CarId AND Rents.ClientId = Clients.ClientId AND State = '{0}'", state);
@@ -34,7 +52,6 @@ namespace Car_Renting
             string sqlStr = string.Format("SELECT Rents.RentId, Rents.State , Cars.ImageCar, Cars.CarName, Cars.NumberPlate, Clients.Name, DateStart, DateEnd, State, DateDelayQuantity, Deposit, CanceleReason, Cars.CategoryName AS CategoryName , Rents.DescriptionRent FROM Rents, Cars, Clients WHERE Rents.CarId = Cars.CarId AND Rents.ClientId = Clients.ClientId AND State IN ('{0}', '{1}')", state1, state2);
             return DbConnection.Instance.getData(sqlStr);
         }
-
 
         public void  ChangeState (int rentID, string state)
         {
@@ -73,7 +90,6 @@ namespace Car_Renting
                 return null;
             }
         }
-
 
         public override int Insert(Rent entity)
         {

@@ -20,14 +20,17 @@ namespace Car_Renting
         private int revernueByYear;
         private Account account;
         private User user;
-        private UserDAO userDao = new UserDAO();
-        private AccountDAO accountDao= new AccountDAO();
+        private UserDAO _userDAO;
+        private AccountDAO _accountDAO;
 
         public fDashboardUser()
         {
+            _userDAO = new UserDAO();
+            _accountDAO  = new AccountDAO();
             InitializeComponent();
             loadData();
-            if (Session.Currentaccount != null) this.account = Session.Currentaccount;
+            if (Session.LoginedAccount != null)
+                this.account = Session.LoginedAccount;
             if (Session.CurrentuserAtDashboard != null)
             {
                 this.user = Session.CurrentuserAtDashboard;
@@ -38,39 +41,14 @@ namespace Car_Renting
 
         private void loadData()
         {
-            DataTable dt1 = userDao.GetAllDataTable();
-            DataTable dt2 = accountDao.GetAllDataTable();
-            var joinedTable = from user in dt1.AsEnumerable()
-                              join account in dt2.AsEnumerable() on user.Field<int>("IdUser") equals account.Field<int>("IdUser")
-                              select new
-                              {
-                                  IdUser = user.Field<int>("IdUser"),
-                                  Name = user.Field<string>("Name"),
-                                  Phone = user.Field<string>("Phone"),
-                                  Address = user.Field<string>("Address"),
-                                  TotalRevenue = user.Field<int>("TotalRevenue"),
-                                  AccID = account.Field<int>("AccID"),
-                                  Email = account.Field<string>("Email"),
-                                  Password = account.Field<string>("Password")
-                              };
-
-            DataTable dtResult = new DataTable();
-            dtResult.Columns.Add("IdUser", typeof(int));
-            dtResult.Columns.Add("Name", typeof(string));
-            dtResult.Columns.Add("Phone", typeof(string));
-            dtResult.Columns.Add("Address", typeof(string));
-            dtResult.Columns.Add("TotalRevenue", typeof(int));
-            dtResult.Columns.Add("AccID", typeof(int));
-            dtResult.Columns.Add("Email", typeof(string));
-            dtResult.Columns.Add("Password", typeof(string));
-
-            foreach (var row in joinedTable)
-            {
-                dtResult.Rows.Add(row.IdUser, row.Name, row.Phone, row.Address, row.TotalRevenue, row.AccID, row.Email, row.Password);
-            }
-
-            this.gvUser.DataSource = dtResult;
+            this.gvUser.DataSource = _accountDAO.GetFullDataUser();
             drawDoughnutChart();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text.Trim();
+            this.gvUser.DataSource = _accountDAO.SearchFullDataUser(searchKeyword);
         }
 
         private void loadDataChart()
@@ -86,13 +64,13 @@ namespace Car_Renting
             if (iduser == 0) return;
             DateTime currentday = DateTime.Now;
 
-            this.revernueByDay = sumRevenue(userDao.GetDataTableByDay(currentday, iduser));
+            this.revernueByDay = sumRevenue(_userDAO.GetDataTableByDay(currentday, iduser));
             lbTotalRevenueDay.Text = revernueByDay.ToString();
 
-            this.revernueByMonth = sumRevenue(userDao.GetDataTableByMonth(currentday, iduser));
+            this.revernueByMonth = sumRevenue(_userDAO.GetDataTableByMonth(currentday, iduser));
             lbTotalRevenueMonth.Text = revernueByMonth.ToString();
 
-            this.revernueByYear = sumRevenue(userDao.GetDataTableByYear(currentday, iduser));
+            this.revernueByYear = sumRevenue(_userDAO.GetDataTableByYear(currentday, iduser));
             lbTotalRevenueYear.Text = revernueByYear.ToString();
 
             lbTotalRevenue.Text = this.user.TotalRevenue.ToString();
@@ -129,7 +107,7 @@ namespace Car_Renting
 
         private void drawDoughnutChart()
         {
-            List<User> listUser = userDao.GetAllDateList();
+            List<User> listUser = _userDAO.GetAllDateList();
 
             if (listUser != null)
             {
@@ -166,7 +144,7 @@ namespace Car_Renting
             for (int i = 5; i >= 1; i--)
             {
                 DateTime month = currentday.AddMonths(-i + 1);
-                int revenue = sumRevenue(userDao.GetDataTableByMonth(month, iduser));
+                int revenue = sumRevenue(_userDAO.GetDataTableByMonth(month, iduser));
                 string monthStr = month.ToString("MM/yyyy");
                 data.Add(monthStr, revenue);
             }
@@ -184,8 +162,8 @@ namespace Car_Renting
 
         private void fillmodalUser(int iduser, int idaccount)
         {
-            this.user =  userDao.GetById(iduser);
-            this.account =  accountDao.GetById(idaccount);
+            this.user =  _userDAO.GetById(iduser);
+            this.account =  _accountDAO.GetById(idaccount);
             updateSession();
         }
 
@@ -232,7 +210,7 @@ namespace Car_Renting
                     MessageBox.Show("Vui long nhap du 10 so cua so dien thoai");
                     return;
                 }
-                if(userDao.GetByPhone(phone) != null) {
+                if(_userDAO.GetByPhone(phone) != null) {
                     MessageBox.Show("Vui Long khong nhap trung thong tin");
                     return;
                 }
@@ -242,9 +220,9 @@ namespace Car_Renting
             }
 
             User newuser = new User(name, phone, address, totalRevenue);
-            int idnewuser = userDao.Insert(newuser);
+            int idnewuser = _userDAO.Insert(newuser);
             Account newaccount = new Account(email,password,idnewuser);
-            int idnewaccount = accountDao.Insert(newaccount);
+            int idnewaccount = _accountDAO.Insert(newaccount);
             MessageBox.Show( $"Create new User successfully User Name is : {newuser.Name} !");
             loadData();
         }
@@ -265,8 +243,8 @@ namespace Car_Renting
             updateuser.Name= txtName.Text;
             updateuser.Phone= txtPhone.Text;
             updateuser.Address= txtAddress.Text;
-            userDao.Update(updateuser);
-            accountDao.Update(updateaccount);
+            _userDAO.Update(updateuser);
+            _accountDAO.Update(updateaccount);
 
             MessageBox.Show("Update user successfully !");
             loadData();
@@ -283,8 +261,8 @@ namespace Car_Renting
             Account deleteaccount = this.account;
             User deleteuser = this.user;
 
-            accountDao.Delete(deleteaccount);
-            userDao.Delete(deleteuser);
+            _accountDAO.Delete(deleteaccount);
+            _userDAO.Delete(deleteuser);
 
             MessageBox.Show("Delete user successfully !");
             loadData();
@@ -300,5 +278,6 @@ namespace Car_Renting
             this.user = null;
             this.account = null;
         }
+
     }
 }

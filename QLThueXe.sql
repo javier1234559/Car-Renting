@@ -162,4 +162,3 @@ INSERT INTO Bills (RentId, IdUser, TotalCost, CreateDate, CompensationName, Comp
 			(7, 3, 18000.00, '2023-02-23 18:00:00', '', 0, '', 'DIS0'),
 			(8, 2, 15000.00, '2023-05-09 18:00:00', 'Hu xe', 9000, 'Gay tai nan dan den hu xe', 'DIS0'),
 			(9, 1, 21000.00, '2023-04-09 18:00:00', '', 0, '', 'DIS0');
-

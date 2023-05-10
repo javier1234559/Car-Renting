@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ImageCar = new System.Windows.Forms.PictureBox();
             this.btnRentFromCars = new System.Windows.Forms.Button();
             this.txtPricePerDay = new System.Windows.Forms.TextBox();
@@ -53,12 +53,11 @@
             this.gvCars = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btTim = new FontAwesome.Sharp.IconButton();
+            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtTimXe = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnFilter = new FontAwesome.Sharp.IconButton();
-            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ImageCar)).BeginInit();
@@ -305,14 +304,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gvCars.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gvCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvCars.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvCars.DefaultCellStyle = dataGridViewCellStyle1;
             this.gvCars.GridColor = System.Drawing.Color.Black;
             this.gvCars.Location = new System.Drawing.Point(0, 76);
             this.gvCars.Name = "gvCars";
@@ -327,7 +326,6 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btnFilter);
-            this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.btSua);
@@ -343,30 +341,30 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.btTim);
+            this.panel4.Controls.Add(this.btnSearch);
             this.panel4.Controls.Add(this.btnUpdate);
             this.panel4.Controls.Add(this.btnAdd);
-            this.panel4.Controls.Add(this.txtTimXe);
+            this.panel4.Controls.Add(this.txtSearch);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(621, 70);
             this.panel4.TabIndex = 6;
             // 
-            // btTim
+            // btnSearch
             // 
-            this.btTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btTim.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btTim.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btTim.IconColor = System.Drawing.Color.Gainsboro;
-            this.btTim.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btTim.IconSize = 20;
-            this.btTim.Location = new System.Drawing.Point(153, 21);
-            this.btTim.Name = "btTim";
-            this.btTim.Size = new System.Drawing.Size(20, 20);
-            this.btTim.TabIndex = 5;
-            this.btTim.UseVisualStyleBackColor = true;
-            this.btTim.Click += new System.EventHandler(this.btTim_Click_1);
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearch.IconSize = 20;
+            this.btnSearch.Location = new System.Drawing.Point(153, 21);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(20, 20);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnUpdate
             // 
@@ -392,12 +390,12 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // txtTimXe
+            // txtSearch
             // 
-            this.txtTimXe.Location = new System.Drawing.Point(10, 21);
-            this.txtTimXe.Name = "txtTimXe";
-            this.txtTimXe.Size = new System.Drawing.Size(121, 20);
-            this.txtTimXe.TabIndex = 1;
+            this.txtSearch.Location = new System.Drawing.Point(10, 21);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(121, 20);
+            this.txtSearch.TabIndex = 1;
             // 
             // btnFilter
             // 
@@ -412,20 +410,6 @@
             this.btnFilter.Size = new System.Drawing.Size(20, 20);
             this.btnFilter.TabIndex = 5;
             this.btnFilter.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearch.IconSize = 20;
-            this.btnSearch.Location = new System.Drawing.Point(154, 10);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(20, 20);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // comboBox2
             // 
@@ -489,16 +473,15 @@
         private System.Windows.Forms.DataGridView gvCars;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.ComboBox comboBox2;
         private FontAwesome.Sharp.IconButton btnFilter;
         private System.Windows.Forms.TextBox txtSeats;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconButton btTim;
+        private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtTimXe;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.TextBox txtNumberPlate;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

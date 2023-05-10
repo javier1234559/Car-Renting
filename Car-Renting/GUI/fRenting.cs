@@ -16,14 +16,13 @@ namespace Car_Renting
     public partial class fRenting : Form
     {
         //DAO
-        private RentDAO rentsDAO = new RentDAO();
-        private CarDAO cardao = new CarDAO();
-        //Store 
+        private RentDAO _rentsDAO;
         private Rent rent;
         private Timer countdownTimer;
 
         public fRenting()
         {
+            _rentsDAO = new RentDAO();
             InitializeComponent();
             ShowListRent();
             UpdateStateRenting();
@@ -31,7 +30,13 @@ namespace Car_Renting
         
         private void ShowListRent()
         {
-            this.gvRentList.DataSource = rentsDAO.GetAllDataTableTwoStates(Contraint.STATE_PEDDING,Contraint.STATE_RENTING);
+            this.gvRentList.DataSource = _rentsDAO.GetAllDataTableTwoStates(Contraint.STATE_PEDDING,Contraint.STATE_RENTING);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text.Trim();
+            this.gvRentList.DataSource = _rentsDAO.SearchTwoState(searchKeyword, Contraint.STATE_PEDDING, Contraint.STATE_RENTING);
         }
 
         private void btnCancelRent_Click(object sender, EventArgs e)
@@ -47,7 +52,7 @@ namespace Car_Renting
 
             fNavigation form = fNavigation.getInstance();
             Session.CurrentrentCanceled = this.rent;
-            rentsDAO.ChangeState(this.rent.RentId, Contraint.STATE_CANCLED);
+            _rentsDAO.ChangeState(this.rent.RentId, Contraint.STATE_CANCLED);
             if (form != null)
             {
 
@@ -84,7 +89,7 @@ namespace Car_Renting
                 DataGridViewRow row = gvRentList.Rows[e.RowIndex];
                 if (String.IsNullOrEmpty(row.Cells["RentId"].Value?.ToString())) return;
 
-                this.rent = rentsDAO.GetById(Int32.Parse(row.Cells["RentId"].Value.ToString()));
+                this.rent = _rentsDAO.GetById(Int32.Parse(row.Cells["RentId"].Value.ToString()));
                 lbNameCar.Text = row.Cells["CarName"].Value.ToString();
                 lbBrand.Text = row.Cells["Name"].Value.ToString();
                 lbCategory.Text = row.Cells["CategoryName"].Value.ToString();
@@ -156,12 +161,11 @@ namespace Car_Renting
             countdownTimer.Start();
         }
 
-
         private void UpdateStateRenting()
         {
             DateTime currentTime = DateTime.Now;
 
-            DataTable rentsPeddingList = rentsDAO.GetAllDataTableByState(Contraint.STATE_PEDDING);
+            DataTable rentsPeddingList = _rentsDAO.GetAllDataTableByState(Contraint.STATE_PEDDING);
 
             // Loop through each rent and check if it's time to update the state
             foreach (DataRow rent in rentsPeddingList.Rows)
@@ -171,10 +175,10 @@ namespace Car_Renting
                 if (currentTime >= endDate)
                 {
                     int rentId = Int32.Parse(rent["RentId"].ToString());
-                    rentsDAO.ChangeState(rentId, Contraint.STATE_RENTING);
+                    _rentsDAO.ChangeState(rentId, Contraint.STATE_RENTING);
                 }
             }
-            DataTable rentsRentingList = rentsDAO.GetAllDataTableByState(Contraint.STATE_RENTING);
+            DataTable rentsRentingList = _rentsDAO.GetAllDataTableByState(Contraint.STATE_RENTING);
 
             // Loop through each rent and check if it's time to update the state
             foreach (DataRow rent in rentsRentingList.Rows)
@@ -184,7 +188,7 @@ namespace Car_Renting
                 if (currentTime >= endDate)
                 {
                     int rentId = Int32.Parse(rent["RentId"].ToString());
-                    rentsDAO.ChangeState(rentId, Contraint.STATE_WAITING);
+                    _rentsDAO.ChangeState(rentId, Contraint.STATE_WAITING);
                 }
             }
 
@@ -206,5 +210,6 @@ namespace Car_Renting
             fRentSubmit f = new fRentSubmit(this.rent);
             f.ShowDialog();
         }
+
     }
 }

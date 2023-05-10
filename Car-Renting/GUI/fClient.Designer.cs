@@ -31,15 +31,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.btnUpdateClient = new System.Windows.Forms.Button();
             this.btnAddClient = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnFilter = new FontAwesome.Sharp.IconButton();
-            this.btnSearch = new FontAwesome.Sharp.IconButton();
+            this.btnSea = new FontAwesome.Sharp.IconButton();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.btSua = new System.Windows.Forms.Button();
             this.btThem = new System.Windows.Forms.Button();
@@ -80,7 +77,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btnFilter);
-            this.panel1.Controls.Add(this.btnSearch);
+            this.panel1.Controls.Add(this.btnSea);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.btSua);
@@ -96,62 +93,30 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.iconButton1);
-            this.panel4.Controls.Add(this.iconButton2);
-            this.panel4.Controls.Add(this.comboBox3);
-            this.panel4.Controls.Add(this.comboBox4);
+            this.panel4.Controls.Add(this.btnSearch);
             this.panel4.Controls.Add(this.btnUpdateClient);
             this.panel4.Controls.Add(this.btnAddClient);
-            this.panel4.Controls.Add(this.textBox2);
+            this.panel4.Controls.Add(this.txtSearch);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(621, 70);
             this.panel4.TabIndex = 6;
             // 
-            // iconButton1
+            // btnSearch
             // 
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(225, 39);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(20, 20);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(154, 10);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(20, 20);
-            this.iconButton2.TabIndex = 5;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(116, 39);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(89, 21);
-            this.comboBox3.TabIndex = 4;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(11, 39);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(89, 21);
-            this.comboBox4.TabIndex = 4;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearch.IconSize = 20;
+            this.btnSearch.Location = new System.Drawing.Point(153, 20);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(20, 20);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnUpdateClient
             // 
@@ -177,12 +142,12 @@
             this.btnAddClient.UseVisualStyleBackColor = false;
             this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
             // 
-            // textBox2
+            // txtSearch
             // 
-            this.textBox2.Location = new System.Drawing.Point(11, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtSearch.Location = new System.Drawing.Point(10, 22);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(121, 20);
+            this.txtSearch.TabIndex = 1;
             // 
             // btnFilter
             // 
@@ -198,19 +163,19 @@
             this.btnFilter.TabIndex = 5;
             this.btnFilter.UseVisualStyleBackColor = true;
             // 
-            // btnSearch
+            // btnSea
             // 
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearch.IconSize = 20;
-            this.btnSearch.Location = new System.Drawing.Point(154, 10);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(20, 20);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSea.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSea.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnSea.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSea.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSea.IconSize = 20;
+            this.btnSea.Location = new System.Drawing.Point(154, 10);
+            this.btnSea.Name = "btnSea";
+            this.btnSea.Size = new System.Drawing.Size(20, 20);
+            this.btnSea.TabIndex = 5;
+            this.btnSea.UseVisualStyleBackColor = true;
             // 
             // comboBox2
             // 
@@ -424,17 +389,14 @@
 
         #endregion
 
-        private FontAwesome.Sharp.IconButton btnSearch;
+        private FontAwesome.Sharp.IconButton btnSea;
         private System.Windows.Forms.ComboBox comboBox1;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button btnUpdateClient;
         private System.Windows.Forms.Button btnAddClient;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtSearch;
         private FontAwesome.Sharp.IconButton btnFilter;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button btSua;

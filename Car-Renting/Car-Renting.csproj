@@ -153,10 +153,10 @@
   <ItemGroup>
     <Compile Include="BUS\DiscountManager.cs" />
     <Compile Include="BUS\CarReturnManager.cs" />
-    <Compile Include="fBillDashBoard.cs">
+    <Compile Include="GUI\fBillDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fBillDashBoard.Designer.cs">
+    <Compile Include="GUI\fBillDashBoard.Designer.cs">
       <DependentUpon>fBillDashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\fStatusRent.cs">
@@ -187,12 +187,6 @@
     <Compile Include="Model\Car.cs" />
     <Compile Include="DAO\CarDAO.cs" />
     <Compile Include="DbConnection.cs" />
-    <Compile Include="GUI\fBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fBill.Designer.cs">
-      <DependentUpon>fBill.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\fDashboardUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,7 +273,7 @@
     <Compile Include="Utilites\Session.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Utilites\UtilityControlHandler.cs" />
-    <EmbeddedResource Include="fBillDashBoard.resx">
+    <EmbeddedResource Include="GUI\fBillDashBoard.resx">
       <DependentUpon>fBillDashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fStatusRent.resx">
@@ -287,9 +281,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fDiscount.resx">
       <DependentUpon>fDiscount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fBill.resx">
-      <DependentUpon>fBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fDashboardUser.resx">
       <DependentUpon>fDashboardUser.cs</DependentUpon>

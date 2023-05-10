@@ -13,13 +13,13 @@ namespace Car_Renting
 {
     public partial class fRentCancel : Form
     {
-        //DAO
-        RentDAO rentsDAO = new RentDAO();
-        //Store data in the current form
+
+        RentDAO _rentsDAO;
         Rent rent ;
 
         public fRentCancel()
         {
+            _rentsDAO = new RentDAO();
             InitializeComponent();
             ShowListRent();
             if(Session.CurrentrentCanceled != null)
@@ -29,7 +29,13 @@ namespace Car_Renting
         }
         private void ShowListRent()
         {
-            this.gvCarCancel.DataSource = rentsDAO.GetAllDataTableByState(Contraint.STATE_CANCLED);
+            this.gvCarCancel.DataSource = _rentsDAO.GetAllDataTableByState(Contraint.STATE_CANCLED);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text.Trim();
+            this.gvCarCancel.DataSource = _rentsDAO.Search(searchKeyword, Contraint.STATE_CANCLED);
         }
 
         private void gvCarCancel_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -40,7 +46,7 @@ namespace Car_Renting
                 DataGridViewRow row = gvCarCancel.Rows[e.RowIndex];
                 if (String.IsNullOrEmpty(row.Cells["RentId"].Value?.ToString())) return;
 
-                this.rent = rentsDAO.GetById(Int32.Parse(row.Cells["RentId"].Value.ToString()));
+                this.rent = _rentsDAO.GetById(Int32.Parse(row.Cells["RentId"].Value.ToString()));
             }
         }
 
@@ -63,8 +69,9 @@ namespace Car_Renting
             }
             string resson = txtCancellationReason.Text;
             this.rent.CancellationReason = resson;
-            rentsDAO.ChangeState(this.rent.RentId, Contraint.STATE_AVAILABLE);
+            _rentsDAO.ChangeState(this.rent.RentId, Contraint.STATE_AVAILABLE);
             ShowListRent();
         }
+
     }
 }

@@ -14,9 +14,18 @@ namespace Car_Renting
         public override DataTable GetAllDataTable()
         {
             var sql = @"SELECT * from Cars;";
-
             return DbConnection.Instance.getData(sql);
         }
+
+        public DataTable Search(string keyword)
+        {
+            string sqlQuery = "SELECT * FROM Cars " +
+                              "WHERE CarName LIKE '%" + keyword + "%' " +
+                              "AND CarId NOT IN (SELECT CarId FROM Rents WHERE State <> 'Available')";
+
+            return DbConnection.Instance.getData(sqlQuery);
+        }
+
         public DataTable GetAllDataTableAvaiable()
         {
              string sql = @"SELECT * FROM Cars 
@@ -27,7 +36,6 @@ namespace Car_Renting
 
             return DbConnection.Instance.getData(sql);
         }
-
 
         public override Car GetById(int id)
         {
@@ -54,7 +62,6 @@ namespace Car_Renting
             return null;
         }
 
-
         public Car GetByImageName(string imageName)
         {
             string sqlStr = $"SELECT * FROM Cars WHERE ImageCar = '{imageName}'";
@@ -80,7 +87,6 @@ namespace Car_Renting
             return null;
         }
 
-
         public override int Insert(Car entity)
         {
             string sqlStr = string.Format("INSERT INTO Cars (CarName, CategoryName, Brand, Seats, PricePerDay, NumberPlate, Description, ImageCar) VALUES (@CarName, @CategoryName, @Brand, @Seats, @PricePerDay, @NumberPlate, @Description, @ImageCar); SELECT SCOPE_IDENTITY()");
@@ -99,8 +105,6 @@ namespace Car_Renting
 
             return newId;
         }
-
-
 
         public override int Delete(Car entity)
         {
@@ -124,7 +128,6 @@ namespace Car_Renting
 
             return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
         }
-
 
     }
 }

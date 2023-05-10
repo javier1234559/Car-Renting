@@ -23,6 +23,18 @@ namespace Car_Renting
             return DbConnection.Instance.getData(sqlQuery);
         }
 
+        public DataTable SearchFullDataBill(string keyword)
+        {
+            string sqlQuery = "SELECT B.*,C.CarName , R.DateStart, R.DateEnd, R.Deposit, RT.RatingValue, RT.FeedBack " +
+                              "FROM Bills B " +
+                              "JOIN Rents R ON B.RentId = R.RentId " +
+                              "LEFT JOIN Rating RT ON R.RentId = RT.RentId " +
+                              "JOIN Cars C ON R.CarId = C.CarId " +
+                              "JOIN Clients CL ON R.ClientId = CL.ClientId " +
+                              "WHERE C.CarName LIKE '%" + keyword + "%' OR CL.Name LIKE '%" + keyword + "%'";
+            return DbConnection.Instance.getData(sqlQuery);
+        }
+
         public Dictionary<string, int> GetDataBestSeller(DateTime start, DateTime end)
         {
             string sqlQuery = "SELECT Cars.CarName, COUNT(*) AS CarCount " +

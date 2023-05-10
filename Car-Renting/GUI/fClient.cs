@@ -14,7 +14,7 @@ namespace Car_Renting
     {
         private Client client;
 
-        ClientDAO clientdao = new ClientDAO();
+        ClientDAO _clientDAO = new ClientDAO();
 
         public fClient()
         {
@@ -28,7 +28,13 @@ namespace Car_Renting
 
         private void loadDataClients()
         {
-            this.gvClients.DataSource = clientdao.GetAllDataTable();
+            this.gvClients.DataSource = _clientDAO.GetAllDataTable();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text.Trim();
+            this.gvClients.DataSource = _clientDAO.Search(searchKeyword);
         }
 
         private void gvClients_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -40,7 +46,7 @@ namespace Car_Renting
 
                 //Load data to modal car
                 int idclient = (int)row.Cells["ClientId"].Value;
-                this.client = clientdao.GetById(idclient);
+                this.client = _clientDAO.GetById(idclient);
 
                 //Load data to textbox
                 txtName.Text = row.Cells["Name"].Value.ToString();
@@ -54,7 +60,7 @@ namespace Car_Renting
         private void handleAddClient()
         {
             string clientCCCD = txtCmnd.Text;
-            if (this.clientdao.FindIDClientByCmnd(clientCCCD) != null)
+            if (this._clientDAO.FindIDClientByCmnd(clientCCCD) != null)
             {
                 MessageBox.Show("Người dùng này đã tồn tại , vui lòng không thêm trùng lặp");
                 MessageBox.Show("Hãy làm mới trang và nhập lại thông tin ");
@@ -69,7 +75,7 @@ namespace Car_Renting
                 string license = txtLicence.Text;
                 Client newClient = new Client( name, phone, cmnd, email, license);
                 
-                clientdao.Insert(newClient);
+                _clientDAO.Insert(newClient);
             }
 
         }
@@ -84,7 +90,7 @@ namespace Car_Renting
             string license = txtLicence.Text;
             Client updatedClient = new Client(id, name, phone, cmnd, email, license);
 
-            if(clientdao.Update(updatedClient) != 0)
+            if(_clientDAO.Update(updatedClient) != 0)
             {
                 MessageBox.Show("Cập nhật thành công !");
             }
@@ -106,7 +112,7 @@ namespace Car_Renting
                 MessageBox.Show("Vui long dien day du thong tin ");
                 return true;
             }
-            this.client = this.clientdao.FindIDClientByCmnd(cmnd);
+            this.client = this._clientDAO.FindIDClientByCmnd(cmnd);
 
             return false;
         }
@@ -139,5 +145,6 @@ namespace Car_Renting
             handleUpdateClient();
             loadDataClients();
         }
+
     }
 }

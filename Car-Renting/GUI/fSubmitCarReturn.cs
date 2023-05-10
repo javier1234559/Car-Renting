@@ -109,14 +109,10 @@ namespace Car_Renting
 
             _carReturnManager.HandleSubmit(this.newbill, newRating);
             MessageBox.Show("Done!");
-            fNavigation form = fNavigation.getInstance();
-            if (form != null)
-            {
-                this.Close();
-                form.OpenChildForm(new fBill());
-                form.DisableButton();
-                form.leftBorderBtn.Visible = false; ;
-            }
+
+            fBillDashBoard f = new fBillDashBoard();
+            f.ShowDialog();
+
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)

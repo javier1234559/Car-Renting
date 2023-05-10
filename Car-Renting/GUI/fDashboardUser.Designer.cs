@@ -38,14 +38,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new FontAwesome.Sharp.IconButton();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnUpdateUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.gvUser = new System.Windows.Forms.DataGridView();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -140,62 +137,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.iconButton1);
-            this.panel9.Controls.Add(this.iconButton2);
-            this.panel9.Controls.Add(this.comboBox3);
-            this.panel9.Controls.Add(this.comboBox4);
+            this.panel9.Controls.Add(this.btnSearch);
             this.panel9.Controls.Add(this.btnDeleteUser);
             this.panel9.Controls.Add(this.btnUpdateUser);
             this.panel9.Controls.Add(this.btnAddUser);
-            this.panel9.Controls.Add(this.textBox3);
+            this.panel9.Controls.Add(this.txtSearch);
             this.panel9.Location = new System.Drawing.Point(10, 351);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(764, 65);
             this.panel9.TabIndex = 7;
             // 
-            // iconButton1
+            // btnSearch
             // 
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Transparent;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(225, 39);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(20, 20);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(154, 10);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(20, 20);
-            this.iconButton2.TabIndex = 5;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(116, 39);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(89, 21);
-            this.comboBox3.TabIndex = 4;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(11, 39);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(89, 21);
-            this.comboBox4.TabIndex = 4;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearch.IconSize = 20;
+            this.btnSearch.Location = new System.Drawing.Point(154, 21);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(20, 20);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnDeleteUser
             // 
@@ -239,12 +204,12 @@
             this.btnAddUser.UseVisualStyleBackColor = false;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
-            // textBox3
+            // txtSearch
             // 
-            this.textBox3.Location = new System.Drawing.Point(11, 10);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 1;
+            this.txtSearch.Location = new System.Drawing.Point(6, 22);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(121, 20);
+            this.txtSearch.TabIndex = 1;
             // 
             // panel8
             // 
@@ -411,7 +376,7 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 405F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 407F));
             this.tableLayoutPanel2.Controls.Add(this.chartSpline, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.chartDoughnut, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -450,7 +415,7 @@
             series1.Name = "Doanh So Thang";
             series1.YValuesPerPoint = 2;
             this.chartSpline.Series.Add(series1);
-            this.chartSpline.Size = new System.Drawing.Size(691, 240);
+            this.chartSpline.Size = new System.Drawing.Size(689, 240);
             this.chartSpline.TabIndex = 0;
             this.chartSpline.Text = "chart1";
             // 
@@ -471,7 +436,7 @@
             legend2.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
             legend2.TitleAlignment = System.Drawing.StringAlignment.Near;
             this.chartDoughnut.Legends.Add(legend2);
-            this.chartDoughnut.Location = new System.Drawing.Point(703, 1);
+            this.chartDoughnut.Location = new System.Drawing.Point(701, 1);
             this.chartDoughnut.Margin = new System.Windows.Forms.Padding(0);
             this.chartDoughnut.Name = "chartDoughnut";
             this.chartDoughnut.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -496,7 +461,7 @@
             series2.Name = "Series1";
             series2.SmartLabelStyle.Enabled = false;
             this.chartDoughnut.Series.Add(series2);
-            this.chartDoughnut.Size = new System.Drawing.Size(405, 250);
+            this.chartDoughnut.Size = new System.Drawing.Size(407, 250);
             this.chartDoughnut.TabIndex = 1;
             this.chartDoughnut.Text = "chart2";
             // 
@@ -784,14 +749,11 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.DataGridView gvUser;
         private System.Windows.Forms.Panel panel9;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnUpdateUser;
         private System.Windows.Forms.Button btnAddUser;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnReset;
     }
 }

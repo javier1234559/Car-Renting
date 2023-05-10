@@ -36,6 +36,11 @@ namespace Car_Renting
         }
 
         //------ Event -----------
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text.Trim();
+            this.gvCarReturn.DataSource = _carReturnManager.SearchTwoState(searchKeyword, Contraint.STATE_PEDDING, Contraint.STATE_RENTING);
+        }
 
         private void btnDetailContact_Click(object sender, EventArgs e)
         {
@@ -102,7 +107,6 @@ namespace Car_Renting
 
             countdownTimer.Start();
         }
-
 
     }
 }

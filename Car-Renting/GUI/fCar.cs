@@ -17,29 +17,24 @@ namespace Car_Renting
 {
     public partial class fCar : Form
     {
-        private CarDAO carDao = new CarDAO();
+        private CarDAO _carDao; 
         private Car car;
 
         public fCar()
         {
+            _carDao = new CarDAO();
             InitializeComponent();
             LoadData();
         }
 
         private void LoadData()
         {
-            this.gvCars.DataSource = carDao.GetAllDataTableAvaiable();
+            this.gvCars.DataSource = _carDao.GetAllDataTableAvaiable();
         }
-
-        private void SearchProducts(string searchKeyword)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataTable table = new DataTable();
-            table = carDao.GetAllDataTable();
-            var result = from row in table.AsEnumerable()
-                         where row.Field<string>("CarName").ToLower().Contains(searchKeyword.ToLower()) || row.Field<string>("CategoryName").ToLower().Contains(searchKeyword.ToLower())
-                         select row;
-            this.gvCars.DataSource = result.CopyToDataTable();
-
+            string searchKeyword = txtSearch.Text.Trim();
+            this.gvCars.DataSource = _carDao.Search(searchKeyword);
         }
 
         private void gvCars_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -51,7 +46,7 @@ namespace Car_Renting
 
                 //Load data to modal car
                 int idcar = (int)row.Cells["CarId"].Value;
-                this.car = carDao.GetById(idcar);
+                this.car = _carDao.GetById(idcar);
 
                 //Load data to textbox
                 txtNameCar.Text = row.Cells["CarName"].Value.ToString();
@@ -89,65 +84,6 @@ namespace Car_Renting
             }
         }
 
-        private void btTim_Click_1(object sender, EventArgs e)
-        {
-
-            string searchKeyword = txtTimXe.Text.Trim();
-            SearchProducts(searchKeyword);
-        }
-
-        private void comboxLoaiXe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string LoaiXe = comboxLoaiXe.SelectedItem.ToString();
-
-            // Create a binding source object to filter the data source of the DataGridView
-            BindingSource bs = new BindingSource();
-            bs.DataSource = gvCars.DataSource;
-
-            // Apply a filter to the binding source based on the selected type of vehicle
-            // If the user selects "All", show all vehicles
-            if (LoaiXe == "All")
-            {
-                bs.Filter = "";
-            }
-            else
-            {
-                bs.Filter = "CategoryName = '" + LoaiXe + "'";
-            }
-
-            // Set the data source of the DataGridView to the binding source
-            gvCars.DataSource = bs;
-        }
-
-        private void comboxTieuChi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboxTieuChi.SelectedItem.ToString() == "Xe được thuê nhiều")
-            {
-                Dictionary<int, int> carRentalCounts = new Dictionary<int, int>();
-
-                // Lặp qua từng dòng trong datagridview
-                foreach (DataGridViewRow row in gvCars.Rows)
-                {
-                    int carModel = (int)row.Cells["CarId"].Value;
-                    int carCounts = (int)row.Cells["so_luong_thue"].Value;
-
-                    // Tăng giá trị tương ứng của xe đó trong Dictionary
-
-
-                    carRentalCounts.Add(carModel, carCounts);
-
-                }
-
-                // Lấy 3 xe được thuê nhiều nhất
-                var top3CarModels = carRentalCounts.OrderByDescending(x => x.Value).Take(3);
-
-            }
-            if (comboxTieuChi.SelectedItem.ToString() == "Xe được được đánh giá cao")
-            {
-
-            }
-        }
-
         private void ImageCar_Click(object sender, EventArgs e)
         {
             Upload.SaveImageToResources(this.ImageCar);
@@ -163,11 +99,11 @@ namespace Car_Renting
             string numberPlate = txtNumberPlate.Text;
             string descript = txtDescription.Text;
             string imagecar = Upload.GetImageName(ImageCar.ImageLocation);
-            Car tempCarToGetId = carDao.GetByImageName(imagecar);
+            Car tempCarToGetId = _carDao.GetByImageName(imagecar);
             int idCar = tempCarToGetId.CarId;
 
             Car updateCar = new Car(idCar, name, category, brand, seat, pricePerday,numberPlate, descript, imagecar);
-            carDao.Update(updateCar);
+            _carDao.Update(updateCar);
             MessageBox.Show("Update Car thanh cong !");
             LoadData();
         }
@@ -183,9 +119,11 @@ namespace Car_Renting
             string descript = txtDescription.Text;
             string imagecar = Upload.GetImageName(ImageCar.ImageLocation);
             Car newCar = new Car(name, category, brand, seat , pricePerday ,numberPlate, descript, imagecar);
-            carDao.Insert(newCar);
+            _carDao.Insert(newCar);
             MessageBox.Show("Insert Car thanh cong !");
             LoadData();
         }
+
+      
     }
 }

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.chartColumn = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartDoughnut = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -56,11 +56,8 @@
             this.btnStatisticByRating = new System.Windows.Forms.Button();
             this.btnStatíticByBestsellers = new System.Windows.Forms.Button();
             this.btnStatisticDamage = new System.Windows.Forms.Button();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnSearch = new FontAwesome.Sharp.IconButton();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.gvBill = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartColumn)).BeginInit();
@@ -82,7 +79,7 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 412F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 414F));
             this.tableLayoutPanel2.Controls.Add(this.chartColumn, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.chartDoughnut, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -97,52 +94,52 @@
             // chartColumn
             // 
             this.chartColumn.BorderlineColor = System.Drawing.Color.DarkOrange;
-            chartArea3.AxisX.IsMarginVisible = false;
-            chartArea3.AxisX.LineColor = System.Drawing.Color.Silver;
-            chartArea3.AxisX.LineWidth = 0;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea3.AxisY.LineColor = System.Drawing.Color.Linen;
-            chartArea3.AxisY.LineWidth = 0;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.MediumPurple;
-            chartArea3.Name = "ChartArea1";
-            this.chartColumn.ChartAreas.Add(chartArea3);
+            chartArea1.AxisX.IsMarginVisible = false;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.LineWidth = 0;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.Linen;
+            chartArea1.AxisY.LineWidth = 0;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.MediumPurple;
+            chartArea1.Name = "ChartArea1";
+            this.chartColumn.ChartAreas.Add(chartArea1);
             this.chartColumn.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chartColumn.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.chartColumn.Legends.Add(legend1);
             this.chartColumn.Location = new System.Drawing.Point(1, 1);
             this.chartColumn.Margin = new System.Windows.Forms.Padding(0, 0, 10, 10);
             this.chartColumn.Name = "chartColumn";
             this.chartColumn.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(255)))));
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.MarkerSize = 10;
-            series3.Name = "ColumnSeries";
-            series3.YValuesPerPoint = 2;
-            this.chartColumn.Series.Add(series3);
-            this.chartColumn.Size = new System.Drawing.Size(684, 240);
+            series1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(137)))), ((int)(((byte)(255)))));
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.MarkerSize = 10;
+            series1.Name = "ColumnSeries";
+            series1.YValuesPerPoint = 2;
+            this.chartColumn.Series.Add(series1);
+            this.chartColumn.Size = new System.Drawing.Size(682, 240);
             this.chartColumn.TabIndex = 0;
             this.chartColumn.Text = "chart1";
             // 
             // chartDoughnut
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartDoughnut.ChartAreas.Add(chartArea4);
+            chartArea2.Name = "ChartArea1";
+            this.chartDoughnut.ChartAreas.Add(chartArea2);
             this.chartDoughnut.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.TopRight;
-            legend4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            legend4.DockedToChartArea = "ChartArea1";
-            legend4.IsDockedInsideChartArea = false;
-            legend4.ItemColumnSpacing = 5;
-            legend4.LegendItemOrder = System.Windows.Forms.DataVisualization.Charting.LegendItemOrder.SameAsSeriesOrder;
-            legend4.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-            legend4.MaximumAutoSize = 1F;
-            legend4.Name = "Legend1";
-            legend4.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
-            legend4.TitleAlignment = System.Drawing.StringAlignment.Near;
-            this.chartDoughnut.Legends.Add(legend4);
-            this.chartDoughnut.Location = new System.Drawing.Point(696, 1);
+            legend2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.TopRight;
+            legend2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            legend2.DockedToChartArea = "ChartArea1";
+            legend2.IsDockedInsideChartArea = false;
+            legend2.ItemColumnSpacing = 5;
+            legend2.LegendItemOrder = System.Windows.Forms.DataVisualization.Charting.LegendItemOrder.SameAsSeriesOrder;
+            legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+            legend2.MaximumAutoSize = 1F;
+            legend2.Name = "Legend1";
+            legend2.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
+            legend2.TitleAlignment = System.Drawing.StringAlignment.Near;
+            this.chartDoughnut.Legends.Add(legend2);
+            this.chartDoughnut.Location = new System.Drawing.Point(694, 1);
             this.chartDoughnut.Margin = new System.Windows.Forms.Padding(0);
             this.chartDoughnut.Name = "chartDoughnut";
             this.chartDoughnut.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -157,17 +154,17 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(9))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(8))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(163)))), ((int)(((byte)(5)))))};
-            series4.BorderColor = System.Drawing.Color.White;
-            series4.BorderWidth = 5;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series4.EmptyPointStyle.IsVisibleInLegend = false;
-            series4.IsVisibleInLegend = false;
-            series4.Legend = "Legend1";
-            series4.Name = "DoughnutSeries";
-            series4.SmartLabelStyle.Enabled = false;
-            this.chartDoughnut.Series.Add(series4);
-            this.chartDoughnut.Size = new System.Drawing.Size(412, 250);
+            series2.BorderColor = System.Drawing.Color.White;
+            series2.BorderWidth = 5;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.EmptyPointStyle.IsVisibleInLegend = false;
+            series2.IsVisibleInLegend = false;
+            series2.Legend = "Legend1";
+            series2.Name = "DoughnutSeries";
+            series2.SmartLabelStyle.Enabled = false;
+            this.chartDoughnut.Series.Add(series2);
+            this.chartDoughnut.Size = new System.Drawing.Size(414, 250);
             this.chartDoughnut.TabIndex = 1;
             this.chartDoughnut.Text = "chart2";
             // 
@@ -363,11 +360,8 @@
             this.panel9.Controls.Add(this.btnStatisticByRating);
             this.panel9.Controls.Add(this.btnStatíticByBestsellers);
             this.panel9.Controls.Add(this.btnStatisticDamage);
-            this.panel9.Controls.Add(this.iconButton1);
-            this.panel9.Controls.Add(this.iconButton2);
-            this.panel9.Controls.Add(this.comboBox3);
-            this.panel9.Controls.Add(this.comboBox4);
-            this.panel9.Controls.Add(this.textBox3);
+            this.panel9.Controls.Add(this.btnSearch);
+            this.panel9.Controls.Add(this.txtSearch);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel9.Location = new System.Drawing.Point(0, 0);
@@ -417,56 +411,27 @@
             this.btnStatisticDamage.UseVisualStyleBackColor = false;
             this.btnStatisticDamage.Click += new System.EventHandler(this.btnStatisticDamage_Click);
             // 
-            // iconButton1
+            // btnSearch
             // 
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Transparent;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.iconButton1.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 20;
-            this.iconButton1.Location = new System.Drawing.Point(225, 39);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(20, 20);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.btnSearch.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearch.IconSize = 20;
+            this.btnSearch.Location = new System.Drawing.Point(157, 23);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(20, 20);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // iconButton2
+            // txtSearch
             // 
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.iconButton2.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.Location = new System.Drawing.Point(154, 10);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(20, 20);
-            this.iconButton2.TabIndex = 5;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(116, 39);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(89, 23);
-            this.comboBox3.TabIndex = 4;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(11, 39);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(89, 23);
-            this.comboBox4.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(11, 10);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 23);
-            this.textBox3.TabIndex = 1;
+            this.txtSearch.Location = new System.Drawing.Point(6, 20);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(121, 23);
+            this.txtSearch.TabIndex = 1;
             // 
             // gvBill
             // 
@@ -531,11 +496,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel9;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private FontAwesome.Sharp.IconButton btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.DataGridView gvBill;
         private System.Windows.Forms.Button btnStatisticByRating;
