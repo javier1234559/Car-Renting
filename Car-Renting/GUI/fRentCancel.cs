@@ -68,8 +68,10 @@ namespace Car_Renting
                 return;
             }
             string resson = txtCancellationReason.Text;
-            this.rent.CancellationReason = resson;
             _rentsDAO.ChangeState(this.rent.RentId, Contraint.STATE_AVAILABLE);
+            Rent updateRent = _rentsDAO.GetById(this.rent.RentId);
+            updateRent.CancellationReason = resson;
+            _rentsDAO.Update(updateRent);
             ShowListRent();
         }
 

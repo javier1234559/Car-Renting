@@ -99,7 +99,11 @@ namespace Car_Renting
             foreach (DataRow row in dt.Rows)
             {
                 string carName = row["CarName"].ToString();
-                double avgRatingValue = Convert.ToDouble(row["AvgRatingValue"]);
+                double avgRatingValue = 0.0;
+                if (row["AvgRatingValue"] != DBNull.Value)
+                {
+                    avgRatingValue = Convert.ToDouble(row["AvgRatingValue"]);
+                }
 
                 avgRatingByCar.Add(carName, avgRatingValue);
             }

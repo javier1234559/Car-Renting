@@ -143,9 +143,9 @@
             this.lbDeposit.ForeColor = System.Drawing.Color.Gainsboro;
             this.lbDeposit.Location = new System.Drawing.Point(367, 219);
             this.lbDeposit.Name = "lbDeposit";
-            this.lbDeposit.Size = new System.Drawing.Size(43, 13);
+            this.lbDeposit.Size = new System.Drawing.Size(72, 13);
             this.lbDeposit.TabIndex = 0;
-            this.lbDeposit.Text = "Deposit";
+            this.lbDeposit.Text = "Deposit (30%)";
             // 
             // datepkend
             // 

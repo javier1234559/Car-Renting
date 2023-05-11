@@ -110,6 +110,7 @@ namespace Car_Renting
             _carReturnManager.HandleSubmit(this.newbill, newRating);
             MessageBox.Show("Done!");
 
+            this.Close();
             fBillDashBoard f = new fBillDashBoard();
             f.ShowDialog();
 
