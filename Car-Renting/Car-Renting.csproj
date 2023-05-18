@@ -217,12 +217,6 @@
     <Compile Include="GUI\fClient.Designer.cs">
       <DependentUpon>fClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\fDetailRenting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\fDetailRenting.Designer.cs">
-      <DependentUpon>fDetailRenting.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\fRent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,7 +266,6 @@
     </Compile>
     <Compile Include="Utilites\Session.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="Utilites\UtilityControlHandler.cs" />
     <EmbeddedResource Include="GUI\fBillDashBoard.resx">
       <DependentUpon>fBillDashBoard.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,9 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fClient.resx">
       <DependentUpon>fClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\fDetailRenting.resx">
-      <DependentUpon>fDetailRenting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\fRent.resx">
       <DependentUpon>fRent.cs</DependentUpon>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,12 +33,12 @@ namespace Car_Renting
 
         public Dictionary<string, int> GetDataBestSeller(DateTime start, DateTime end)
         {
-            string sqlQuery = "SELECT Cars.CarName, COUNT(*) AS CarCount " +
+            string sqlQuery = $"SELECT Cars.CarName, COUNT(*) AS CarCount " +
                               "FROM Cars " +
                               "INNER JOIN Rents ON Cars.CarId = Rents.CarId " +
                               "INNER JOIN Bills ON Rents.RentId = Bills.RentId " +
-                              "WHERE Bills.CreateDate BETWEEN '"+ start +"' AND '" + end +
-                              "' GROUP BY Cars.CarName";
+                              $"WHERE Bills.CreateDate BETWEEN '{start.ToString("yyyy-MM-dd")}' AND '{end.ToString("yyyy-MM-dd")}' " +
+                              "GROUP BY Cars.CarName";
 
             Dictionary<string, int> carCountByBill = new Dictionary<string, int>();
 
