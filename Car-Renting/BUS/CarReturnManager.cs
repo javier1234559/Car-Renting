@@ -29,10 +29,12 @@ namespace Car_Renting
             this._billDAO = new BillDAO();
             this._userDAO = new UserDAO();
         }
+
         public DataTable SearchTwoState(string keyword , string state1 , string state2 )
         {
             return _rentsDAO.SearchTwoState( keyword , state1 , state2 );
         }
+
         public DataTable LoadData()
         {
             return _rentsDAO.GetAllDataTableByState(Contraint.STATE_WAITING);

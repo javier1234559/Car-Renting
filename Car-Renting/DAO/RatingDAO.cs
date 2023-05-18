@@ -10,6 +10,7 @@ namespace Car_Renting
 {
     class RatingDAO : BaseDAO<Rating>
     {
+        //--------------- Override Methods ---------------- 
         public override int Delete(Rating entity)
         {
             string sqlStr = string.Format("DELETE FROM Rating WHERE RatingId = {0}", entity.RatingId);

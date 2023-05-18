@@ -15,18 +15,18 @@ namespace Car_Renting
 {
     public partial class fRentSubmit : Form
     {
-        // DAO
-        private ClientDAO clientDAO = new ClientDAO();
-        private RentDAO rentDAO = new RentDAO();
-        private CarDAO carDAO = new CarDAO();
-        //Store data in the current form
+        private ClientDAO clientDAO;
+        private RentDAO rentDAO;
+        private CarDAO carDAO;
         private Rent rent;
         private Car car;
         private Client client;
        
-
         public fRentSubmit()
         {
+            clientDAO = new ClientDAO();
+            rentDAO = new RentDAO();
+            carDAO = new CarDAO();
             InitializeComponent();
             
             if(Session.Currentrent != null && Session.Currentcar != null && Session.Currentclient != null)
@@ -44,6 +44,10 @@ namespace Car_Renting
 
         public fRentSubmit(Rent detailRent )
         {
+            clientDAO = new ClientDAO();
+            rentDAO = new RentDAO();
+            carDAO = new CarDAO();
+
             InitializeComponent();
 
             this.rent = detailRent;
@@ -55,34 +59,7 @@ namespace Car_Renting
 
         }
 
-        //------ Load Data -----------
-
-        private void fillDataRent()
-        {
-            //fill car
-            txtNameCar.Text = this.car.CarName;
-            string imagePath = Upload.GetFullImgPath(this.car.ImageCar);
-            if (File.Exists(imagePath))
-            {
-                ImageCar.ImageLocation = imagePath;
-            }
-
-            //fill client
-            txtClientName.Text = this.client.Name;
-            txtCMND.Text = this.client.CCCD;
-            txtEmail.Text = this.client.Email;
-            txtPhone.Text = this.client.Phone;
-            txtLisence.Text = this.client.License;
-
-            //fill rent
-            lbDeposit.Text = $"{this.rent.Deposit}";
-            datepkbegin.Value = this.rent.DateStart;
-            datepkend.Value = this.rent.DateEnd;
-            txtdescriptionRent.Text = this.rent.DescriptionRent;
-
-        }
-        
-        //------ Event -----------
+        //--------------- Handle Event ---------------- 
 
         private void tbnExit_Click(object sender, EventArgs e)
         {
@@ -130,7 +107,32 @@ namespace Car_Renting
 
         }
 
-        //------ Logic -----------
+        //--------------- Handle Logic ---------------- 
+
+        private void fillDataRent()
+        {
+            //fill car
+            txtNameCar.Text = this.car.CarName;
+            string imagePath = Upload.GetFullImgPath(this.car.ImageCar);
+            if (File.Exists(imagePath))
+            {
+                ImageCar.ImageLocation = imagePath;
+            }
+
+            //fill client
+            txtClientName.Text = this.client.Name;
+            txtCMND.Text = this.client.CCCD;
+            txtEmail.Text = this.client.Email;
+            txtPhone.Text = this.client.Phone;
+            txtLisence.Text = this.client.License;
+
+            //fill rent
+            lbDeposit.Text = $"{this.rent.Deposit}";
+            datepkbegin.Value = this.rent.DateStart;
+            datepkend.Value = this.rent.DateEnd;
+            txtdescriptionRent.Text = this.rent.DescriptionRent;
+
+        }
 
         private void handleInsertClient()
         {

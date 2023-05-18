@@ -27,10 +27,8 @@ namespace Car_Renting
             LoadData();
         }
 
-        private void LoadData()
-        {
-            this.gvCars.DataSource = _carDao.GetAllDataTableAvaiable();
-        }
+        //--------------- Handle Event ---------------- 
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string searchKeyword = txtSearch.Text.Trim();
@@ -124,6 +122,11 @@ namespace Car_Renting
             LoadData();
         }
 
-      
+        //--------------- Handle Logic ---------------- 
+        private void LoadData()
+        {
+            this.gvCars.DataSource = _carDao.GetAllDataTableAvaiable();
+        }
+
     }
 }

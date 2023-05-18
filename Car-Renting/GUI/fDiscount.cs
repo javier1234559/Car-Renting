@@ -12,9 +12,8 @@ namespace Car_Renting
 {
     public partial class fDiscount : Form
     {
-        private DiscountManager _discountManager;
+        private DiscountManager _discountManager;//This class is builded in BUS layer
         private Discount discount;
-
 
         public fDiscount()
         {
@@ -23,12 +22,7 @@ namespace Car_Renting
             LoadData();
         }
 
-        private void LoadData()
-        {
-            DataTable dt = _discountManager.getAllDiscount();
-            gvDiscount.DataSource = dt;
-        }
-
+        //--------------- Handle Event ---------------- 
         private void btnAddDiscount_Click(object sender, EventArgs e)
         {
             Discount newDiscount = new Discount();
@@ -58,5 +52,14 @@ namespace Car_Renting
             txtCreatedBy.Text = row.Cells["CreatedBy"].Value.ToString();
 
         }
+
+        //--------------- Handle Logic ---------------- 
+        private void LoadData()
+        {
+            DataTable dt = _discountManager.getAllDiscount();
+            gvDiscount.DataSource = dt;
+        }
+
+
     }
 }

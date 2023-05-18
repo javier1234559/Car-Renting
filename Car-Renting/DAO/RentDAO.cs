@@ -12,6 +12,7 @@ namespace Car_Renting
 {
     class RentDAO : BaseDAO<Rent>
     {
+        //--------------- Extends Methods ---------------- 
         public DataTable SearchTwoState(string keyword , string state1, string state2)
         {
             string sqlStr = string.Format("SELECT Rents.RentId, Rents.State , Cars.ImageCar, Cars.CarName, Cars.NumberPlate, Clients.Name, DateStart, DateEnd, State, DateDelayQuantity, Deposit, CanceleReason, Cars.CategoryName AS CategoryName , Rents.DescriptionRent " +
@@ -33,14 +34,7 @@ namespace Car_Renting
                                            "AND State IN ('{1}')", keyword, state);
             return DbConnection.Instance.getData(sqlStr);
         }
-
-
-        public override DataTable GetAllDataTable()
-        {
-            string sqlStr = string.Format("select Rents.RentId,Cars.CarName,Clients.Name,DateStart,DateEnd,State,DateDelayQuantity,Deposit,CanceleReason,Cars.CategoryName as CategoryName ,Rents.DescriptionRent from Rents, Cars, Clients where Rents.CarId = Cars.CarId and Rents.ClientId = Clients.ClientId ");
-            return DbConnection.Instance.getData(sqlStr);
-        }
-
+     
         public DataTable GetAllDataTableByState(string state)
         {
             string sqlStr = string.Format("SELECT Rents.RentId, Rents.State, Cars.ImageCar, Cars.CarName, Cars.NumberPlate, Clients.Name, DateStart, DateEnd, State, DateDelayQuantity, Deposit, CanceleReason, Cars.CategoryName AS CategoryName , Rents.DescriptionRent FROM Rents, Cars, Clients WHERE Rents.CarId = Cars.CarId AND Rents.ClientId = Clients.ClientId AND State = '{0}'", state);
@@ -62,6 +56,14 @@ namespace Car_Renting
             parameters.Add("@State", state);
 
             DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
+        }
+
+        //--------------- Override Methods ---------------- 
+
+        public override DataTable GetAllDataTable()
+        {
+            string sqlStr = string.Format("select Rents.RentId,Cars.CarName,Clients.Name,DateStart,DateEnd,State,DateDelayQuantity,Deposit,CanceleReason,Cars.CategoryName as CategoryName ,Rents.DescriptionRent from Rents, Cars, Clients where Rents.CarId = Cars.CarId and Rents.ClientId = Clients.ClientId ");
+            return DbConnection.Instance.getData(sqlStr);
         }
 
         public override Rent GetById(int id)

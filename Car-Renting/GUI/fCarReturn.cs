@@ -27,15 +27,14 @@ namespace Car_Renting
                 this.rent = Session.CurrentrentCanceled;
             }
         }
-        
-        //------ Load Data -----------
 
         private void ShowListRent()
         {
             this.gvCarReturn.DataSource = _carReturnManager.LoadData();
         }
 
-        //------ Event -----------
+        //--------------- Handle Event ---------------- 
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string searchKeyword = txtSearch.Text.Trim();
@@ -81,8 +80,8 @@ namespace Car_Renting
                 StartCountdown(this.rent.DateEnd);
             }
         }
-
-        //------ Logic -----------
+        
+        //--------------- Handle Logic ---------------- 
 
         private void StartCountdown(DateTime end)
         {

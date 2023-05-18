@@ -21,6 +21,5 @@ namespace Car_Renting
             this.gvStatusRent.DataSource = _rentDAO.GetAllDataTable();
         }
 
-
     }
 }

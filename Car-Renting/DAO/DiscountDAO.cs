@@ -11,18 +11,7 @@ namespace Car_Renting
 {
     public class DiscountDAO : BaseDAO<Discount>
     {
-        public override int Delete(Discount entity)
-        {
-            string sqlStr = string.Format("DELETE FROM Discount WHERE Id = '{0}'", entity.Id);
-            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
-        }
-
-        public override DataTable GetAllDataTable()
-        {
-            string sqlStr = "SELECT * FROM Discount";
-            return DbConnection.Instance.getData(sqlStr);
-        }
-
+        //--------------- Extends Methods ---------------- 
         public Discount GetByDiscountCode(string code)
         {
             string sqlStr = string.Format("SELECT * FROM Discount WHERE Code = '{0}'", code);
@@ -46,6 +35,14 @@ namespace Car_Renting
                     CreatedBy = Convert.ToString(row["CreatedBy"])
                 };
             }
+        }
+
+        //--------------- Override Methods ---------------- 
+
+        public override DataTable GetAllDataTable()
+        {
+            string sqlStr = "SELECT * FROM Discount";
+            return DbConnection.Instance.getData(sqlStr);
         }
 
         public override Discount GetById(int id)
@@ -109,5 +106,12 @@ namespace Car_Renting
             parameters.Add("@Id", entity.Id);
             return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
         }
+        
+        public override int Delete(Discount entity)
+        {
+            string sqlStr = string.Format("DELETE FROM Discount WHERE Id = '{0}'", entity.Id);
+            return DbConnection.Instance.ExecuteNonQuery(sqlStr);
+        }
+
     }
 }

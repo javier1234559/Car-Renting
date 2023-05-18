@@ -22,7 +22,6 @@ namespace Car_Renting
         public Panel leftBorderBtn;
         private Form currentChildForm;
 
-        //Constructor
         private  fNavigation()
         {
             InitializeComponent();
@@ -47,25 +46,7 @@ namespace Car_Renting
             return instance;
         }
 
-        //Logic Navigation
-        public void OpenChildForm(Form childForm)
-        {
-            //open only form
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            currentChildForm = childForm;
-            ////End
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelDesktop.Controls.Add(childForm);
-            panelDesktop.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
-
+        //--------------- Handle Event ---------------- 
         private void btnNavCar_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
@@ -130,6 +111,26 @@ namespace Car_Renting
         {
             ActivateButton(sender, RGBColors.color3);
             OpenChildForm(new fStatusRent());
+        }
+
+        //--------------- Handle Logic ---------------- 
+
+        public void OpenChildForm(Form childForm)
+        {
+            //open only form
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
+            ////End
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelDesktop.Controls.Add(childForm);
+            panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
 

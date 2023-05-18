@@ -13,7 +13,6 @@ namespace Car_Renting
 {
     public partial class fRentCancel : Form
     {
-
         RentDAO _rentsDAO;
         Rent rent ;
 
@@ -27,11 +26,8 @@ namespace Car_Renting
                 this.rent = Session.CurrentrentCanceled;
             }
         }
-        private void ShowListRent()
-        {
-            this.gvCarCancel.DataSource = _rentsDAO.GetAllDataTableByState(Contraint.STATE_CANCLED);
-        }
 
+        //--------------- Handle Event ---------------- 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string searchKeyword = txtSearch.Text.Trim();
@@ -73,6 +69,12 @@ namespace Car_Renting
             updateRent.CancellationReason = resson;
             _rentsDAO.Update(updateRent);
             ShowListRent();
+        }
+
+        //--------------- Handle Logic ---------------- 
+        private void ShowListRent()
+        {
+            this.gvCarCancel.DataSource = _rentsDAO.GetAllDataTableByState(Contraint.STATE_CANCLED);
         }
 
     }

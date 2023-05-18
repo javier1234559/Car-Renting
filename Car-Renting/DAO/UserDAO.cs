@@ -10,10 +10,30 @@ namespace Car_Renting
 {
     class UserDAO : BaseDAO<User>
     {
-        public override DataTable GetAllDataTable()
+        //--------------- Extends Methods ---------------- 
+        public List<User> GetAllDateList()
         {
-            string sqlStr = "SELECT * FROM Users";
-            return DbConnection.Instance.getData(sqlStr);
+            string sqlStr = string.Format("SELECT * FROM Users ");
+            DataTable dt = DbConnection.Instance.getData(sqlStr);
+            List<User> list = new List<User>();
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    User user = new User
+                    {
+                        IdUser = (int)row["IdUser"],
+                        Name = row["Name"].ToString(),
+                        Phone = row["Phone"].ToString(),
+                        Address = row["Address"].ToString(),
+                        TotalRevenue = (int)row["TotalRevenue"]
+                    };
+                    list.Add(user);
+                }
+                return list;
+            }
+            return null;
         }
 
         public DataTable GetDataTableByDay(DateTime day , int iduser)
@@ -37,9 +57,9 @@ namespace Car_Renting
             return DbConnection.Instance.getData(sqlStr);
         }
 
-        public override User GetById(int id)
+        public User GetByPhone(string phone)
         {
-            string sqlStr = string.Format("SELECT * FROM Users WHERE IdUser={0}", id);
+            string sqlStr = string.Format("SELECT * FROM Users WHERE Phone ={0}", phone);
             DataTable dt = DbConnection.Instance.getData(sqlStr);
 
             if (dt.Rows.Count > 0)
@@ -58,9 +78,17 @@ namespace Car_Renting
             return null;
         }
 
-        public User GetByPhone (string phone)
+        //--------------- Override Methods ---------------- 
+
+        public override DataTable GetAllDataTable()
         {
-            string sqlStr = string.Format("SELECT * FROM Users WHERE Phone ={0}", phone);
+            string sqlStr = "SELECT * FROM Users";
+            return DbConnection.Instance.getData(sqlStr);
+        }
+
+        public override User GetById(int id)
+        {
+            string sqlStr = string.Format("SELECT * FROM Users WHERE IdUser={0}", id);
             DataTable dt = DbConnection.Instance.getData(sqlStr);
 
             if (dt.Rows.Count > 0)
@@ -105,31 +133,6 @@ namespace Car_Renting
             parameters.Add("@IdUser", entity.IdUser);
 
             return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
-        }
-
-        public List<User> GetAllDateList()
-        {
-            string sqlStr = string.Format("SELECT * FROM Users ");
-            DataTable dt = DbConnection.Instance.getData(sqlStr);
-            List<User> list = new List<User>();
-
-            if (dt.Rows.Count > 0)
-            {
-                foreach(DataRow row in dt.Rows)
-                {
-                    User user = new User
-                    {
-                        IdUser = (int)row["IdUser"],
-                        Name = row["Name"].ToString(),
-                        Phone = row["Phone"].ToString(),
-                        Address = row["Address"].ToString(),
-                        TotalRevenue = (int)row["TotalRevenue"]
-                    };
-                    list.Add(user);
-                }
-                return list;
-            }
-            return null;
         }
 
         public override int Delete(User entity)

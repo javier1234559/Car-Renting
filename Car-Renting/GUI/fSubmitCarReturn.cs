@@ -14,7 +14,7 @@ namespace Car_Renting
 {
     public partial class fSubmitCarReturn : Form
     {
-        private CarReturnManager _carReturnManager;
+        private CarReturnManager _carReturnManager; //This class is builded in BUS layer
         private Rent rentReturn;
         private Car car;
         private Client client;
@@ -40,42 +40,7 @@ namespace Car_Renting
             }
         }
 
-        //------ Load Data -------
-        private void LoadData()
-        {
-            //fill Client 
-            txtClientName.Text = client.Name;
-            txtCMND.Text = client.CCCD;
-            txtEmail.Text = client.Email;
-            txtPhone.Text = client.Phone;
-            txtLicense.Text = client.License;
-            txtDeposit.Text = rentReturn.Deposit.ToString();
-
-            //fill Car
-            txtNameCar.Text = car.CarName;
-            string nameImage = car.ImageCar;
-            string imagePath = Upload.GetFullImgPath(nameImage);
-            if (File.Exists(imagePath))
-            {
-                ImageCar.ImageLocation = imagePath;
-            }
-
-            //fillRent 
-            lbDayStart.Text = rentReturn.DateStart.ToString();
-            lbDateEnd.Text = rentReturn.DateEnd.ToString();
-            txtDescription.Text = rentReturn.DescriptionRent;
-
-            //fill Bill
-            DateTime now = DateTime.Now;
-            DateTime start = rentReturn.DateStart;
-            int pricePerDay = car.PricePerDay;
-            int rentalDuration = (int)(now - start).TotalDays;
-            decimal TotalCost = (decimal)(pricePerDay * rentalDuration);
-            string cost = $"{TotalCost}";
-            lbPrice.Text = cost;
-            lbTotalCost.Text = cost;
-        }
-
+        //--------------- Handle Event ---------------- 
         private void btnAccept_Click(object sender, EventArgs e)
         {
             //Save Rating
@@ -150,5 +115,43 @@ namespace Car_Renting
             lbTotalCost.Text = totalCost.ToString();
 
         }
+
+        //--------------- Handle Logic ---------------- 
+
+        private void LoadData()
+        {
+            //fill Client 
+            txtClientName.Text = client.Name;
+            txtCMND.Text = client.CCCD;
+            txtEmail.Text = client.Email;
+            txtPhone.Text = client.Phone;
+            txtLicense.Text = client.License;
+            txtDeposit.Text = rentReturn.Deposit.ToString();
+
+            //fill Car
+            txtNameCar.Text = car.CarName;
+            string nameImage = car.ImageCar;
+            string imagePath = Upload.GetFullImgPath(nameImage);
+            if (File.Exists(imagePath))
+            {
+                ImageCar.ImageLocation = imagePath;
+            }
+
+            //fillRent 
+            lbDayStart.Text = rentReturn.DateStart.ToString();
+            lbDateEnd.Text = rentReturn.DateEnd.ToString();
+            txtDescription.Text = rentReturn.DescriptionRent;
+
+            //fill Bill
+            DateTime now = DateTime.Now;
+            DateTime start = rentReturn.DateStart;
+            int pricePerDay = car.PricePerDay;
+            int rentalDuration = (int)(now - start).TotalDays;
+            decimal TotalCost = (decimal)(pricePerDay * rentalDuration);
+            string cost = $"{TotalCost}";
+            lbPrice.Text = cost;
+            lbTotalCost.Text = cost;
+        }
+
     }
 }

@@ -92,6 +92,7 @@ namespace Car_Renting
             discount.Quantity -= discount.Quantity ;
             _discountDAO.Update(discount);
         }
+
     }
 
 }

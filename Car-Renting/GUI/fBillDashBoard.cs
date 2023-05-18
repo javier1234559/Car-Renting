@@ -18,7 +18,6 @@ namespace Car_Renting
         private DateTime start ;
         private DateTime end;
 
-
         public fBillDashBoard()
         {
             _billDAO= new BillDAO();
@@ -28,10 +27,7 @@ namespace Car_Renting
             LoadData();
         }
 
-        private void LoadData()
-        {
-            gvBill.DataSource = _billDAO.GetFullDataBill();
-        }
+        //--------------- Handle Event ---------------- 
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -57,23 +53,6 @@ namespace Car_Renting
             DrawChart();
         }
 
-        private void DrawChart()
-        {
-            if (this.data == null) return; 
-
-            chartColumn.Series["ColumnSeries"].Points.Clear();
-
-            foreach (KeyValuePair<string, int> kvp in data)
-            {
-                chartColumn.Series["ColumnSeries"].Points.AddXY(kvp.Key, kvp.Value);
-            }
-
-            chartDoughnut.Series["DoughnutSeries"].Points.Clear();
-
-            chartDoughnut.Series["DoughnutSeries"].Points.DataBindXY(data.Keys, data.Values);
-
-        }
-
         private void btnByDay_Click(object sender, EventArgs e)
         {
             this.start = DateTime.Today;
@@ -94,13 +73,37 @@ namespace Car_Renting
             this.end = DateTime.Now;
             DrawChart();
         }
-
+        
         private void btnQuarterLy_Click(object sender, EventArgs e)
         {
             this.end = DateTime.Now;
             this.start = this.end.AddMonths(-3);
 
             DrawChart();
+        }
+
+        //--------------- Handle Logic ---------------- 
+
+        private void DrawChart()
+        {
+            if (this.data == null) return;
+
+            chartColumn.Series["ColumnSeries"].Points.Clear();
+
+            foreach (KeyValuePair<string, int> kvp in data)
+            {
+                chartColumn.Series["ColumnSeries"].Points.AddXY(kvp.Key, kvp.Value);
+            }
+
+            chartDoughnut.Series["DoughnutSeries"].Points.Clear();
+
+            chartDoughnut.Series["DoughnutSeries"].Points.DataBindXY(data.Keys, data.Values);
+
+        }
+
+        private void LoadData()
+        {
+            gvBill.DataSource = _billDAO.GetFullDataBill();
         }
 
     }

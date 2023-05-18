@@ -11,15 +11,34 @@ namespace Car_Renting
 {
     class ClientDAO : BaseDAO<Client>
     {
-        public override DataTable GetAllDataTable() {
-            string sqlStr = string.Format("SELECT * FROM Clients");
-            return DbConnection.Instance.getData(sqlStr);
-        }
-
+        //--------------- Extends Methods ---------------- 
         public DataTable Search(string keyword)
         {
             string sqlQuery = string.Format("SELECT * FROM Clients WHERE Name LIKE '%{0}%' OR Phone LIKE '%{0}%' OR Email LIKE '%{0}%' OR CCCD LIKE '%{0}%'", keyword);
             return DbConnection.Instance.getData(sqlQuery);
+        }
+
+        public Client FindIDClientByCmnd(string CMND)
+        {
+            string sqlStr = string.Format("select ClientId from Clients where  CCCD ='{0}' ", CMND);
+            DataTable dt = DbConnection.Instance.getData(sqlStr);
+            Client client = new Client();
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                client=GetById((int)row["ClientId"]);
+                return client;
+            }
+
+            return null;
+        }
+
+        //--------------- Override Methods ---------------- 
+
+        public override DataTable GetAllDataTable()
+        {
+            string sqlStr = string.Format("SELECT * FROM Clients");
+            return DbConnection.Instance.getData(sqlStr);
         }
 
         public override Client GetById(int id)
@@ -41,21 +60,6 @@ namespace Car_Renting
                 };
                 return client;
             }
-            return null;
-        }
-
-        public Client FindIDClientByCmnd(string CMND)
-        {
-            string sqlStr = string.Format("select ClientId from Clients where  CCCD ='{0}' ", CMND);
-            DataTable dt = DbConnection.Instance.getData(sqlStr);
-            Client client = new Client();
-            if (dt.Rows.Count > 0)
-            {
-                DataRow row = dt.Rows[0];
-                client=GetById((int)row["ClientId"]);
-                return client;
-            }
-
             return null;
         }
 
@@ -89,12 +93,12 @@ namespace Car_Renting
             return DbConnection.Instance.executeUpdateQuery(sqlStr, parameters);
 
         }
+
         public override int Delete(Client entity)
         {
             string sqlStr = string.Format("delete from Clients where ClientId = '{0}'", entity.ClientId);
             return DbConnection.Instance.ExecuteNonQuery(sqlStr);
         }
-
         
     }
 }

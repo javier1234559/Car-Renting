@@ -24,6 +24,8 @@ namespace Car_Renting
             txtPassword.Text = "1";
         }
 
+        //--------------- Handle Event ---------------- 
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string email = txtLogin.Text.Trim();

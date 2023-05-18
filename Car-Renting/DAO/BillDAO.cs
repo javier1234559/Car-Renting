@@ -11,12 +11,7 @@ namespace Car_Renting
 {
     public class BillDAO : BaseDAO<Bill>
     {
-        public override DataTable GetAllDataTable()
-        {
-            string sqlStr = string.Format("SELECT * FROM Bills");
-            return DbConnection.Instance.getData(sqlStr);
-        }
-
+        //--------------- Extends Methods ---------------- 
         public DataTable GetFullDataBill()
         {
             string sqlQuery = "SELECT B.*, R.DateStart, R.DateEnd, R.Deposit, RT.RatingValue, RT.FeedBack\r\nFROM Bills B\r\nJOIN Rents R ON B.RentId = R.RentId\r\nLEFT JOIN Rating RT ON R.RentId = RT.RentId";
@@ -116,6 +111,8 @@ namespace Car_Renting
             return avgRatingByCarInt;
         }
 
+        //--------------- Override Methods ---------------- 
+
         public override Bill GetById(int id)
         {
             string sqlStr = string.Format("SELECT * FROM Bills WHERE BillId={0}", id);
@@ -139,6 +136,12 @@ namespace Car_Renting
                 return bill;
             }
             return null;
+        }
+
+        public override DataTable GetAllDataTable()
+        {
+            string sqlStr = string.Format("SELECT * FROM Bills");
+            return DbConnection.Instance.getData(sqlStr);
         }
 
         public override int Insert(Bill entity)

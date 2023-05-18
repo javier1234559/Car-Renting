@@ -14,16 +14,16 @@ namespace Car_Renting
 {
     public partial class fRent : Form
     {
-        private CarDAO cardao = new CarDAO();
-        private ClientDAO clientdao = new ClientDAO();
-
-        //Store data in the current form
+        private CarDAO cardao;
+        private ClientDAO clientdao;
         private Car car;
         private Client client;
         private Rent rent;
 
         public fRent()
         {
+            this.cardao = new CarDAO();
+            this.clientdao = new ClientDAO();
             InitializeComponent();
             if (Session.Currentcar != null)
             {
@@ -36,6 +36,62 @@ namespace Car_Renting
                 fillDataClient();
             }
         }
+
+
+        //--------------- Handle Event ---------------- 
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (this.car == null) return;
+
+            if (String.IsNullOrEmpty(txtDeposit.Text))
+            {
+                MessageBox.Show("Hay chon ngay thue !!");
+                return;
+            }
+
+            //handle save data when press submit
+            if (handleSaveClient()) return;
+
+            handleSaveRent();
+            saveDataToSession();
+            fRentSubmit f = new fRentSubmit();
+            f.Show();
+        }
+
+        private void datepkbegin_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime end = datepkend.Value;
+            if (datepkbegin.Value >= end.AddDays(-1))
+            {
+                datepkbegin.ValueChanged -= datepkbegin_ValueChanged;
+                MessageBox.Show("The start date must be at least 1 day earlier than the end date.", "Invalid date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                datepkbegin.Value = DateTime.Now;
+                datepkbegin.ValueChanged += datepkbegin_ValueChanged;
+            }
+            else
+            {
+                CalculateDeposit();
+            }
+        }
+
+        private void datepkend_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime start = datepkbegin.Value;
+            if (datepkend.Value <= start.AddDays(1))
+            {
+                datepkend.ValueChanged -= datepkend_ValueChanged;
+                MessageBox.Show("The end date must be at least 1 day later than the start date.", "Invalid date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                datepkend.Value = DateTime.Now;
+                datepkend.ValueChanged += datepkend_ValueChanged;
+            }
+            else
+            {
+                CalculateDeposit();
+            }
+        }
+
+        //--------------- Handle Logic ---------------- 
 
         private void fillDataClient()
         {
@@ -107,57 +163,6 @@ namespace Car_Renting
             int deposit = CalculateDeposit();
             string descriptionRent = txtdescriptionRent.Text;
             this.rent = new Rent(car.CarId, start, end, deposit, descriptionRent);
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            if (this.car == null) return;
-
-            if(String.IsNullOrEmpty(txtDeposit.Text))
-            {
-                MessageBox.Show("Hay chon ngay thue !!");
-                return;
-            }
-
-            //handle save data when press submit
-            if (handleSaveClient()) return;
-
-            handleSaveRent();
-            saveDataToSession();
-            fRentSubmit f = new fRentSubmit();
-            f.Show();
-        }
-
-        private void datepkbegin_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime end = datepkend.Value;
-            if (datepkbegin.Value >= end.AddDays(-1))
-            {
-                datepkbegin.ValueChanged -= datepkbegin_ValueChanged;
-                MessageBox.Show("The start date must be at least 1 day earlier than the end date.", "Invalid date", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                datepkbegin.Value = DateTime.Now;
-                datepkbegin.ValueChanged += datepkbegin_ValueChanged;
-            }
-            else
-            {
-                CalculateDeposit();
-            }
-        }
-
-        private void datepkend_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime start = datepkbegin.Value;
-            if (datepkend.Value <= start.AddDays(1))
-            {
-                datepkend.ValueChanged -= datepkend_ValueChanged;
-                MessageBox.Show("The end date must be at least 1 day later than the start date.", "Invalid date", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                datepkend.Value = DateTime.Now;
-                datepkend.ValueChanged += datepkend_ValueChanged;
-            }
-            else
-            {
-                CalculateDeposit();
-            }
         }
 
         private int CalculateDeposit()

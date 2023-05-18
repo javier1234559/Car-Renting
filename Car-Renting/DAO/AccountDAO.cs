@@ -11,13 +11,7 @@ namespace Account_Renting
 {
     class AccountDAO : BaseDAO<Account>
     {
-        public override DataTable GetAllDataTable()
-        {
-            var sql = @"SELECT * FROM Account";
-
-            return DbConnection.Instance.getData(sql);
-        }
-
+       //--------------- Extends Methods ---------------- 
         public DataTable GetFullDataUser()
         {
             string sql = "SELECT Users.IdUser, Users.Name, Users.Phone, Users.Address, Users.TotalRevenue, Account.AccID, Account.Email, Account.Password " +
@@ -37,14 +31,12 @@ namespace Account_Renting
             return DbConnection.Instance.getData(sql);
         }
 
-
-        public override Account GetById(int id)
+        public  Account GetByEmailAndPass(string email , string pass)
         {
-            string sqlStr = string.Format("SELECT * FROM Account");
-            DataTable dt = DbConnection.Instance.getData(sqlStr);
-
-            DataRow[] result = dt.Select($"AccID = {id}");
-            if (result.Length > 0)  
+            string query = $"SELECT * FROM Account WHERE Email = '{email}' and Password = '{pass}';";
+            DataTable dt = DbConnection.Instance.getData(query);
+            DataRow[] result = dt.Select($"Email = '{email}'");
+            if (result.Length > 0)
             {
                 DataRow row = result[0];
                 Account Account = new Account
@@ -59,11 +51,21 @@ namespace Account_Renting
             return null;
         }
 
-        public  Account GetByEmailAndPass(string email , string pass)
+
+        //--------------- Override Methods ---------------- 
+        public override DataTable GetAllDataTable()
         {
-            string query = $"SELECT * FROM Account WHERE Email = '{email}' and Password = '{pass}';";
-            DataTable dt = DbConnection.Instance.getData(query);
-            DataRow[] result = dt.Select($"Email = '{email}'");
+            var sql = @"SELECT * FROM Account";
+
+            return DbConnection.Instance.getData(sql);
+        }
+
+        public override Account GetById(int id)
+        {
+            string sqlStr = string.Format("SELECT * FROM Account");
+            DataTable dt = DbConnection.Instance.getData(sqlStr);
+
+            DataRow[] result = dt.Select($"AccID = {id}");
             if (result.Length > 0)
             {
                 DataRow row = result[0];

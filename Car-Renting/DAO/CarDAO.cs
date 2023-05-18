@@ -11,12 +11,7 @@ namespace Car_Renting
 {
     class CarDAO : BaseDAO <Car>
     {
-        public override DataTable GetAllDataTable()
-        {
-            var sql = @"SELECT * from Cars;";
-            return DbConnection.Instance.getData(sql);
-        }
-
+        //--------------- Extends Methods ---------------- 
         public DataTable Search(string keyword)
         {
             string sqlQuery = "SELECT * FROM Cars " +
@@ -35,6 +30,31 @@ namespace Car_Renting
                             ";
 
             return DbConnection.Instance.getData(sql);
+        }
+       
+        public Car GetByImageName(string imageName)
+        {
+            string sqlStr = $"SELECT * FROM Cars WHERE ImageCar = '{imageName}'";
+            DataTable dt = DbConnection.Instance.getData(sqlStr);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                Car car = new Car
+                {
+                    CarId = (int)row["CarId"],
+                    CarName = row["CarName"].ToString(),
+                    CategoryName = row["CategoryName"].ToString(),
+                    Brand = row["Brand"].ToString(),
+                    Seats = (int)row["Seats"],
+                    PricePerDay = (int)row["PricePerDay"],
+                    NumberPlate = row["NumberPlate"].ToString(),
+                    Description = row["Description"].ToString(),
+                    ImageCar = row["ImageCar"].ToString()
+                };
+                return car;
+            }
+            return null;
         }
 
         public override Car GetById(int id)
@@ -62,30 +82,13 @@ namespace Car_Renting
             return null;
         }
 
-        public Car GetByImageName(string imageName)
+        public override DataTable GetAllDataTable()
         {
-            string sqlStr = $"SELECT * FROM Cars WHERE ImageCar = '{imageName}'";
-            DataTable dt = DbConnection.Instance.getData(sqlStr);
-
-            if (dt.Rows.Count > 0)
-            {
-                DataRow row = dt.Rows[0];
-                Car car = new Car
-                {
-                    CarId = (int)row["CarId"],
-                    CarName = row["CarName"].ToString(),
-                    CategoryName = row["CategoryName"].ToString(),
-                    Brand = row["Brand"].ToString(),
-                    Seats = (int)row["Seats"],
-                    PricePerDay = (int)row["PricePerDay"],
-                    NumberPlate = row["NumberPlate"].ToString(),
-                    Description = row["Description"].ToString(),
-                    ImageCar = row["ImageCar"].ToString()
-                };
-                return car;
-            }
-            return null;
+            var sql = @"SELECT * from Cars;";
+            return DbConnection.Instance.getData(sql);
         }
+
+        //--------------- Override Methods ---------------- 
 
         public override int Insert(Car entity)
         {
