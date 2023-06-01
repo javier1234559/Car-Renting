@@ -1,10 +1,18 @@
 # Winform Car-Renting
 
-## Danh sách thành viên 
-- 20161347 - Nguyễn Bùi Minh Nhật
-- 20110043 - Định Quân
+## This project include 
+- DAO
+- Winform
+- ITEXT (for PDF print)
+- Sharp Icons | Font Awesome 
 
-## Link Ghi chú dự án : [Link Notion](https://javier1234559.notion.site/Renting-Car-51792ef8926649058890b75f710f9b03)
+---
 
-main
+![image](https://github.com/javier1234559/Car-Renting/assets/101733700/4df43bbc-aba2-4efc-921f-a75317cd0534)
+
+![image](https://github.com/javier1234559/Car-Renting/assets/101733700/ac534167-01b8-4378-a44f-d60d235b4948)
+
+![image](https://github.com/javier1234559/Car-Renting/assets/101733700/378eb80d-3ea8-4df4-9eb2-f3e147ed5e15)
+
+![image](https://github.com/javier1234559/Car-Renting/assets/101733700/e0705fe3-90bc-47cc-856f-1d6e1f8bb6bc)
 
